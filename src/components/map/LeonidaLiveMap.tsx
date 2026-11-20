@@ -1,7 +1,7 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
-import { LEONIDA_MAP, mapEmbedUrl } from "@/lib/map";
+import { useEffect, useRef, useState } from "react";
+import { LEONIDA_MAP } from "@/lib/map";
 
 type Props = {
   /** Shorter embed for landing teaser */
@@ -10,54 +10,40 @@ type Props = {
 };
 
 export function LeonidaLiveMap({ compact = false, className = "" }: Props) {
-  const [region, setRegion] = useState<string>("");
   const [mounted, setMounted] = useState(false);
   const [loaded, setLoaded] = useState(false);
-  const src = useMemo(() => mapEmbedUrl(region || undefined), [region]);
+  const frameRef = useRef<HTMLIFrameElement | null>(null);
+  const src = LEONIDA_MAP.embedSrc;
 
   // Mount iframe only on the client so password-manager extensions
-  // (e.g. Dashlane data-dashlane-frameid) cannot cause SSR hydration mismatches.
+  // cannot cause SSR hydration mismatches.
   useEffect(() => {
     setMounted(true);
   }, []);
 
+  // After load, nudge layout so tile maps recalculate size (avoids soft/letterboxed canvases).
+  useEffect(() => {
+    if (!loaded || !frameRef.current) return;
+    const el = frameRef.current;
+    const bump = () => {
+      el.style.height = "99.5%";
+      requestAnimationFrame(() => {
+        el.style.height = "100%";
+      });
+    };
+    bump();
+    const t = window.setTimeout(bump, 400);
+    return () => window.clearTimeout(t);
+  }, [loaded]);
+
   return (
     <div className={`flex flex-col gap-3 ${className}`}>
-      {!compact && (
-        <div className="flex flex-wrap gap-2">
-          <button
-            type="button"
-            onClick={() => {
-              setLoaded(false);
-              setRegion("");
-            }}
-            className={`glass-chip px-3 py-1.5 text-[11px] tracking-[0.08em] ${
-              !region ? "glass-chip-active text-white" : "text-white/70"
-            }`}
-          >
-            All Leonida
-          </button>
-          {LEONIDA_MAP.regions.map((r) => (
-            <button
-              key={r.id}
-              type="button"
-              onClick={() => {
-                setLoaded(false);
-                setRegion(r.id);
-              }}
-              className={`glass-chip px-3 py-1.5 text-[11px] tracking-[0.08em] ${
-                region === r.id ? "glass-chip-active text-white" : "text-white/70"
-              }`}
-            >
-              {r.label}
-            </button>
-          ))}
-        </div>
-      )}
-
+      {/* Fixed viewport height — avoid aspect-ratio boxes that letterbox/squash map tiles */}
       <div
-        className={`relative overflow-hidden rounded-[1.25rem] border border-white/[0.08] bg-[#0c0a14] shadow-[0_0_40px_rgba(255,45,111,0.12)] ${
-          compact ? "aspect-[16/11] min-h-[280px]" : "aspect-[16/10] min-h-[420px] md:min-h-[560px]"
+        className={`relative w-full overflow-hidden rounded-[1.25rem] border border-white/[0.08] bg-[#07060c] shadow-[0_0_40px_rgba(255,45,111,0.12)] ${
+          compact
+            ? "h-[min(52vh,420px)] min-h-[300px]"
+            : "h-[min(78vh,820px)] min-h-[520px]"
         }`}
       >
         {(!mounted || !loaded) && (
@@ -67,11 +53,11 @@ export function LeonidaLiveMap({ compact = false, className = "" }: Props) {
         )}
         {mounted && (
           <iframe
-            key={src}
+            ref={frameRef}
             src={src}
             title="Interactive Leonida map"
-            className="absolute inset-0 h-full w-full border-0"
-            loading="lazy"
+            className="block h-full w-full border-0"
+            loading="eager"
             allow="fullscreen"
             allowFullScreen
             referrerPolicy="no-referrer-when-downgrade"
@@ -80,18 +66,29 @@ export function LeonidaLiveMap({ compact = false, className = "" }: Props) {
         )}
       </div>
 
-      <p className="text-[11px] leading-relaxed text-mute">
-        Live fan map via{" "}
+      <div className="flex flex-wrap items-center justify-between gap-2">
+        <p className="text-[11px] leading-relaxed text-mute">
+          Live fan map via{" "}
+          <a
+            href={LEONIDA_MAP.creditHref}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-hot/90 underline-offset-2 hover:text-hot hover:underline"
+          >
+            {LEONIDA_MAP.creditName}
+          </a>
+          {compact ? "" : " — Filters inside the map for places & layers"}
+          . Not affiliated with Rockstar Games or Take-Two Interactive.
+        </p>
         <a
-          href={LEONIDA_MAP.creditHref}
+          href={LEONIDA_MAP.fullSrc}
           target="_blank"
           rel="noopener noreferrer"
-          className="text-hot/90 underline-offset-2 hover:text-hot hover:underline"
+          className="text-[11px] font-medium tracking-[0.06em] text-hot/90 underline-offset-2 hover:text-hot hover:underline"
         >
-          {LEONIDA_MAP.creditName}
+          Open full map ↗
         </a>
-        . Not affiliated with Rockstar Games or Take-Two Interactive.
-      </p>
+      </div>
     </div>
   );
 }
