@@ -318,11 +318,11 @@ body {
     z-index: 1;
     display: block;
     line-height: 1;
-    /* Bebas sits optically high — nudge down for vertical center */
-    padding-top: 0.2em;
     letter-spacing: 0.18em;
     /* Collapse trailing tracking so the word sits centered in the chip */
     margin-right: -0.18em;
+    /* Bebas ink sits low in the chip — lift for optical vertical center */
+    transform: translateY(-1px);
     transition: text-shadow 0.3s ease, transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
@@ -395,7 +395,7 @@ body {
   }
 
   .nav-logo:hover .nav-logo-mark {
-    transform: scale(1.03);
+    transform: translateY(-1px) scale(1.03);
     text-shadow:
       0 1px 0 rgba(0, 0, 0, 0.5),
       0 2px 4px rgba(0, 0, 0, 0.35),
