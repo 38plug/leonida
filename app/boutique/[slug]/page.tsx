@@ -53,7 +53,9 @@ export default function ProductDetailPage() {
           <p className="text-[11px] tracking-[0.2em] text-mute">{product.category}</p>
           <h1 className="mt-2 font-display text-5xl tracking-[0.06em] md:text-6xl">{product.name}</h1>
           <p className="mt-4 text-xl text-champagne">
-            {product.inStock ? `$${product.priceUsd}` : "Sold out"}
+            {product.inStock
+              ? `$${Number.isInteger(product.priceUsd) ? product.priceUsd : product.priceUsd.toFixed(2)}`
+              : "Sold out"}
           </p>
           <p className="mt-6 max-w-md text-[15px] leading-relaxed text-mute">{product.description}</p>
 
