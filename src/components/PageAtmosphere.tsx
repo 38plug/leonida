@@ -6,7 +6,9 @@ export function PageAtmosphere() {
       <span className="aurora-orb aurora-purple" />
       <span className="aurora-orb aurora-blue" />
       <span className="aurora-orb aurora-magenta" />
+      <span className="aurora-orb aurora-center" />
       <span className="aurora-sweep" />
+      <span className="aurora-flash" />
       <span className="aurora-veil" />
     </div>
   );
