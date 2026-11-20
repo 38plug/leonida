@@ -34,21 +34,22 @@ export function GlassNav() {
   return (
     <>
       <header
-        className={`fixed inset-x-0 top-0 z-50 flex justify-center px-3 transition-all duration-500 md:px-6 ${
-          scrolled ? "pt-3" : "pt-4 md:pt-5"
+        className={`fixed inset-x-0 top-0 z-50 flex justify-center px-2.5 transition-all duration-500 sm:px-3 md:px-6 ${
+          scrolled ? "pt-2.5" : "pt-3 md:pt-5"
         }`}
       >
+        {/* Mobile: brand | actions. Desktop lg+: brand | links | actions */}
         <div
-          className={`glass-nav grid w-full max-w-[1180px] grid-cols-[1fr_auto_1fr] items-center gap-2 px-3 transition-all duration-500 md:gap-3 md:px-4 ${
+          className={`glass-nav grid w-full max-w-[1180px] grid-cols-[minmax(0,1fr)_auto] items-center gap-1.5 px-2.5 transition-all duration-500 sm:gap-2 sm:px-3 md:gap-3 md:px-4 lg:grid-cols-[1fr_auto_1fr] ${
             scrolled ? "glass-nav-scrolled" : ""
           }`}
-          style={{ height: scrolled ? 52 : 58 }}
+          style={{ height: scrolled ? 48 : 54 }}
         >
-          <div className="relative z-[2] flex min-w-0 items-center justify-self-start">
-            <Link href="/" className="nav-brand shrink-0" aria-label="Leonida home">
-              <MoneyStack />
+          <div className="relative z-[2] flex min-w-0 items-center justify-self-start overflow-hidden">
+            <Link href="/" className="nav-brand min-w-0" aria-label="Leonida home">
+              <MoneyStack className="nav-money" />
               <span className="nav-logo">
-                <span className="nav-logo-mark lettering-depth font-display text-[1.15rem] text-white md:text-[1.25rem]">
+                <span className="nav-logo-mark lettering-depth font-display text-[0.95rem] text-white sm:text-[1.1rem] md:text-[1.25rem]">
                   LEONIDA
                 </span>
               </span>
@@ -78,7 +79,7 @@ export function GlassNav() {
             })}
           </nav>
 
-          <div className="relative z-[2] flex items-center justify-end gap-2 justify-self-end">
+          <div className="relative z-[2] flex shrink-0 items-center justify-end gap-1.5 justify-self-end sm:gap-2">
             {ready &&
               (user ? (
                 <button
@@ -101,12 +102,12 @@ export function GlassNav() {
             <button
               type="button"
               onClick={() => setOpen(true)}
-              className="btn-bag"
+              className="btn-bag btn-bag-compact"
               aria-label="Open bag"
             >
               Bag
               {count > 0 && (
-                <span className="ml-1.5 inline-flex h-4 min-w-4 items-center justify-center rounded-full bg-white px-1 text-[9px] font-bold text-hot">
+                <span className="ml-1 inline-flex h-4 min-w-4 items-center justify-center rounded-full bg-white px-1 text-[9px] font-bold text-hot sm:ml-1.5">
                   {count}
                 </span>
               )}
@@ -114,7 +115,7 @@ export function GlassNav() {
 
             <button
               type="button"
-              className="glass-chip-btn inline-flex px-3 py-1.5 text-[11px] tracking-[0.08em] text-white lg:hidden"
+              className="glass-chip-btn inline-flex px-2.5 py-1.5 text-[11px] tracking-[0.08em] text-white sm:px-3 lg:hidden"
               onClick={() => setMobileOpen((v) => !v)}
               aria-expanded={mobileOpen}
               aria-label="Menu"
@@ -126,9 +127,9 @@ export function GlassNav() {
       </header>
 
       {mobileOpen && (
-        <div className="fixed inset-0 z-40 bg-void/70 pt-24 backdrop-blur-xl lg:hidden">
+        <div className="fixed inset-0 z-40 bg-void/70 pt-20 backdrop-blur-xl lg:hidden">
           <nav
-            className="glass-panel mx-4 flex max-w-sm flex-col gap-1 rounded-3xl p-4"
+            className="glass-panel mx-3 flex max-w-sm flex-col gap-1 rounded-3xl p-4 sm:mx-4"
             aria-label="Mobile"
           >
             {LINKS.map((l) => (

@@ -15,10 +15,10 @@ import { ProductCard } from "./shop/ProductCard";
 export function LandingPage() {
   return (
     <div className="landing-universe text-mist">
-      <section className="relative min-h-[100svh] overflow-hidden pt-20">
+      <section className="relative min-h-[100svh] overflow-hidden pt-[4.5rem] sm:pt-20">
         <HeroScene stillSrc="/media/hero/leonida-scene.png" videoSrc={null} />
 
-        <div className="relative z-10 mx-auto flex min-h-[calc(100svh-5rem)] max-w-[1440px] items-end px-6 pb-16 pt-10 md:items-center md:px-10 md:pb-20 lg:px-14">
+        <div className="relative z-10 mx-auto flex min-h-[calc(100svh-4.5rem)] max-w-[1440px] items-end px-5 pb-12 pt-8 sm:px-6 sm:pb-16 sm:pt-10 md:min-h-[calc(100svh-5rem)] md:items-center md:px-10 md:pb-20 lg:px-14">
           <div className="relative z-20 flex w-full max-w-xl flex-col justify-center md:max-w-[36rem]">
             <motion.h1
               initial={{ opacity: 0, y: 28 }}
@@ -26,10 +26,10 @@ export function LandingPage() {
               transition={{ delay: 0.08, duration: 0.85, ease: [0.16, 1, 0.3, 1] }}
               className="hero-display"
             >
-              <span className="title-italic block text-[clamp(2.75rem,8vw,5.5rem)] leading-[0.92]">
+              <span className="title-italic block text-[clamp(2.25rem,9vw,5.5rem)] leading-[0.92]">
                 Vice City
               </span>
-              <span className="lettering-depth-display mt-1 block font-display text-[clamp(3.2rem,9vw,6.5rem)] leading-[0.86] tracking-[0.02em] text-white">
+              <span className="lettering-depth-display mt-1 block font-display text-[clamp(2.55rem,10vw,6.5rem)] leading-[0.86] tracking-[0.02em] text-white">
                 NEVER PLAYS
                 <br />
                 BY THE RULES.
@@ -40,21 +40,21 @@ export function LandingPage() {
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.28 }}
-              className="mt-7 max-w-[26rem] text-[15px] leading-[1.75] text-mute"
+              className="mt-5 max-w-[26rem] text-[14px] leading-[1.7] text-white/75 sm:mt-7 sm:text-[15px] sm:leading-[1.75] sm:text-mute"
             >
-              Exclusive collections, night-house culture, and the Leonida experience — China to door.
+              Exclusive collections, night-house culture, and the Leonida experience.
             </motion.p>
 
             <motion.div
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4 }}
-              className="mt-9 flex flex-wrap items-center gap-3"
+              className="mt-7 flex w-full flex-col gap-2.5 sm:mt-9 sm:w-auto sm:flex-row sm:flex-wrap sm:items-center sm:gap-3"
             >
-              <Link href="/boutique" className="btn-primary">
+              <Link href="/boutique" className="btn-primary w-full justify-center sm:w-auto">
                 Enter the Boutique
               </Link>
-              <Link href="/journal" className="btn-ghost">
+              <Link href="/journal" className="btn-ghost w-full justify-center sm:w-auto">
                 Read the Journal
               </Link>
             </motion.div>
@@ -89,7 +89,7 @@ export function LandingPage() {
           </h2>
           <p className="max-w-xl self-end text-[16px] leading-relaxed text-mist/85 md:col-span-6 md:col-start-7">
             Leonida is a cinematic night-city house — original characters, gated agents, and a boutique
-            that ships China → door. Not affiliated with Rockstar Games.
+            built for the night. Not affiliated with Rockstar Games.
           </p>
         </div>
       </section>
