@@ -98,23 +98,19 @@ body {
       linear-gradient(180deg, #1a0e16 0%, #0f060c 55%, #0b0716 100%);
   }
 
+  .hero-scene {
+    background: #0f060c;
+  }
+
   .hero-city-fade {
+    /* Legacy pages only — landing uses unified HeroScene */
     background:
       image-set(
-        url("/media/leonida-highway.webp") type("image/webp"),
-        url("/media/leonida-highway.jpg") type("image/jpeg")
+        url("/media/hero/leonida-scene.webp") type("image/webp"),
+        url("/media/hero/leonida-scene.png") type("image/png")
       )
-      center center / cover no-repeat;
-    opacity: 0.72;
-    filter: saturate(1.15) contrast(1.05);
-    /* Keep left readable for headline; full image strength toward the right */
-    mask-image: linear-gradient(
-      90deg,
-      rgba(0, 0, 0, 0.45) 0%,
-      rgba(0, 0, 0, 0.7) 32%,
-      black 58%,
-      black 100%
-    );
+      68% center / cover no-repeat;
+    opacity: 0.85;
   }
 
   .landing-hero-grain {
@@ -167,7 +163,8 @@ body {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .motion-safe\:animate-breathe {
+  .motion-safe\:animate-breathe,
+  .motion-safe\:animate-kenburns {
     animation: none !important;
   }
 }

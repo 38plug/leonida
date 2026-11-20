@@ -49,11 +49,17 @@ const config: Config = {
           "0%": { transform: "translateX(-100%)" },
           "100%": { transform: "translateX(100%)" },
         },
+        kenburns: {
+          "0%": { transform: "scale(1) translate(0, 0)" },
+          "50%": { transform: "scale(1.06) translate(-1.2%, 0.6%)" },
+          "100%": { transform: "scale(1) translate(0, 0)" },
+        },
       },
       animation: {
         rise: "rise 0.9s cubic-bezier(0.16, 1, 0.3, 1) both",
         breathe: "breathe 4.5s ease-in-out infinite",
         shimmer: "shimmer 2.2s ease-in-out infinite",
+        kenburns: "kenburns 22s ease-in-out infinite",
       },
     },
   },

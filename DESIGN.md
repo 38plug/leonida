@@ -42,4 +42,4 @@ Cinematic night-city house: swamp-to-skyline photograph as atmosphere, original 
 ## Assets
 
 - Character: `/media/character/leonida-hero.png` (+ raw / webp)
-- Atmosphere: `/media/leonida-highway.webp` (sunset highway + purple supercar)
+- Unified hero scene: `/media/hero/leonida-scene.png` (character + purple car + highway as one keyed image; ken-burns + parallax; video slot when Krea Basic unlocks)
