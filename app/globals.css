@@ -57,25 +57,51 @@ body {
 }
 
 @layer components {
-  /* Clear glass nav — see-through pane + luminous edge for depth */
+  /* Clear glass nav — soft sunset-matched edge glow (violet → coral) */
   .glass-nav {
     isolation: isolate;
     position: relative;
     border-radius: 9999px;
-    background: rgba(255, 255, 255, 0.06);
-    -webkit-backdrop-filter: blur(6px) saturate(140%) brightness(1.05);
-    backdrop-filter: blur(6px) saturate(140%) brightness(1.05);
-    border: 1px solid rgba(255, 255, 255, 0.45);
+    background: rgba(255, 255, 255, 0.05);
+    -webkit-backdrop-filter: blur(8px) saturate(150%) brightness(1.04);
+    backdrop-filter: blur(8px) saturate(150%) brightness(1.04);
+    border: 1px solid transparent;
+    background-clip: padding-box;
+    /* Smooth multi-stop rim that picks up dusk atmosphere */
     box-shadow:
-      /* inner glass refraction */
-      inset 0 1px 0 rgba(255, 255, 255, 0.7),
-      inset 0 -1px 0 rgba(255, 255, 255, 0.12),
-      inset 0 0 20px rgba(255, 255, 255, 0.06),
-      /* edge glow */
-      0 0 0 1px rgba(255, 255, 255, 0.12),
-      0 0 18px rgba(255, 200, 230, 0.35),
-      0 0 40px rgba(255, 45, 111, 0.18),
-      0 8px 28px rgba(0, 0, 0, 0.2);
+      inset 0 1px 0 rgba(255, 230, 210, 0.45),
+      inset 0 -1px 0 rgba(180, 120, 160, 0.18),
+      inset 0 0 24px rgba(255, 180, 140, 0.06),
+      0 0 0 1px rgba(255, 200, 170, 0.28),
+      0 0 12px 1px rgba(232, 120, 160, 0.22),
+      0 0 28px 2px rgba(162, 80, 180, 0.2),
+      0 0 48px 4px rgba(255, 140, 90, 0.12),
+      0 10px 32px rgba(0, 0, 0, 0.18);
+  }
+
+  .glass-nav::before {
+    content: "";
+    pointer-events: none;
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(
+      125deg,
+      rgba(255, 210, 170, 0.65) 0%,
+      rgba(230, 130, 180, 0.55) 35%,
+      rgba(160, 100, 200, 0.5) 65%,
+      rgba(255, 160, 110, 0.55) 100%
+    );
+    -webkit-mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+    opacity: 0.85;
   }
 
   .glass-nav::after {
@@ -85,39 +111,39 @@ body {
     inset: 0;
     border-radius: inherit;
     background: linear-gradient(
-      115deg,
-      transparent 0%,
-      transparent 40%,
-      rgba(255, 255, 255, 0.22) 50%,
-      transparent 60%,
-      transparent 100%
+      105deg,
+      rgba(255, 200, 160, 0.12) 0%,
+      transparent 28%,
+      transparent 55%,
+      rgba(200, 140, 200, 0.1) 78%,
+      rgba(255, 170, 130, 0.14) 100%
     );
-    opacity: 0.55;
-    mix-blend-mode: screen;
+    opacity: 0.7;
+    mix-blend-mode: soft-light;
   }
 
   .glass-nav-scrolled {
-    background: rgba(255, 255, 255, 0.1);
-    border-color: rgba(255, 255, 255, 0.55);
+    background: rgba(255, 255, 255, 0.08);
     box-shadow:
-      inset 0 1px 0 rgba(255, 255, 255, 0.75),
-      inset 0 -1px 0 rgba(255, 255, 255, 0.14),
-      0 0 0 1px rgba(255, 255, 255, 0.15),
-      0 0 22px rgba(255, 200, 230, 0.4),
-      0 0 44px rgba(255, 45, 111, 0.22),
-      0 10px 32px rgba(0, 0, 0, 0.25);
+      inset 0 1px 0 rgba(255, 230, 210, 0.5),
+      inset 0 -1px 0 rgba(180, 120, 160, 0.2),
+      0 0 0 1px rgba(255, 200, 170, 0.32),
+      0 0 14px 1px rgba(232, 120, 160, 0.28),
+      0 0 32px 3px rgba(162, 80, 180, 0.24),
+      0 0 52px 5px rgba(255, 140, 90, 0.14),
+      0 12px 36px rgba(0, 0, 0, 0.22);
   }
 
   .glass-chip,
   .glass-chip-btn {
     border-radius: 9999px;
-    border: 1px solid rgba(255, 255, 255, 0.4);
+    border: 1px solid rgba(255, 200, 180, 0.35);
     background: rgba(255, 255, 255, 0.08);
     -webkit-backdrop-filter: blur(4px);
     backdrop-filter: blur(4px);
     box-shadow:
-      inset 0 1px 0 rgba(255, 255, 255, 0.45),
-      0 0 12px rgba(255, 180, 210, 0.2);
+      inset 0 1px 0 rgba(255, 230, 210, 0.4),
+      0 0 14px rgba(220, 130, 160, 0.18);
     transition:
       background 0.22s cubic-bezier(0.16, 1, 0.3, 1),
       border-color 0.22s ease,
@@ -127,15 +153,15 @@ body {
   }
   .glass-chip:hover,
   .glass-chip-btn:hover {
-    background: rgba(255, 255, 255, 0.18);
-    border-color: rgba(255, 45, 111, 0.75);
+    background: rgba(255, 255, 255, 0.16);
+    border-color: rgba(255, 170, 140, 0.65);
     color: #fff;
     transform: translateY(-1px) scale(1.03);
     box-shadow:
-      inset 0 1px 0 rgba(255, 255, 255, 0.65),
-      0 0 0 1px rgba(255, 45, 111, 0.25),
-      0 0 22px rgba(255, 45, 111, 0.45),
-      0 6px 16px rgba(0, 0, 0, 0.2);
+      inset 0 1px 0 rgba(255, 230, 210, 0.55),
+      0 0 0 1px rgba(230, 140, 170, 0.2),
+      0 0 20px rgba(200, 100, 160, 0.32),
+      0 6px 16px rgba(0, 0, 0, 0.18);
   }
   .glass-chip:active,
   .glass-chip-btn:active {
