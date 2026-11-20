@@ -1,12 +1,14 @@
 import Link from "next/link";
 import { JOURNAL_POSTS } from "@/lib/catalog";
+import { PageAtmosphere } from "@/components/PageAtmosphere";
 
 export default function JournalPage() {
   const [featured, ...rest] = JOURNAL_POSTS;
 
   return (
-    <div className="bg-void pt-28 text-mist">
-      <div className="mx-auto max-w-[1440px] px-6 py-14 md:px-10 lg:px-14">
+    <div className="page-aurora-shell pt-28 text-mist">
+      <PageAtmosphere />
+      <div className="relative z-10 mx-auto max-w-[1440px] px-6 py-14 md:px-10 lg:px-14">
         <h1 className="title-italic text-[clamp(3rem,7vw,4.5rem)] leading-none">Journal</h1>
         <p className="mt-4 max-w-lg text-[15px] text-mute">
           Hottest Leonida dispatches — launch night, stream records, and the map that ate the timeline.

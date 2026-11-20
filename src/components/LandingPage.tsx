@@ -6,6 +6,7 @@ import { BOUTIQUE, JOURNAL_POSTS } from "@/lib/catalog";
 import { HeroScene } from "./hero/HeroScene";
 import { ProductCard } from "./shop/ProductCard";
 import { LeonidaLiveMap } from "./map/LeonidaLiveMap";
+import { PageAtmosphere } from "./PageAtmosphere";
 
 /**
  * Cinematic night-house landing.
@@ -143,8 +144,9 @@ export function LandingPage() {
         </div>
       </section>
 
-      <section className="border-t border-white/[0.06] bg-night py-20 md:py-28">
-        <div className="mx-auto max-w-[1440px] px-6 md:px-10 lg:px-14">
+      <section className="relative isolate overflow-hidden border-t border-white/[0.06] py-20 md:py-28">
+        <PageAtmosphere />
+        <div className="relative z-10 mx-auto max-w-[1440px] px-6 md:px-10 lg:px-14">
           <div className="mb-12 flex items-end justify-between gap-4">
             <h2 className="title-italic text-[clamp(2.5rem,5vw,3.75rem)] leading-none">
               Latest from Leonida
@@ -192,8 +194,12 @@ export function LandingPage() {
         </div>
       </section>
 
-      <footer className="border-t border-white/[0.06] bg-void">
-        <div className="mx-auto flex max-w-[1440px] flex-col gap-3 px-6 py-12 text-[12px] text-mute md:flex-row md:items-center md:justify-between md:px-10 lg:px-14">
+      <footer className="relative isolate overflow-hidden border-t border-white/[0.06]">
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0 bg-gradient-to-r from-[rgba(255,45,111,0.12)] via-[rgba(120,60,200,0.08)] to-[rgba(55,120,255,0.12)]"
+        />
+        <div className="relative z-10 mx-auto flex max-w-[1440px] flex-col gap-3 px-6 py-12 text-[12px] text-mute md:flex-row md:items-center md:justify-between md:px-10 lg:px-14">
           <p className="font-display text-lg tracking-[0.18em] text-white/80">LEONIDA</p>
           <p>Not affiliated with Rockstar Games</p>
         </div>
