@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-11-20T17:59:40Z",
+  "generatedAt": "2026-11-20T20:00:00Z",
   "title": "Design System: Leonida",
   "extensions": {
     "colorMeta": {
@@ -190,6 +190,14 @@
       "css": ".ds-card { overflow: hidden; border-radius: 16px; background: rgba(22, 22, 30, 0.92); border: 1px solid rgba(255,255,255,0.08); box-shadow: 0 8px 28px rgba(0,0,0,0.28); color: #F4F0F2; font-family: Manrope, sans-serif; transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease; } .ds-card:hover { transform: translateY(-4px); border-color: rgba(255, 45, 111, 0.35); box-shadow: 0 14px 36px rgba(0,0,0,0.38); } .ds-card-media { position: relative; aspect-ratio: 4 / 5; background: linear-gradient(180deg, #2a1020, #0e0e14); } .ds-tag-hot { position: absolute; left: 12px; top: 12px; border-radius: 6px; padding: 2px 8px; background: #FF2D6F; color: #fff; font-size: 10px; font-weight: 700; letter-spacing: 0.12em; } .ds-card-body { padding: 16px; } .ds-card-cat { margin: 0; font-size: 10px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #9A94A0; } .ds-card-name { margin: 4px 0 0; font-size: 15px; font-weight: 500; color: #fff; } .ds-card-price { margin: 4px 0 0; font-size: 15px; font-weight: 600; color: #FF2D6F; } .ds-card-add { width: 100%; border: 0; border-top: 1px solid rgba(255,255,255,0.06); background: transparent; color: rgba(255,255,255,0.7); padding: 10px; font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; cursor: pointer; } .ds-card-add:hover { background: #FF2D6F; color: #fff; }"
     },
     {
+      "name": "Journal Card",
+      "kind": "card",
+      "refersTo": "panel-card",
+      "description": "Charcoal journal slab. Cover is an object-cover photo with a void gradient overlay and tag-hot. Hover scales the photo 1.03. Missing coverImage falls back to tile-glow mesh.",
+      "html": "<article class=\"ds-journal\"><div class=\"ds-journal-media\"><img src=\"/media/journal/launch-night.webp\" alt=\"\" /><div class=\"ds-journal-veil\"></div><span class=\"ds-tag-hot\">Dispatch</span></div><div class=\"ds-journal-body\"><h3>Vice City unlocks at midnight</h3><p>Nov 19 drop on PS5 and Xbox. The night city is no longer a trailer.</p></div></article>",
+      "css": ".ds-journal { overflow: hidden; border-radius: 16px; background: rgba(22, 22, 30, 0.92); border: 1px solid rgba(255,255,255,0.08); box-shadow: 0 8px 28px rgba(0,0,0,0.28); color: #F4F0F2; font-family: Manrope, sans-serif; } .ds-journal-media { position: relative; min-height: 180px; overflow: hidden; } .ds-journal-media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; } .ds-journal:hover img { transform: scale(1.03); } .ds-journal-veil { position: absolute; inset: 0; background: linear-gradient(to top, rgba(10,10,12,0.8), rgba(10,10,12,0.2), transparent); } .ds-tag-hot { position: relative; z-index: 1; display: inline-flex; margin: 20px; border-radius: 6px; padding: 2px 8px; background: #FF2D6F; color: #fff; font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; } .ds-journal-body { padding: 20px; } .ds-journal-body h3 { margin: 0; font-family: \"Instrument Serif\", Georgia, serif; font-size: 1.5rem; color: #fff; } .ds-journal-body p { margin: 12px 0 0; font-size: 14px; line-height: 1.6; color: #9A94A0; }"
+    },
+    {
       "name": "Field Input",
       "kind": "input",
       "refersTo": "input-field",
@@ -215,7 +223,8 @@
       "Sunset-rim glass on nav/chips; opaque charcoal on product and journal cards",
       "Bebas Neue for LEONIDA / display stacks, Instrument Serif italic for section titles, Manrope for UI",
       "Keyed cinematic hero (character + car + highway) as the signature artifact",
-      "Pink/blue/purple light only as atmospheric wash, never as card chrome"
+      "Pink/blue/purple light only as atmospheric wash, never as card chrome",
+      "Journal covers are object-cover photos on charcoal slabs with a void gradient and tag-hot"
     ],
     "rules": [
       { "name": "The Hot Rarity Rule", "body": "#FF2D6F is conversion, not wallpaper. It belongs on the irreversible CTA, Bag, price, focus ring, and a hot tag. It does not fill heroes, cards, or nav bars.", "section": "colors" },
@@ -230,6 +239,7 @@
       "Do set section titles in Instrument Serif italic (.title-italic) and house wordmarks in Bebas.",
       "Do use Manrope for UI — it is what --font-dm actually loads.",
       "Do put glass on nav, chips, and the bag drawer; put charcoal slabs on product and journal cards.",
+      "Do set journal covers as object-cover photos with a void gradient overlay and tag-hot — fall back to tile-glow only when coverImage is missing.",
       "Do keep the hero as one keyed scene with a left type stack and two pill CTAs.",
       "Do keep the logo glow on an outer filter: drop-shadow wrap so it does not clip to a rectangle.",
       "Do honor prefers-reduced-motion by dropping orb, siren, ken-burns, and chrome transform animations."

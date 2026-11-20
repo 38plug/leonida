@@ -200,7 +200,7 @@ Public pages are a photo-led editorial house, not a dashboard grid.
 
 - **Nav:** Fixed, centered, `max-w-[1180px]`. Height 54px rest / 48px scrolled. Desktop (`lg+`) is a 3-column grid: brand | links | Account + Bag. Below `lg`, brand | Bag + Menu, with a full-screen glass sheet for links.
 - **Hero:** `min-h-[100svh]`, type stack left, scene full-bleed. Top padding clears the nav (`4.5rem` / `5rem`). CTAs stack full-width on small screens, row on `sm+`.
-- **Bands:** Discover, Live map, New Arrivals, Journal. Horizontal padding `24 / 40 / 56`. Vertical padding `80 / 112` (`py-20 / md:py-28`).
+- **Bands:** Discover, Live map, New Arrivals, Journal. Horizontal padding `24 / 40 / 56`. Vertical padding `80 / 112` (`py-20 / md:py-28`). Journal index is a featured 2-col split plus thumbnail rows; landing journal is a 3-col photo-cover grid.
 - **Product grid:** 1 → 2 (`sm`) → 4 (`lg`) columns, 24–28px gap, 4:5 image tiles.
 - **Map embed:** Fixed viewport height (`min(78vh, 820px)` full; `min(52vh, 420px)` compact), not an aspect-ratio box.
 - **Checkout:** Narrow `max-w-lg` on void, not a multi-column funnel.
@@ -253,7 +253,7 @@ Borders are 1px white at ~8–12% on slabs; glass chrome uses a warm peach rim (
 
 ### Cards / Containers
 - **`.panel-card` / `.glass-card`:** 16px radius, `rgba(22, 22, 30, 0.92)`, 1px white 8% rim, 8px black cushion. Hover: hot rim at 0.35, 1px lift. Product photos are 4:5.
-- **Journal cards:** Same slab; cover is a `tile-glow-*` mesh with a `tag-hot` category.
+- **Journal cards:** Same charcoal slab. Cover is an object-cover photo (`coverImage` under `/media/journal/`) with a void-to-transparent gradient and a `tag-hot` category. Missing photos fall back to a `tile-glow-*` mesh. Landing tiles hover-scale the photo `1.03`; the index is a 2-col featured split plus thumbnail rows; article pages sit the photo in a `tile-glow-*` frame (`min-h-[220px]` / `md:min-h-[320px]`).
 - **`.glass-panel`:** Drawer / mobile menu — 92% opaque night, 20px blur, 1px white 10% rim.
 
 ### Inputs / Fields
@@ -265,7 +265,7 @@ Borders are 1px white at ~8–12% on slabs; glass chrome uses a warm peach rim (
 Fixed sunset-rim glass pill. Brand is Money Stack (alpha WebM/WebP, no plate) + LEONIDA in Bebas inside a glass chip whose *glow lives on an outer wrap* (drop-shadow) and whose *glass lives on an inner pill* (no `backdrop-filter` on the outer node). Desktop links are glass chips; Account is a glass chip; Bag is hot. Mobile Menu opens a void scrim and a rounded glass sheet of Bebas links.
 
 ### Signature: keyed hero + atmospheric bands
-The landing hero is one still (`/media/hero/leonida-scene.png`) with pointer parallax and a slow scroll ken-burns — not a CSS gradient masquerading as a city. Discover drifts a blurred photo under pink/purple/blue orbs (`7–12s` ease-in-out). Collections uses a slower siren wash (`cubic-bezier(0.45, 0.05, 0.55, 0.95)`, ~5.5s) behind the italic title. Both washes are atmosphere behind type, not content.
+The landing hero is one still (`/media/hero/leonida-scene.png`) with pointer parallax and a slow scroll ken-burns — not a CSS gradient masquerading as a city. Discover drifts a blurred photo under pink/purple/blue orbs (`7–12s` ease-in-out). Collections uses a slower siren wash (`cubic-bezier(0.45, 0.05, 0.55, 0.95)`, ~5.5s) behind the italic title. Both washes are atmosphere behind type, not content. **Latest from Leonida** is three charcoal journal tiles with Krea covers (`launch-night`, `dual-skyline`, `leonida-map`) — photos on slabs, not a second product look.
 
 ## Do's and Don'ts
 
@@ -274,6 +274,7 @@ The landing hero is one still (`/media/hero/leonida-scene.png`) with pointer par
 - **Do** set section titles in Instrument Serif italic (`.title-italic`) and house wordmarks in Bebas.
 - **Do** use Manrope for UI — it is what `--font-dm` actually loads.
 - **Do** put glass on nav, chips, and the bag drawer; put charcoal slabs on product and journal cards.
+- **Do** set journal covers as object-cover photos with a void gradient overlay and `tag-hot` — fall back to `tile-glow-*` only when `coverImage` is missing.
 - **Do** keep the hero as one keyed scene with a left type stack and two pill CTAs.
 - **Do** keep the logo glow on an outer `filter: drop-shadow` wrap so it does not clip to a rectangle.
 - **Do** honor `prefers-reduced-motion` by dropping orb, siren, ken-burns, and chrome transform animations.

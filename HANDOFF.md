@@ -1,7 +1,7 @@
 # Leonida — System Handoff
 
 > Ground truth is the shipped code, not prior intent.
-> **Documented from:** `09b4f996087b1684d2945927a06130c854ecba08` (2026-11-20, “Fix LEONIDA logo glow rectangular clipping” on `cursor/leonida-complete-rebuild-3858`)
+> **Documented from:** `26e9d1d30247419bb63729995c88df9f364ec32a` (2026-11-20, “Add GTA 6 launch journal posts with cover images” on `cursor/leonida-complete-rebuild-3858`)
 > **Visual system:** [`DESIGN.md`](./DESIGN.md) + [`.impeccable/design.json`](./.impeccable/design.json) — tokens extracted from `app/globals.css` and `tailwind.config.ts`.
 > **Refresh this file** whenever the studio is built or rebuilt. If `HEAD` still matches **Documented from**, leave both docs untouched.
 
@@ -14,7 +14,7 @@ After first paint:
 1. **Landing** (`/`) — keyed hero, Discover band, live-map teaser, New Arrivals, journal.
 2. **Boutique** (`/boutique`, `/boutique/[slug]`) — Collections hero with siren wash + product grid / PDP.
 3. **Map** (`/map`) — full-bleed Vice Map embed.
-4. **Journal** (`/journal`, `/journal/[slug]`) — editorial posts from `JOURNAL_POSTS`.
+4. **Journal** (`/journal`, `/journal/[slug]`) — launch-week dispatches from `JOURNAL_POSTS` with `coverImage` webps.
 5. **About** (`/about`) — house copy + Rockstar disclaimer.
 6. **Night Pass** (`/shop`) — `ShopShell` tracks + customer area.
 7. **Checkout** (`/checkout`) — local bag summary; **payment is not wired**.
@@ -29,6 +29,7 @@ Auth and the bag are global overlays (`AuthModal`, `CartDrawer`), not routes. Th
 | Landing | Public | `LandingPage` |
 | Boutique / PDP | Public | `app/boutique/*` + `ProductCard` / `ProductDetail` |
 | Live map | Public | `LeonidaLiveMap` (`/map` + landing teaser) |
+| Journal | Public | `app/journal/*` + `JOURNAL_POSTS` covers |
 | Auth dialog | Overlay | `AuthModal` |
 | Bag drawer | Overlay | `CartDrawer` |
 | Night Pass shell | Public; customer tabs need session | `ShopShell` + `CustomerArea` |
@@ -86,6 +87,19 @@ Checkout does not charge. Quick-add opens the drawer. PDP lives at `/boutique/[s
 
 `src/lib/map.ts` points at **Vice Map** (`https://vice-map.com/embed/map`). The iframe mounts **after** client hydration so password-manager extensions cannot break SSR. After `onLoad`, height is nudged `99.5% → 100%` so tiles fill the frame. Compact teaser uses a shorter viewport height; the `/map` page uses `min(78vh, 820px)`. Credit the fan map. **Not affiliated with Rockstar.**
 
+## Journal
+
+`JOURNAL_POSTS` in `src/lib/catalog.ts` is the editorial desk. Four launch-week dispatches, each with a `coverImage` under `public/media/journal/`:
+
+| Slug | Title | Cover |
+| --- | --- | --- |
+| `vice-city-unlock` | Vice City unlocks at midnight | `launch-night.webp` |
+| `twitch-breaks-the-grid` | Twitch breaks the grid | `dual-skyline.webp` |
+| `six-regions-one-map` | Six regions, one map | `leonida-map.webp` |
+| `dusk-over-the-swamp` | Dusk over the swamp | `launch-night.webp` (reused) |
+
+Landing **Latest from Leonida** shows the first three as charcoal slabs: object-cover photo, void gradient overlay, `tag-hot` category, hover `scale-[1.03]` on the photo. Index is a featured 2-col split plus thumbnail rows. Article pages put the cover in a `tile-glow-*` frame (`min-h-[220px]` / `md:min-h-[320px]`). Missing `coverImage` falls back to the accent mesh. Copy covers launch culture, not the license — no Rockstar marks.
+
 ## File map
 
 ```
@@ -95,7 +109,7 @@ app/page.tsx                         → LandingPage
 app/boutique/page.tsx                → Collections + grid
 app/boutique/[slug]/page.tsx         → PDP
 app/map/page.tsx                     → full map
-app/journal/page.tsx + [slug]
+app/journal/page.tsx + [slug]        → featured split + thumbnail rows
 app/about/page.tsx
 app/shop/page.tsx                    → Night Pass ShopShell
 app/checkout/page.tsx                → unwired payment copy
@@ -117,6 +131,7 @@ src/lib/map.ts
 tailwind.config.ts
 public/media/hero/leonida-scene.png
 public/media/products/*
+public/media/journal/*.webp          → launch-night, dual-skyline, leonida-map
 ```
 
 ## Invariants for the next build
@@ -131,7 +146,8 @@ public/media/products/*
 8. **Map stays a client-mounted iframe** with a fixed viewport height, not an aspect-ratio letterbox.
 9. **No Rockstar / Take-Two marks.** Fan map credit + “Not affiliated” stay.
 10. **Visual world is The Charcoal Night House.** New UI goes through `DESIGN.md`. Do not revive `#0B0716` / `#E85A9B` from `brand-spec.md` / `.cursor/rules/vice-ops-design.mdc` unless the CSS is deliberately rebuilt to those values.
-11. **Do not commit secrets.** There is no processor key in-repo; do not add one to docs.
+11. **Journal covers are photos on charcoal slabs.** Use `coverImage` + void gradient + `tag-hot`. Do not default back to mesh-only tiles. Do not glass the journal. Copy stays house culture; affiliation never.
+12. **Do not commit secrets.** There is no processor key in-repo; do not add one to docs.
 
 ## How this documentation stays current
 
