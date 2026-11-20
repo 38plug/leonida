@@ -1,0 +1,172 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+  --void: #0f060c;
+  --mist: #f1f2f7;
+  --mute: #b9bcd4;
+  --magenta: #a233b6;
+  --champagne: #b2a584;
+  --neon: #e85a9b;
+  --coral: #e8926a;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  color: var(--mist);
+  font-family: var(--font-dm), sans-serif;
+  -webkit-font-smoothing: antialiased;
+  background: var(--void);
+}
+
+::selection {
+  background: rgba(162, 51, 182, 0.4);
+  color: #fff;
+}
+
+:focus-visible {
+  outline: 1px solid var(--champagne);
+  outline-offset: 3px;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #0f060c;
+}
+::-webkit-scrollbar-thumb {
+  background: #3a2434;
+}
+
+@layer components {
+  .glass-nav {
+    @apply rounded-none border border-mist/15;
+    background: linear-gradient(180deg, rgba(26, 14, 22, 0.72), rgba(15, 6, 12, 0.55));
+    backdrop-filter: blur(18px);
+    box-shadow:
+      inset 0 1px 0 rgba(241, 242, 247, 0.08),
+      0 12px 40px rgba(0, 0, 0, 0.35);
+  }
+
+  .glass-panel {
+    background: linear-gradient(180deg, rgba(26, 14, 22, 0.92), rgba(15, 6, 12, 0.96));
+    backdrop-filter: blur(20px);
+  }
+
+  .btn-primary {
+    @apply relative inline-flex items-center justify-center overflow-hidden px-8 py-3.5 text-[12px] font-semibold tracking-[0.16em] text-void transition;
+    background: linear-gradient(135deg, #f1f2f7 0%, #b2a584 100%);
+    box-shadow: 0 0 0 1px rgba(241, 242, 247, 0.2), 0 0 28px rgba(162, 51, 182, 0.25);
+  }
+  .btn-primary:hover {
+    filter: brightness(1.06);
+    box-shadow: 0 0 0 1px rgba(241, 242, 247, 0.35), 0 0 36px rgba(232, 90, 155, 0.35);
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center border border-mist/25 px-7 py-3.5 text-[12px] font-medium tracking-[0.14em] text-mist transition hover:border-mist/50 hover:bg-mist/5;
+  }
+
+  .text-gradient-dusk {
+    background: linear-gradient(100deg, #e85a9b 0%, #a233b6 45%, #7ec8c4 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .hero-display {
+    text-shadow: 0 12px 40px rgba(0, 0, 0, 0.45);
+  }
+
+  .hero-atmosphere {
+    background:
+      radial-gradient(ellipse 80% 70% at 70% 40%, rgba(162, 51, 182, 0.28), transparent 55%),
+      radial-gradient(ellipse 60% 50% at 20% 70%, rgba(126, 200, 196, 0.12), transparent 50%),
+      linear-gradient(180deg, #1a0e16 0%, #0f060c 55%, #0b0716 100%);
+  }
+
+  .hero-city-fade {
+    background:
+      image-set(
+        url("/media/leonida-cityscape.webp") type("image/webp"),
+        url("/media/leonida-cityscape.png") type("image/png")
+      )
+      center 35% / cover no-repeat;
+    opacity: 0.55;
+    filter: saturate(1.25) contrast(1.05);
+    mask-image: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(0, 0, 0, 0.35) 28%,
+      rgba(0, 0, 0, 0.85) 55%,
+      black 100%
+    );
+  }
+
+  .landing-hero-grain {
+    pointer-events: none;
+    opacity: 0.045;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  .tile-glow-pink {
+    background: radial-gradient(circle at 50% 40%, rgba(232, 90, 155, 0.22), transparent 70%);
+  }
+  .tile-glow-gold,
+  .tile-glow-champagne {
+    background: radial-gradient(circle at 50% 40%, rgba(178, 165, 132, 0.22), transparent 70%);
+  }
+  .tile-glow-teal {
+    background: radial-gradient(circle at 50% 40%, rgba(126, 200, 196, 0.2), transparent 70%);
+  }
+
+  .field-input {
+    width: 100%;
+    border: 1px solid rgba(241, 242, 247, 0.14);
+    background: #0f060c;
+    padding: 0.7rem 0.85rem;
+    font-size: 0.875rem;
+    color: #f1f2f7;
+    outline: none;
+  }
+  .field-input::placeholder {
+    color: #b9bcd4;
+  }
+  .field-input:focus {
+    border-color: rgba(178, 165, 132, 0.55);
+  }
+
+  /* Legacy shop shell helpers */
+  .shop-shell {
+    min-height: 100vh;
+    background: #0f060c;
+  }
+  .panel-glass {
+    background: rgba(26, 14, 22, 0.92);
+    border-right: 1px solid rgba(241, 242, 247, 0.08);
+  }
+  .topbar-glass {
+    background: rgba(26, 14, 22, 0.88);
+    backdrop-filter: blur(12px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .motion-safe\:animate-breathe {
+    animation: none !important;
+  }
+}

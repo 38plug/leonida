@@ -1,0 +1,20 @@
+---
+description: Refuse generic AI UI patterns when editing the shop
+globs:
+  - "apps/shop/**/*.{tsx,ts,css}"
+  - "src/components/**/*.{tsx,ts}"
+  - "app/**/*.{tsx,ts,css}"
+alwaysApply: false
+---
+
+# Anti-slop (shop UI)
+
+When editing shop/landing components:
+
+1. Do not invent layout if the existing Leonida editorial structure already covers the section.
+2. No 3 equal feature cards with icons as the page skeleton.
+3. No eyebrow kickers above headings.
+4. No gradient text as the primary brand treatment (logo asset carries that).
+5. No decorative glass panels that aren’t needed for interaction.
+6. Keep CTAs as solid mist rectangles or hairline outlines — not pink→orange glow pills.
+7. Explain spacing/type choices in terms of contrast and hierarchy, not “modern” / “sleek”.

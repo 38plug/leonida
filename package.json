@@ -1,0 +1,27 @@
+{
+  "name": "vice-ops-shop",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "bash scripts/run-dev.sh",
+    "build": "next build",
+    "start": "next start --hostname 127.0.0.1 --port 3001",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "framer-motion": "^12.23.24",
+    "next": "^15.5.6",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.19.1",
+    "@types/react": "^19.2.4",
+    "@types/react-dom": "^19.2.3",
+    "autoprefixer": "^10.4.21",
+    "postcss": "^8.5.6",
+    "shadcn": "^4.23.0",
+    "tailwindcss": "^3.4.18",
+    "typescript": "^5.9.3"
+  }
+}

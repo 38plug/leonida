@@ -1,0 +1,38 @@
+---
+description: Binding design system for Vice Ops / Leonida News shop UI
+alwaysApply: true
+---
+
+# Vice Ops design (binding)
+
+Before changing landing, shop, or customer UI, reuse these tokens — do not invent a new palette.
+
+## Tokens
+
+| Role | Token | Value |
+| --- | --- | --- |
+| Background | `night` / `--night` | `#0B0716` |
+| Surface | `ink` | `#140E1C` |
+| Text | `mist` / `--mist` | `#F4F0EA` |
+| Muted text | `mute` / `--mute` | `#A89BA8` |
+| Accent | `pink` / `--pink` | `#E85A9B` |
+| Warm accent | `coral` / `--coral` | `#E8926A` |
+| Cool accent | `teal` | `#7EC8C4` |
+| Premium | `gold` | `#D4B483` |
+
+Typography: Bebas (`font-display`) for display; Instrument Serif (`font-serif`) for editorial accents; DM Sans (`font-ui`) for body. Do not switch to Inter/Roboto/Arial.
+
+## Spacing
+
+Use a **4px scale** only: `4, 8, 12, 16, 20, 24, 32, 40, 48, 64…` (Tailwind `1` = 4px). Prefer existing section padding (`px-6` / `md:px-10`, `py-20` / `md:py-28`).
+
+## Composition rules
+
+- Landing first viewport: one composition — brand, one short line, one CTA group, one dominant background. No card grids or stat strips in the hero.
+- No purple-on-white / indigo gradient soup. No cream+terracotta AI defaults. No hard black “mass” blobs behind the VI logo — neon glow + light depth only.
+- Prefer hairline borders (`mist/10–25`) over heavy glass card stacks.
+- Motion: spring/ease-out; one authored moment per section, not identical fades everywhere.
+
+## Assets
+
+Hero background: `/media/leonida-cityscape` (soft-blurred). Logo: `/media/vice-city-vi-logo.png` via `ViceCityLogo` (centered, spring hover). Do not reintroduce the old wordmark.

@@ -1,0 +1,10 @@
+{
+  "name": "ui-design",
+  "version": "1.3.0",
+  "category": "Design / Frontend",
+  "description": "Build and refine polished browser-rendered visual experiences with Cynos evidence-based completion checks.",
+  "homepage": "https://github.com/cynos-ai/engineer/tree/main/skills/ui-design",
+  "compat": [
+    "pi"
+  ]
+}

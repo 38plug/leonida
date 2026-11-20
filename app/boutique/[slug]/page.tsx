@@ -1,0 +1,121 @@
+"use client";
+
+import Link from "next/link";
+import { useMemo, useState } from "react";
+import { useParams } from "next/navigation";
+import { getBoutiqueBySlug, BOUTIQUE } from "@/lib/catalog";
+import { useCart } from "@/lib/cart";
+import { ProductCard } from "@/components/shop/ProductCard";
+
+export default function ProductDetailPage() {
+  const params = useParams();
+  const slug = String(params.slug || "");
+  const product = useMemo(() => getBoutiqueBySlug(slug), [slug]);
+  const { add } = useCart();
+  const [size, setSize] = useState("");
+  const [color, setColor] = useState("");
+  const [qty, setQty] = useState(1);
+
+  if (!product) {
+    return (
+      <div className="bg-void px-6 pt-32 text-mist">
+        <p>Product not found.</p>
+        <Link href="/boutique" className="mt-4 inline-block text-champagne">
+          Back to boutique
+        </Link>
+      </div>
+    );
+  }
+
+  const related = BOUTIQUE.filter((p) => p.id !== product.id).slice(0, 4);
+
+  return (
+    <div className="bg-void pt-28 text-mist">
+      <div className="mx-auto grid max-w-[1440px] gap-10 px-6 py-12 md:grid-cols-2 md:px-10 lg:px-14">
+        <div className={`relative flex aspect-[4/5] items-center justify-center border border-mist/10 tile-glow-${product.accent}`}>
+          {product.badge && (
+            <span className="absolute left-4 top-4 text-[10px] tracking-[0.16em] text-champagne">{product.badge}</span>
+          )}
+          <span className="font-display text-[8rem] tracking-wide text-mist/85">{product.letter}</span>
+        </div>
+
+        <div className="flex flex-col justify-center">
+          <p className="text-[11px] tracking-[0.2em] text-mute">{product.category}</p>
+          <h1 className="mt-2 font-display text-5xl tracking-[0.06em] md:text-6xl">{product.name}</h1>
+          <p className="mt-4 text-xl text-champagne">
+            {product.inStock ? `$${product.priceUsd}` : "Sold out"}
+          </p>
+          <p className="mt-6 max-w-md text-[15px] leading-relaxed text-mute">{product.description}</p>
+
+          <div className="mt-8 space-y-5">
+            <div>
+              <p className="mb-2 text-[11px] tracking-[0.14em] text-mute">Color</p>
+              <div className="flex flex-wrap gap-2">
+                {product.colors.map((c) => (
+                  <button
+                    key={c}
+                    type="button"
+                    onClick={() => setColor(c)}
+                    className={`border px-3 py-1.5 text-[12px] ${
+                      color === c ? "border-mist text-mist" : "border-mist/20 text-mute"
+                    }`}
+                  >
+                    {c}
+                  </button>
+                ))}
+              </div>
+            </div>
+            <div>
+              <p className="mb-2 text-[11px] tracking-[0.14em] text-mute">Size</p>
+              <div className="flex flex-wrap gap-2">
+                {product.sizes.map((s) => (
+                  <button
+                    key={s}
+                    type="button"
+                    onClick={() => setSize(s)}
+                    className={`border px-3 py-1.5 text-[12px] ${
+                      size === s ? "border-mist text-mist" : "border-mist/20 text-mute"
+                    }`}
+                  >
+                    {s}
+                  </button>
+                ))}
+              </div>
+            </div>
+            <div className="flex items-center gap-3">
+              <p className="text-[11px] tracking-[0.14em] text-mute">Qty</p>
+              <button type="button" className="h-8 w-8 border border-mist/20" onClick={() => setQty((q) => Math.max(1, q - 1))}>
+                −
+              </button>
+              <span className="w-6 text-center">{qty}</span>
+              <button type="button" className="h-8 w-8 border border-mist/20" onClick={() => setQty((q) => q + 1)}>
+                +
+              </button>
+            </div>
+          </div>
+
+          <button
+            type="button"
+            disabled={!product.inStock}
+            onClick={() => add(product, qty)}
+            className="btn-primary mt-10 w-full max-w-sm disabled:opacity-40"
+          >
+            {product.inStock ? "Add to bag" : "Sold out"}
+          </button>
+          <p className="mt-4 text-[12px] text-mute">
+            Ships China → customer. Stock shown is editorial — live inventory wires later.
+          </p>
+        </div>
+      </div>
+
+      <section className="border-t border-mist/10 px-6 py-16 md:px-10 lg:px-14">
+        <h2 className="mb-8 font-display text-3xl tracking-[0.08em]">RELATED</h2>
+        <div className="mx-auto grid max-w-[1440px] gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {related.map((p) => (
+            <ProductCard key={p.id} product={p} />
+          ))}
+        </div>
+      </section>
+    </div>
+  );
+}

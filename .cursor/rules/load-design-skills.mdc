@@ -1,0 +1,18 @@
+---
+description: Load Impeccable and Anthropic frontend-design skills for UI work
+globs:
+  - "**/*.{tsx,jsx,css,html}"
+  - "**/LandingPage.tsx"
+  - "**/ShopShell.tsx"
+alwaysApply: false
+---
+
+# Design skills
+
+For UI design, redesign, polish, critique, or landing/shop visual work:
+
+1. Read and follow `.cursor/skills/refero-design/SKILL.md` (Refero) for research-first visual direction — styles/screens/flows when MCP is subscribed; bundled craft + reference locks when not.
+2. Read and follow `.cursor/skills/impeccable/SKILL.md` (Impeccable). Run its `scripts/impeccable context` when available; otherwise read PRODUCT.md / DESIGN.md / craft-floor.
+3. Read and follow `.cursor/skills/frontend-design/SKILL.md` (Anthropic frontend-design) for aesthetic direction and anti-template choices.
+4. Read and follow `.cursor/skills/cynos-ui-design/SKILL.md` (cynos-ai/engineer **ui-design**) for visual UI engineering, brand foundation, style recipes, browser acceptance, and critique — especially when the ask is “make it look stunning” or redesign with browser evidence.
+5. Prefer these over inventing a new visual system. Keep Vice Ops tokens from `vice-ops-design.mdc`.
