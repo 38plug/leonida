@@ -34,23 +34,22 @@ export function GlassNav() {
   return (
     <>
       <header
-        className={`fixed inset-x-0 top-0 z-50 flex justify-center px-2.5 transition-all duration-500 sm:px-3 md:px-6 ${
-          scrolled ? "pt-2.5" : "pt-3 md:pt-5"
+        className={`fixed inset-x-0 top-0 z-50 flex justify-center px-3 transition-all duration-500 md:px-6 ${
+          scrolled ? "pt-3" : "pt-4 md:pt-6"
         }`}
       >
-        {/* Mobile: brand | actions. Desktop lg+: brand | links | actions */}
         <div
-          className={`glass-nav grid w-full max-w-[1180px] grid-cols-[minmax(0,1fr)_auto] items-center gap-1.5 px-2.5 transition-all duration-500 sm:gap-2 sm:px-3 md:gap-3 md:px-4 lg:grid-cols-[1fr_auto_1fr] ${
+          className={`glass-nav grid w-full max-w-[1320px] grid-cols-[auto_1fr_auto] items-center gap-3 px-4 transition-all duration-500 md:gap-6 md:px-6 ${
             scrolled ? "glass-nav-scrolled" : ""
           }`}
-          style={{ height: scrolled ? 48 : 54 }}
+          style={{ height: scrolled ? 52 : 58 }}
         >
-          <div className="relative z-[2] flex min-w-0 items-center justify-self-start">
+          <div className="relative z-[2] flex min-w-0 items-center">
             <Link href="/" className="nav-brand min-w-0" aria-label="Leonida home">
               <MoneyStack className="nav-money" />
               <span className="nav-logo">
                 <span className="nav-logo-inner">
-                  <span className="nav-logo-mark lettering-depth font-display text-[0.95rem] text-white sm:text-[1.1rem] md:text-[1.25rem]">
+                  <span className="nav-logo-mark font-display text-[1.05rem] tracking-[0.14em] text-white md:text-[1.2rem]">
                     LEONIDA
                   </span>
                 </span>
@@ -59,7 +58,7 @@ export function GlassNav() {
           </div>
 
           <nav
-            className="relative z-[2] hidden items-center justify-center gap-1.5 justify-self-center lg:flex"
+            className="relative z-[2] hidden items-center justify-center lg:flex"
             aria-label="Primary"
           >
             {LINKS.map((l) => {
@@ -72,9 +71,7 @@ export function GlassNav() {
                 <Link
                   key={l.label}
                   href={l.href}
-                  className={`glass-nav-link text-[12px] font-medium tracking-[0.06em] ${
-                    active ? "glass-nav-link-active" : ""
-                  }`}
+                  className={`glass-nav-link ${active ? "glass-nav-link-active" : ""}`}
                 >
                   <span className="relative z-[1]">{l.label}</span>
                 </Link>
@@ -82,23 +79,23 @@ export function GlassNav() {
             })}
           </nav>
 
-          <div className="relative z-[2] flex shrink-0 items-center justify-end gap-1.5 justify-self-end sm:gap-2">
+          <div className="relative z-[2] flex shrink-0 items-center justify-end gap-2 justify-self-end sm:gap-3">
             {ready &&
               (user ? (
                 <button
                   type="button"
                   onClick={logout}
-                  className="glass-chip-btn hidden px-3.5 py-1.5 text-[11px] tracking-[0.04em] text-white/85 sm:inline-flex"
+                  className="meta-label hidden text-white/70 transition hover:text-white sm:inline-flex"
                 >
-                  <span className="relative z-[1]">{user.name}</span>
+                  {user.name}
                 </button>
               ) : (
                 <button
                   type="button"
                   onClick={() => openAuth("login")}
-                  className="glass-chip-btn hidden px-3.5 py-1.5 text-[11px] tracking-[0.06em] text-white/85 sm:inline-flex"
+                  className="meta-label hidden text-white/70 transition hover:text-white sm:inline-flex"
                 >
-                  <span className="relative z-[1]">Account</span>
+                  Account
                 </button>
               ))}
 
@@ -110,7 +107,7 @@ export function GlassNav() {
             >
               Bag
               {count > 0 && (
-                <span className="ml-1 inline-flex h-4 min-w-4 items-center justify-center rounded-full bg-white px-1 text-[9px] font-bold text-hot sm:ml-1.5">
+                <span className="ml-1.5 inline-flex h-4 min-w-4 items-center justify-center rounded-[1px] bg-white px-1 text-[9px] font-bold text-hot">
                   {count}
                 </span>
               )}
@@ -118,28 +115,28 @@ export function GlassNav() {
 
             <button
               type="button"
-              className="glass-chip-btn inline-flex px-2.5 py-1.5 text-[11px] tracking-[0.08em] text-white sm:px-3 lg:hidden"
+              className="meta-label inline-flex border border-white/15 px-3 py-2 text-white lg:hidden"
               onClick={() => setMobileOpen((v) => !v)}
               aria-expanded={mobileOpen}
               aria-label="Menu"
             >
-              <span className="relative z-[1]">Menu</span>
+              Menu
             </button>
           </div>
         </div>
       </header>
 
       {mobileOpen && (
-        <div className="fixed inset-0 z-40 bg-void/70 pt-20 backdrop-blur-xl lg:hidden">
+        <div className="fixed inset-0 z-40 bg-void/80 pt-24 backdrop-blur-xl lg:hidden">
           <nav
-            className="glass-panel mx-3 flex max-w-sm flex-col gap-1 rounded-3xl p-4 sm:mx-4"
+            className="glass-panel mx-4 flex max-w-sm flex-col gap-1 rounded-[2px] p-5"
             aria-label="Mobile"
           >
             {LINKS.map((l) => (
               <Link
                 key={l.label}
                 href={l.href}
-                className="rounded-2xl px-4 py-3.5 font-display text-3xl tracking-[0.08em] text-white transition hover:bg-white/5 hover:text-hot"
+                className="border-b border-white/[0.06] px-2 py-4 font-display text-4xl tracking-[0.08em] text-white transition hover:text-hot"
               >
                 {l.label}
               </Link>
@@ -150,7 +147,7 @@ export function GlassNav() {
                 setMobileOpen(false);
                 openAuth("login");
               }}
-              className="btn-primary mt-4 w-full justify-center"
+              className="btn-primary mt-6 w-full justify-center"
             >
               Account
             </button>

@@ -216,8 +216,12 @@ export const JOURNAL_POSTS = [
     title: "Vice City unlocks at midnight",
     category: "Dispatch",
     dek: "Nov 19 drop on PS5 and Xbox. The night city is no longer a trailer.",
+    author: "Leonida Desk",
+    publishedAt: "2026-11-19",
+    readMinutes: 4,
+    pullQuote: "We are the mood board for the night that finally arrived.",
     body:
-      "Grand Theft Auto VI hit consoles at midnight local on November 19 — PlayStation 5 and Xbox Series first, PC still queued for 2027. New Zealand opened the door a beat early; the rest of the map followed. Leonida Journal covers the culture around the launch, not the license. We are not Rockstar. We are the mood board for the night that finally arrived — and the merch desk for people living in that glow.",
+      "Grand Theft Auto VI hit consoles at midnight local on November 19 — PlayStation 5 and Xbox Series first, PC still queued for 2027. New Zealand opened the door a beat early; the rest of the map followed.\n\nLeonida Journal covers the culture around the launch, not the license. We are not Rockstar. We are the mood board for the night that finally arrived — and the merch desk for people living in that glow.\n\nWhat matters now is the texture of the first week: who is live, which counties feel real, and how the night house dresses for it. The boutique stays timed to that heat — neon that matches the skyline, stands that hold the controller through the first credits.",
     coverImage: "/media/journal/launch-night.webp",
     coverAccent: "pink" as const,
   },
@@ -226,8 +230,12 @@ export const JOURNAL_POSTS = [
     title: "Twitch breaks the grid",
     category: "Culture",
     dek: "Nearly 8M concurrent across platforms. Leonida ate the livestream chart.",
+    author: "Night Desk",
+    publishedAt: "2026-11-20",
+    readMinutes: 5,
+    pullQuote: "Dual protagonists make co-watch culture feel inevitable.",
     body:
-      "Launch week rewrote the stream board: peaks near 3.3 million on Twitch alone and close to eight million concurrent across Twitch, YouTube, and Kick. DE-CIX clocked a fresh internet-exchange high the night before unlock. English rooms mattered; Spanish and Brazilian rooms roared louder than the old playbook. Dual protagonists make co-watch culture feel inevitable — Lucia and Jason as the new shared camera. We track the heat so the boutique stays timed to what people actually talk about.",
+      "Launch week rewrote the stream board: peaks near 3.3 million on Twitch alone and close to eight million concurrent across Twitch, YouTube, and Kick. DE-CIX clocked a fresh internet-exchange high the night before unlock.\n\nEnglish rooms mattered; Spanish and Brazilian rooms roared louder than the old playbook. Dual protagonists make co-watch culture feel inevitable — Lucia and Jason as the new shared camera.\n\nWe track the heat so the boutique stays timed to what people actually talk about — not vanity charts, not invented metrics. Empty until someone buys. Loud when the city is live.",
     coverImage: "/media/journal/dual-skyline.webp",
     coverAccent: "gold" as const,
   },
@@ -236,8 +244,12 @@ export const JOURNAL_POSTS = [
     title: "Six regions, one map",
     category: "Ops",
     dek: "Vice City, Keys, Grassrivers, Port Gellhorn, Ambrosia, Mount Kalaga.",
+    author: "Cartography",
+    publishedAt: "2026-11-20",
+    readMinutes: 3,
+    pullQuote: "Atmosphere first. Affiliation never.",
     body:
-      "The official Leonida layout is out of rumor and into pins — six regions spanning neon downtown, keys, wetlands, ports, inland Ambrosia, and Mount Kalaga National Park. Fan maps are already stacking hundreds of markers for shops, missions, and jumps. Our live map page rides that same hunger: orient fast, then buy the neon that matches the skyline. Atmosphere first. Affiliation never.",
+      "The official Leonida layout is out of rumor and into pins — six regions spanning neon downtown, keys, wetlands, ports, inland Ambrosia, and Mount Kalaga National Park.\n\nFan maps are already stacking hundreds of markers for shops, missions, and jumps. Our live map page rides that same hunger: orient fast, then buy the neon that matches the skyline.\n\nAtmosphere first. Affiliation never.",
     coverImage: "/media/journal/leonida-map.webp",
     coverAccent: "teal" as const,
   },
@@ -246,8 +258,12 @@ export const JOURNAL_POSTS = [
     title: "Dusk over the swamp",
     category: "Boutique",
     dek: "The skyline is a mood, not a license.",
+    author: "House Edit",
+    publishedAt: "2026-11-18",
+    readMinutes: 3,
+    pullQuote: "Original characters. Original house.",
     body:
-      "Leonida borrows swamp light, neon edge, and night heat without claiming Rockstar’s world. Original characters. Original house. When the internet floods with launch clips, we keep the boutique honest — controller stands, wall neon, Night Pass rails — built for people who want the vibe after the stream ends.",
+      "Leonida borrows swamp light, neon edge, and night heat without claiming Rockstar’s world. Original characters. Original house.\n\nWhen the internet floods with launch clips, we keep the boutique honest — controller stands, wall neon, Night Pass rails — built for people who want the vibe after the stream ends.",
     coverImage: "/media/journal/launch-night.webp",
     coverAccent: "champagne" as const,
   },
@@ -279,4 +295,14 @@ export function getBoutiqueBySlug(slug: string) {
 
 export function getJournalBySlug(slug: string) {
   return JOURNAL_POSTS.find((p) => p.slug === slug);
+}
+
+export function formatJournalDate(iso: string) {
+  const d = new Date(`${iso}T12:00:00`);
+  return d.toLocaleDateString("en-US", {
+    month: "short",
+    day: "numeric",
+    year: "numeric",
+    timeZone: "Asia/Phnom_Penh",
+  });
 }

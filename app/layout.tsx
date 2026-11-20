@@ -1,49 +1,39 @@
 import type { Metadata } from "next";
-import { Bebas_Neue, Caveat, Instrument_Serif, Manrope } from "next/font/google";
+import { Bebas_Neue, Bodoni_Moda, Manrope } from "next/font/google";
 import { AppProviders } from "@/components/providers/AppProviders";
 import "./globals.css";
 
-const dm = Manrope({
+const ui = Manrope({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
-  variable: "--font-dm",
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-ui",
   display: "swap",
 });
 
-const bebas = Bebas_Neue({
+const display = Bebas_Neue({
   subsets: ["latin"],
   weight: "400",
-  variable: "--font-bebas",
+  variable: "--font-display",
   display: "swap",
 });
 
-const caveat = Caveat({
+const editorial = Bodoni_Moda({
   subsets: ["latin"],
-  weight: ["600", "700"],
-  variable: "--font-caveat",
-  display: "swap",
-});
-
-const instrument = Instrument_Serif({
-  subsets: ["latin"],
-  weight: "400",
+  weight: ["400", "500", "600", "700"],
   style: ["normal", "italic"],
-  variable: "--font-instrument",
+  variable: "--font-editorial",
   display: "swap",
 });
 
 export const metadata: Metadata = {
   title: "Leonida — Vice City Night House",
   description:
-    "Premium Leonida portal and boutique. Original characters. China → customer. Not affiliated with Rockstar.",
+    "Premium Leonida portal and boutique. Original characters. Not affiliated with Rockstar Games.",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html
-      lang="en"
-      className={`${dm.variable} ${bebas.variable} ${caveat.variable} ${instrument.variable}`}
-    >
+    <html lang="en" className={`${ui.variable} ${display.variable} ${editorial.variable}`}>
       <body className="font-ui antialiased">
         <AppProviders>{children}</AppProviders>
       </body>

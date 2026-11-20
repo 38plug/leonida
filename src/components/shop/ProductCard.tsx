@@ -56,7 +56,7 @@ export function ProductCard({ product }: { product: BoutiqueProduct }) {
           type="button"
           disabled={!product.inStock}
           onClick={() => add(product)}
-          className="w-full rounded-full py-2.5 text-[11px] font-semibold uppercase tracking-[0.14em] text-white/70 transition hover:bg-hot hover:text-white disabled:cursor-not-allowed disabled:opacity-40"
+          className="w-full rounded-[2px] py-2.5 text-[11px] font-semibold uppercase tracking-[0.14em] text-white/70 transition hover:bg-hot hover:text-white disabled:cursor-not-allowed disabled:opacity-40"
         >
           {product.inStock ? "Quick add" : "Unavailable"}
         </button>

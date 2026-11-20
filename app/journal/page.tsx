@@ -1,84 +1,123 @@
+"use client";
+
 import Link from "next/link";
-import { JOURNAL_POSTS } from "@/lib/catalog";
-import { PageAtmosphere } from "@/components/PageAtmosphere";
+import { motion } from "framer-motion";
+import { formatJournalDate, JOURNAL_POSTS } from "@/lib/catalog";
 
 export default function JournalPage() {
-  const [featured, ...rest] = JOURNAL_POSTS;
+  const [featured, second, ...rest] = JOURNAL_POSTS;
 
   return (
-    <div className="page-aurora-shell pt-28 text-mist">
-      <PageAtmosphere />
-      <div className="relative z-10 mx-auto max-w-[1440px] px-6 py-14 md:px-10 lg:px-14">
-        <h1 className="title-italic text-[clamp(3rem,7vw,4.5rem)] leading-none">Journal</h1>
-        <p className="type-project-soft mt-4 max-w-lg text-[15px] text-mute">
-          Hottest Leonida dispatches — launch night, stream records, and the map that ate the timeline.
-        </p>
+    <div className="relative min-h-screen overflow-hidden bg-void pt-28 text-mist">
+      <div className="vignette" aria-hidden />
+      <div className="film-grain" aria-hidden />
+
+      <div className="relative z-10 mx-auto max-w-[1600px] px-5 pb-24 md:px-10 lg:px-14">
+        <header className="mb-14 grid gap-6 border-b border-white/10 pb-10 md:mb-20 md:grid-cols-12 md:items-end md:pb-14">
+          <div className="md:col-span-7">
+            <p className="meta-label mb-4">Leonida Editorial</p>
+            <h1 className="title-display text-[clamp(4.5rem,14vw,9rem)] text-white">Journal</h1>
+          </div>
+          <p className="max-w-md text-[15px] leading-relaxed text-mute md:col-span-5 md:justify-self-end md:text-right">
+            Launch heat, stream culture, and the map that ate the timeline — written for the night house, not the license.
+          </p>
+        </header>
 
         {featured && (
-          <Link
-            href={`/journal/${featured.slug}`}
-            className="panel-card media-project mt-14 grid gap-0 overflow-hidden transition md:grid-cols-2"
+          <motion.div
+            initial={{ opacity: 0, y: 28 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           >
-            <div
-              className={`relative flex min-h-[260px] items-end overflow-hidden p-6 tile-glow-${featured.coverAccent} md:p-8`}
+            <Link
+              href={`/journal/${featured.slug}`}
+              className="group grid gap-0 overflow-hidden border border-white/10 bg-night md:grid-cols-12"
             >
-              {"coverImage" in featured && featured.coverImage ? (
-                // eslint-disable-next-line @next/next/no-img-element
+              <div className="relative min-h-[320px] overflow-hidden md:col-span-7 md:min-h-[560px] lg:col-span-8">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src={featured.coverImage}
                   alt=""
-                  className="absolute inset-0 h-full w-full object-cover"
+                  className="absolute inset-0 h-full w-full object-cover transition duration-700 group-hover:scale-[1.03]"
                 />
-              ) : null}
-              <div className="absolute inset-0 bg-gradient-to-t from-void/85 via-void/25 to-transparent" />
-              <span className="tag-hot relative z-10">{featured.category}</span>
-            </div>
-            <div className="flex flex-col justify-center p-6 md:p-10">
-              <h2 className="type-project font-serif text-3xl text-white md:text-4xl">
-                {featured.title}
-              </h2>
-              <p className="type-project-soft mt-4 text-[15px] leading-relaxed text-mute">
-                {featured.dek}
-              </p>
-              <span className="mt-8 text-[12px] font-medium tracking-[0.1em] text-hot">
-                Read feature →
-              </span>
-            </div>
-          </Link>
+                <div className="absolute inset-0 bg-gradient-to-t from-void via-transparent to-transparent opacity-80 md:bg-gradient-to-r md:from-transparent md:via-transparent md:to-void/40" />
+              </div>
+              <div className="flex flex-col justify-end p-7 md:col-span-5 md:p-10 lg:col-span-4 lg:p-12">
+                <div className="mb-6 flex flex-wrap items-center gap-x-4 gap-y-2">
+                  <span className="meta-label text-hot">{featured.category}</span>
+                  <span className="meta-label text-mute">
+                    {formatJournalDate(featured.publishedAt)}
+                  </span>
+                  <span className="meta-label text-mute">{featured.readMinutes} min</span>
+                </div>
+                <h2 className="font-serif text-[clamp(2.25rem,4vw,3.5rem)] leading-[1.05] tracking-[-0.02em] text-white transition group-hover:text-mist">
+                  {featured.title}
+                </h2>
+                <p className="mt-5 max-w-sm font-serif text-lg italic leading-snug text-mute">
+                  {featured.dek}
+                </p>
+                <span className="meta-label mt-10 text-hot">Read feature →</span>
+              </div>
+            </Link>
+          </motion.div>
         )}
 
-        <ul className="mt-8 space-y-3">
-          {rest.map((post) => (
-            <li key={post.slug}>
-              <Link
-                href={`/journal/${post.slug}`}
-                className="panel-card media-project-sm grid gap-3 overflow-hidden p-0 transition md:grid-cols-12 md:items-stretch md:gap-0"
-              >
-                <div className="relative min-h-[120px] overflow-hidden md:col-span-3">
-                  {"coverImage" in post && post.coverImage ? (
-                    // eslint-disable-next-line @next/next/no-img-element
+        <div className="mt-10 grid gap-6 md:mt-14 md:grid-cols-12 md:gap-8">
+          {second && (
+            <Link
+              href={`/journal/${second.slug}`}
+              className="group border border-white/10 bg-night md:col-span-7"
+            >
+              <div className="relative aspect-[16/10] overflow-hidden">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={second.coverImage}
+                  alt=""
+                  className="h-full w-full object-cover transition duration-700 group-hover:scale-[1.03]"
+                />
+              </div>
+              <div className="p-6 md:p-8">
+                <div className="mb-4 flex gap-4">
+                  <span className="meta-label text-hot">{second.category}</span>
+                  <span className="meta-label text-mute">
+                    {formatJournalDate(second.publishedAt)}
+                  </span>
+                </div>
+                <h3 className="font-serif text-3xl leading-tight text-white md:text-4xl">
+                  {second.title}
+                </h3>
+                <p className="mt-3 max-w-md text-[14px] leading-relaxed text-mute">{second.dek}</p>
+              </div>
+            </Link>
+          )}
+
+          <ul className="flex flex-col gap-4 md:col-span-5">
+            {rest.map((post) => (
+              <li key={post.slug}>
+                <Link
+                  href={`/journal/${post.slug}`}
+                  className="group grid grid-cols-[112px_1fr] gap-4 border border-white/10 bg-night/80 transition hover:border-champagne/30 md:grid-cols-[140px_1fr]"
+                >
+                  <div className="relative aspect-[4/5] overflow-hidden">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
                       src={post.coverImage}
                       alt=""
-                      className="absolute inset-0 h-full w-full object-cover"
+                      className="absolute inset-0 h-full w-full object-cover transition duration-500 group-hover:scale-[1.04]"
                     />
-                  ) : (
-                    <div className={`absolute inset-0 tile-glow-${post.coverAccent}`} />
-                  )}
-                </div>
-                <div className="flex flex-col gap-3 p-5 md:col-span-9 md:grid md:grid-cols-9 md:items-center md:gap-8 md:p-6">
-                  <span className="tag-hot w-fit md:col-span-2">{post.category}</span>
-                  <span className="type-project font-serif text-2xl text-white md:col-span-3 md:text-3xl">
-                    {post.title}
-                  </span>
-                  <span className="type-project-soft text-[14px] text-mute md:col-span-4">
-                    {post.dek}
-                  </span>
-                </div>
-              </Link>
-            </li>
-          ))}
-        </ul>
+                  </div>
+                  <div className="flex flex-col justify-center py-4 pr-4">
+                    <span className="meta-label mb-2 text-hot">{post.category}</span>
+                    <h3 className="font-serif text-xl leading-snug text-white md:text-2xl">
+                      {post.title}
+                    </h3>
+                    <p className="mt-2 line-clamp-2 text-[13px] text-mute">{post.dek}</p>
+                  </div>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
     </div>
   );
