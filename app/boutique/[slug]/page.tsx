@@ -32,13 +32,9 @@ export default function ProductDetailPage() {
   return (
     <div className="bg-void pt-28 text-mist">
       <div className="mx-auto grid max-w-[1440px] gap-10 px-6 py-12 md:grid-cols-2 md:px-10 lg:px-14">
-        <div className={`glass-card relative flex aspect-[4/5] items-center justify-center tile-glow-${product.accent}`}>
-          {product.badge && (
-            <span className="glass-chip absolute left-4 top-4 px-2.5 py-1 text-[10px] tracking-[0.16em] text-white/90">
-              {product.badge}
-            </span>
-          )}
-          <span className="font-display text-[8rem] tracking-wide text-white/85">{product.letter}</span>
+        <div className={`panel-card relative flex aspect-[4/5] items-center justify-center tile-glow-${product.accent}`}>
+          {product.badge && <span className="tag-hot absolute left-4 top-4">{product.badge}</span>}
+          <span className="font-display text-[8rem] tracking-wide text-white/80">{product.letter}</span>
         </div>
 
         <div className="flex flex-col justify-center">

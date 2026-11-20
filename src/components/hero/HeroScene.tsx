@@ -107,13 +107,17 @@ export function HeroScene({
         </motion.div>
       </motion.div>
 
-      {/* Left readability wash for type */}
+      {/* Left readability wash — charcoal, not milky glass */}
       <div
-        className="pointer-events-none absolute inset-0 bg-gradient-to-r from-void/85 via-void/45 to-transparent md:via-void/35"
+        className="pointer-events-none absolute inset-0 bg-gradient-to-r from-void via-void/55 to-transparent md:from-void/90 md:via-void/40"
         aria-hidden
       />
       <div
-        className="pointer-events-none absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-void to-transparent"
+        className="pointer-events-none absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-void via-void/50 to-transparent"
+        aria-hidden
+      />
+      <div
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_70%_40%,rgba(255,45,111,0.12),transparent_55%)]"
         aria-hidden
       />
       <div className="landing-hero-grain absolute inset-0 z-[1]" aria-hidden />

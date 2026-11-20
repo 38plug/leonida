@@ -4,20 +4,17 @@
 
 :root {
   color-scheme: dark;
-  --void: #0f060c;
-  --mist: #f1f2f7;
-  --mute: #b9bcd4;
-  --magenta: #a233b6;
-  --champagne: #b2a584;
-  --neon: #e85a9b;
-  --coral: #e8926a;
-  /* Clear glass — almost no frost; rim + sheen only */
-  --glass-fill: rgba(255, 255, 255, 0.04);
-  --glass-fill-strong: rgba(255, 255, 255, 0.07);
-  --glass-edge: rgba(220, 240, 255, 0.55);
-  --glass-edge-hot: rgba(240, 250, 255, 0.9);
-  --glass-glow: rgba(160, 210, 255, 0.18);
-  --glass-inner: rgba(255, 255, 255, 0.08);
+  --void: #0a0a0c;
+  --night: #121218;
+  --ink: #1a1a22;
+  --mist: #f4f0f2;
+  --mute: #9a94a0;
+  --hot: #ff2d6f;
+  --hot-dim: #c91852;
+  --champagne: #c4b5a0;
+  --teal: #5ec8c4;
+  --panel: rgba(18, 18, 24, 0.78);
+  --panel-edge: rgba(255, 255, 255, 0.08);
 }
 
 * {
@@ -38,281 +35,219 @@ body {
 }
 
 ::selection {
-  background: rgba(162, 51, 182, 0.4);
+  background: rgba(255, 45, 111, 0.35);
   color: #fff;
 }
 
 :focus-visible {
-  outline: 1px solid var(--champagne);
+  outline: 2px solid var(--hot);
   outline-offset: 3px;
 }
 
 ::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+  width: 6px;
+  height: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #0f060c;
+  background: #0a0a0c;
 }
 ::-webkit-scrollbar-thumb {
-  background: rgba(90, 140, 200, 0.35);
+  background: rgba(255, 45, 111, 0.35);
   border-radius: 9999px;
 }
 
 @layer components {
-  /*
-   * Luminous cyan glass system — frosted fill + specular edge + outer glow
-   * Matches the glass UI kit reference across bars, pills, panels, chips.
-   */
-  .glass-surface {
-    isolation: isolate;
-    position: relative;
-    background: rgba(255, 255, 255, 0.03);
-    -webkit-backdrop-filter: blur(2px);
-    backdrop-filter: blur(2px);
-    border: 1px solid var(--glass-edge);
-    box-shadow:
-      inset 0 1px 0 rgba(255, 255, 255, 0.55),
-      0 0 12px var(--glass-glow),
-      0 4px 16px rgba(0, 0, 0, 0.12);
-  }
-
-  .glass-bar,
+  /* Dark charcoal nav — quiet frost, pink action */
   .glass-nav {
     isolation: isolate;
-    position: relative;
     border-radius: 9999px;
-    background: rgba(255, 255, 255, 0.03);
-    /* Near-clear glass: scene stays sharp behind the bar */
-    -webkit-backdrop-filter: blur(2px) brightness(1.05);
-    backdrop-filter: blur(2px) brightness(1.05);
-    border: 1px solid var(--glass-edge);
+    background: rgba(12, 12, 16, 0.72);
+    -webkit-backdrop-filter: blur(18px) saturate(140%);
+    backdrop-filter: blur(18px) saturate(140%);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     box-shadow:
-      inset 0 1px 0 rgba(255, 255, 255, 0.65),
-      inset 0 -1px 0 rgba(255, 255, 255, 0.08),
-      0 0 14px var(--glass-glow),
-      0 4px 18px rgba(0, 0, 0, 0.12);
+      inset 0 1px 0 rgba(255, 255, 255, 0.06),
+      0 12px 40px rgba(0, 0, 0, 0.45);
   }
 
   .glass-nav-scrolled {
-    background: rgba(255, 255, 255, 0.06);
-    border-color: var(--glass-edge-hot);
-    -webkit-backdrop-filter: blur(4px) brightness(1.05);
-    backdrop-filter: blur(4px) brightness(1.05);
-  }
-
-  .glass-panel {
-    isolation: isolate;
-    position: relative;
-    border-radius: 1.25rem;
-    background: rgba(8, 12, 24, 0.35);
-    -webkit-backdrop-filter: blur(8px);
-    backdrop-filter: blur(8px);
-    border: 1px solid var(--glass-edge);
-    box-shadow:
-      inset 0 1px 0 rgba(255, 255, 255, 0.4),
-      0 0 18px var(--glass-glow),
-      0 12px 32px rgba(0, 0, 0, 0.25);
-  }
-
-  .glass-card {
-    isolation: isolate;
-    position: relative;
-    border-radius: 1rem;
-    background: rgba(255, 255, 255, 0.03);
-    -webkit-backdrop-filter: blur(2px);
-    backdrop-filter: blur(2px);
-    border: 1px solid rgba(200, 230, 255, 0.4);
-    box-shadow:
-      inset 0 1px 0 rgba(255, 255, 255, 0.4),
-      0 0 12px rgba(140, 200, 255, 0.12),
-      0 4px 16px rgba(0, 0, 0, 0.12);
-    transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
-  }
-  .glass-card:hover {
-    border-color: var(--glass-edge-hot);
-    background: rgba(255, 255, 255, 0.07);
-    box-shadow:
-      inset 0 1px 0 rgba(255, 255, 255, 0.5),
-      0 0 16px rgba(160, 210, 255, 0.22),
-      0 6px 20px rgba(0, 0, 0, 0.16);
+    background: rgba(10, 10, 14, 0.88);
+    border-color: rgba(255, 255, 255, 0.12);
   }
 
   .glass-chip,
   .glass-chip-btn {
-    isolation: isolate;
-    position: relative;
     border-radius: 9999px;
-    border: 1px solid var(--glass-edge);
+    border: 1px solid rgba(255, 255, 255, 0.12);
     background: rgba(255, 255, 255, 0.04);
-    -webkit-backdrop-filter: blur(2px);
-    backdrop-filter: blur(2px);
-    box-shadow:
-      inset 0 1px 0 rgba(255, 255, 255, 0.55),
-      0 0 10px rgba(140, 200, 255, 0.14),
-      0 2px 6px rgba(0, 0, 0, 0.1);
-    transition: background 0.2s ease, border-color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+    transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
   }
   .glass-chip:hover,
   .glass-chip-btn:hover {
-    background: rgba(255, 255, 255, 0.1);
-    border-color: var(--glass-edge-hot);
-    box-shadow:
-      inset 0 1px 0 rgba(255, 255, 255, 0.65),
-      0 0 12px rgba(160, 210, 255, 0.22),
-      0 2px 8px rgba(0, 0, 0, 0.12);
-  }
-  .glass-chip:active,
-  .glass-chip-btn:active {
-    transform: scale(0.97);
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 45, 111, 0.45);
   }
 
   .glass-chip-active {
-    border-color: var(--glass-edge-hot);
-    background: rgba(255, 255, 255, 0.12);
+    border-color: rgba(255, 45, 111, 0.55);
+    background: rgba(255, 45, 111, 0.14);
     color: #fff;
   }
 
   .glass-nav-link {
     border-radius: 9999px;
-    padding: 0.35rem 0.7rem;
-    transition: background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+    padding: 0.4rem 0.85rem;
+    transition: color 0.2s ease, background 0.2s ease;
   }
   .glass-nav-link:hover {
-    background: rgba(130, 180, 255, 0.22);
     color: #fff;
-    box-shadow: inset 0 0 12px rgba(160, 210, 255, 0.2);
+    background: rgba(255, 255, 255, 0.06);
   }
 
-  .glass-divider {
-    border-color: rgba(140, 190, 255, 0.22) !important;
+  .glass-panel {
+    background: rgba(14, 14, 20, 0.92);
+    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5);
+  }
+
+  .glass-card,
+  .panel-card {
+    border-radius: 1rem;
+    background: rgba(22, 22, 30, 0.92);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.28);
+    transition: border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+  }
+  .glass-card:hover,
+  .panel-card:hover {
+    border-color: rgba(255, 45, 111, 0.35);
+    box-shadow: 0 14px 36px rgba(0, 0, 0, 0.38);
+  }
+
+  .glass-bar {
+    border-radius: 1rem;
+    background: rgba(18, 18, 26, 0.75);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
   }
 
   .btn-primary {
-    @apply relative inline-flex items-center justify-center overflow-hidden rounded-full px-8 py-3.5 text-[12px] font-semibold tracking-[0.16em] text-void transition;
-    background: linear-gradient(135deg, #e8f4ff 0%, #a8c8f0 45%, #b2a584 100%);
-    border: 1px solid rgba(200, 230, 255, 0.7);
-    box-shadow:
-      inset 0 1px 0 rgba(255, 255, 255, 0.7),
-      0 0 24px rgba(100, 170, 255, 0.4),
-      0 0 28px rgba(162, 51, 182, 0.2);
+    @apply relative inline-flex items-center justify-center rounded-full px-8 py-3.5 text-[12px] font-semibold uppercase tracking-[0.14em] text-white transition;
+    background: var(--hot);
+    box-shadow: 0 0 0 1px rgba(255, 45, 111, 0.4), 0 8px 28px rgba(255, 45, 111, 0.35);
   }
   .btn-primary:hover {
-    filter: brightness(1.06);
-    box-shadow:
-      inset 0 1px 0 rgba(255, 255, 255, 0.8),
-      0 0 32px rgba(130, 190, 255, 0.55),
-      0 0 36px rgba(232, 90, 155, 0.3);
+    background: #ff4d85;
+    box-shadow: 0 0 0 1px rgba(255, 77, 133, 0.5), 0 10px 36px rgba(255, 45, 111, 0.45);
+  }
+  .btn-primary:active {
+    background: var(--hot-dim);
   }
 
   .btn-ghost {
-    @apply relative inline-flex items-center rounded-full px-7 py-3.5 text-[12px] font-medium tracking-[0.14em] text-mist transition;
-    border: 1px solid var(--glass-edge);
-    background: rgba(255, 255, 255, 0.03);
-    -webkit-backdrop-filter: blur(2px);
-    backdrop-filter: blur(2px);
-    box-shadow:
-      inset 0 1px 0 rgba(255, 255, 255, 0.45),
-      0 0 10px rgba(140, 200, 255, 0.12);
+    @apply relative inline-flex items-center rounded-full px-7 py-3.5 text-[12px] font-medium uppercase tracking-[0.12em] text-mist transition;
+    border: 1px solid rgba(255, 45, 111, 0.45);
+    background: rgba(255, 45, 111, 0.06);
   }
   .btn-ghost:hover {
-    background: rgba(255, 255, 255, 0.1);
-    border-color: var(--glass-edge-hot);
+    background: rgba(255, 45, 111, 0.14);
+    border-color: rgba(255, 45, 111, 0.7);
   }
 
-  .text-gradient-dusk {
-    background: linear-gradient(100deg, #e85a9b 0%, #a233b6 45%, #7ec8c4 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
+  .btn-bag {
+    @apply relative inline-flex items-center rounded-full px-3.5 py-1.5 text-[11px] font-semibold uppercase tracking-[0.12em] text-white transition;
+    background: var(--hot);
+    box-shadow: 0 0 16px rgba(255, 45, 111, 0.35);
+  }
+  .btn-bag:hover {
+    background: #ff4d85;
+  }
+
+  .title-italic {
+    font-family: var(--font-instrument), Georgia, serif;
+    font-style: italic;
+    font-weight: 400;
+    color: var(--hot);
+  }
+
+  .tag-hot {
+    @apply inline-flex items-center rounded-md px-2 py-0.5 text-[10px] font-bold uppercase tracking-[0.12em] text-white;
+    background: var(--hot);
   }
 
   .hero-display {
-    text-shadow: 0 12px 40px rgba(0, 0, 0, 0.45);
+    text-shadow: 0 16px 48px rgba(0, 0, 0, 0.55);
+  }
+
+  .hero-scene {
+    background: #0a0a0c;
   }
 
   .hero-atmosphere {
     background:
-      radial-gradient(ellipse 80% 70% at 70% 40%, rgba(162, 51, 182, 0.28), transparent 55%),
-      radial-gradient(ellipse 60% 50% at 20% 70%, rgba(126, 200, 196, 0.12), transparent 50%),
-      linear-gradient(180deg, #1a0e16 0%, #0f060c 55%, #0b0716 100%);
-  }
-
-  .hero-scene {
-    background: #0f060c;
-  }
-
-  .hero-city-fade {
-    /* Legacy pages only — landing uses unified HeroScene */
-    background:
-      image-set(
-        url("/media/hero/leonida-scene.webp") type("image/webp"),
-        url("/media/hero/leonida-scene.png") type("image/png")
-      )
-      68% center / cover no-repeat;
-    opacity: 0.85;
+      radial-gradient(ellipse 70% 60% at 75% 35%, rgba(255, 45, 111, 0.18), transparent 55%),
+      radial-gradient(ellipse 50% 40% at 15% 80%, rgba(94, 200, 196, 0.08), transparent 50%),
+      linear-gradient(180deg, #121218 0%, #0a0a0c 100%);
   }
 
   .landing-hero-grain {
     pointer-events: none;
-    opacity: 0.045;
+    opacity: 0.035;
     mix-blend-mode: overlay;
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   }
 
   .tile-glow-pink {
-    background: radial-gradient(circle at 50% 40%, rgba(232, 90, 155, 0.22), transparent 70%);
+    background:
+      radial-gradient(ellipse at 50% 30%, rgba(255, 45, 111, 0.28), transparent 65%),
+      linear-gradient(180deg, #1a1220 0%, #0e0e14 100%);
   }
   .tile-glow-gold,
   .tile-glow-champagne {
-    background: radial-gradient(circle at 50% 40%, rgba(178, 165, 132, 0.22), transparent 70%);
+    background:
+      radial-gradient(ellipse at 50% 30%, rgba(196, 181, 160, 0.22), transparent 65%),
+      linear-gradient(180deg, #1a1814 0%, #0e0e14 100%);
   }
   .tile-glow-teal {
-    background: radial-gradient(circle at 50% 40%, rgba(126, 200, 196, 0.2), transparent 70%);
+    background:
+      radial-gradient(ellipse at 50% 30%, rgba(94, 200, 196, 0.2), transparent 65%),
+      linear-gradient(180deg, #121820 0%, #0e0e14 100%);
   }
 
   .field-input {
     width: 100%;
     border-radius: 0.75rem;
-    border: 1px solid rgba(200, 230, 255, 0.4);
-    background: rgba(255, 255, 255, 0.04);
-    -webkit-backdrop-filter: blur(2px);
-    backdrop-filter: blur(2px);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    background: rgba(10, 10, 14, 0.85);
     padding: 0.7rem 0.85rem;
     font-size: 0.875rem;
-    color: #f1f2f7;
+    color: #f4f0f2;
     outline: none;
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.25);
   }
   .field-input::placeholder {
-    color: #b9bcd4;
+    color: #9a94a0;
   }
   .field-input:focus {
-    border-color: var(--glass-edge-hot);
-    box-shadow:
-      inset 0 1px 0 rgba(220, 240, 255, 0.35),
-      0 0 16px rgba(90, 160, 255, 0.3);
+    border-color: rgba(255, 45, 111, 0.55);
+    box-shadow: 0 0 0 3px rgba(255, 45, 111, 0.15);
   }
 
   .shop-shell {
     min-height: 100vh;
-    background: #0f060c;
+    background: #0a0a0c;
   }
   .panel-glass {
-    background: rgba(255, 255, 255, 0.03);
-    -webkit-backdrop-filter: blur(4px);
-    backdrop-filter: blur(4px);
-    border-right: 1px solid rgba(200, 230, 255, 0.35);
-    box-shadow: inset -1px 0 0 rgba(255, 255, 255, 0.12);
+    background: rgba(14, 14, 20, 0.94);
+    border-right: 1px solid rgba(255, 255, 255, 0.08);
   }
   .topbar-glass {
-    background: rgba(255, 255, 255, 0.04);
-    -webkit-backdrop-filter: blur(2px);
-    backdrop-filter: blur(2px);
-    border-bottom: 1px solid rgba(200, 230, 255, 0.35);
-    box-shadow:
-      inset 0 1px 0 rgba(255, 255, 255, 0.4),
-      0 0 10px rgba(140, 200, 255, 0.1);
+    background: rgba(14, 14, 20, 0.9);
+    -webkit-backdrop-filter: blur(16px);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   }
 }
 

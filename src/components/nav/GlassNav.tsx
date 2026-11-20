@@ -39,39 +39,44 @@ export function GlassNav() {
       >
         <div
           className={`glass-nav flex w-full max-w-[1180px] items-center justify-between gap-3 px-3 pl-5 transition-all duration-500 md:gap-4 md:px-4 md:pl-6 ${
-            scrolled ? "glass-nav-scrolled h-12 md:h-13" : "h-14 md:h-15"
+            scrolled ? "glass-nav-scrolled" : ""
           }`}
           style={{ height: scrolled ? 52 : 58 }}
         >
           <Link href="/" className="flex shrink-0 items-baseline gap-2">
-            <span className="font-display text-[1.25rem] tracking-[0.22em] text-white drop-shadow-sm md:text-[1.35rem]">
+            <span className="font-display text-[1.3rem] tracking-[0.22em] text-white md:text-[1.4rem]">
               LEONIDA
             </span>
           </Link>
 
-          <nav
-            className="glass-chip hidden items-center gap-0.5 p-1 lg:flex"
-            aria-label="Primary"
-          >
-            {LINKS.map((l) => (
-              <Link
-                key={l.label}
-                href={l.href}
-                className="glass-nav-link text-[12px] font-medium tracking-[0.06em] text-white/75"
-              >
-                {l.label}
-              </Link>
-            ))}
+          <nav className="hidden items-center gap-0.5 lg:flex" aria-label="Primary">
+            {LINKS.map((l) => {
+              const active =
+                (l.href.startsWith("/boutique") && pathname.startsWith("/boutique")) ||
+                (l.href.startsWith("/journal") && pathname.startsWith("/journal")) ||
+                (l.href === "/about" && pathname === "/about");
+              return (
+                <Link
+                  key={l.label}
+                  href={l.href}
+                  className={`glass-nav-link text-[12px] font-medium tracking-[0.04em] ${
+                    active ? "text-hot" : "text-white/65"
+                  }`}
+                >
+                  {l.label}
+                </Link>
+              );
+            })}
           </nav>
 
           <div className="flex items-center gap-2">
             {!ready ? (
-              <span className="hidden h-8 w-16 rounded-full bg-white/10 sm:block" aria-hidden />
+              <span className="hidden h-8 w-16 rounded-full bg-white/5 sm:block" aria-hidden />
             ) : user ? (
               <button
                 type="button"
                 onClick={logout}
-                className="glass-chip-btn hidden px-3.5 py-1.5 text-[11px] tracking-[0.06em] text-white/85 sm:inline"
+                className="glass-chip-btn hidden px-3.5 py-1.5 text-[11px] tracking-[0.04em] text-white/80 sm:inline"
               >
                 {user.name}
               </button>
@@ -79,7 +84,7 @@ export function GlassNav() {
               <button
                 type="button"
                 onClick={() => openAuth("login")}
-                className="glass-chip-btn hidden px-3.5 py-1.5 text-[11px] tracking-[0.08em] text-white/85 sm:inline"
+                className="glass-chip-btn hidden px-3.5 py-1.5 text-[11px] tracking-[0.06em] text-white/80 sm:inline"
               >
                 Account
               </button>
@@ -88,12 +93,12 @@ export function GlassNav() {
             <button
               type="button"
               onClick={() => setOpen(true)}
-              className="glass-chip-btn relative px-3.5 py-1.5 text-[11px] tracking-[0.12em] text-white"
+              className="btn-bag"
               aria-label="Open bag"
             >
               Bag
               {count > 0 && (
-                <span className="absolute -right-1 -top-1 flex h-4 min-w-4 items-center justify-center rounded-full bg-magenta px-1 text-[9px] font-semibold text-white shadow-sm">
+                <span className="ml-1.5 inline-flex h-4 min-w-4 items-center justify-center rounded-full bg-white px-1 text-[9px] font-bold text-hot">
                   {count}
                 </span>
               )}
@@ -101,7 +106,7 @@ export function GlassNav() {
 
             <button
               type="button"
-              className="glass-chip-btn px-3 py-1.5 text-[11px] tracking-[0.1em] text-white lg:hidden"
+              className="glass-chip-btn px-3 py-1.5 text-[11px] tracking-[0.08em] text-white lg:hidden"
               onClick={() => setMobileOpen((v) => !v)}
               aria-expanded={mobileOpen}
               aria-label="Menu"
@@ -113,16 +118,16 @@ export function GlassNav() {
       </header>
 
       {mobileOpen && (
-        <div className="fixed inset-0 z-40 bg-void/55 pt-24 backdrop-blur-2xl lg:hidden">
+        <div className="fixed inset-0 z-40 bg-void/70 pt-24 backdrop-blur-xl lg:hidden">
           <nav
-            className="glass-nav mx-4 flex max-w-sm flex-col gap-1 p-4 !rounded-3xl"
+            className="glass-panel mx-4 flex max-w-sm flex-col gap-1 rounded-3xl p-4"
             aria-label="Mobile"
           >
             {LINKS.map((l) => (
               <Link
                 key={l.label}
                 href={l.href}
-                className="rounded-2xl px-4 py-3.5 font-display text-3xl tracking-[0.08em] text-white transition hover:bg-white/10"
+                className="rounded-2xl px-4 py-3.5 font-display text-3xl tracking-[0.08em] text-white transition hover:bg-white/5 hover:text-hot"
               >
                 {l.label}
               </Link>
@@ -133,7 +138,7 @@ export function GlassNav() {
                 setMobileOpen(false);
                 openAuth("login");
               }}
-              className="glass-chip-btn mt-4 w-full py-3 text-center text-sm tracking-[0.1em] text-white/90"
+              className="btn-primary mt-4 w-full justify-center"
             >
               Account
             </button>

@@ -1,45 +1,44 @@
 # Design system — Leonida / Vice Ops
 
-Documented from the GTA-style complete rebuild (Dribbble-inspired character conversion UI). Original hero character via Krea (z-image + birefnet). Not affiliated with Rockstar Games.
+Art direction: cinematic night-city lifestyle house. Visual language adapted from premium GTA-VI–era dashboard references (hot pink CTAs, dark charcoal panels, italic pink titles) without Rockstar marks or affiliation.
 
 ## World
 
-Cinematic night-city house: swamp-to-skyline photograph as atmosphere, original AI character as conversion centerpiece, mist type on void ground. Glass floating chrome over magenta/cyan dusk — premium lifestyle storefront, not SaaS neon glass.
+Charcoal night stage. One keyed cinematic hero (character + car + highway). Hot-pink action color for conversion. Surfaces are dark frosted panels — not cyan “liquid glass” everywhere.
 
 ## Color
 
 | Token | Hex | Role |
 | --- | --- | --- |
-| void | `#0F060C` | Page ground |
-| night | `#0B0716` | Deep panels |
-| ink | `#1A0E16` | Raised strips |
-| mist | `#F1F2F7` | Primary text / solid CTAs |
-| mute | `#B9BCD4` | Secondary text |
-| magenta | `#A233B6` | Brand accent / bag badge |
-| neon / pink | `#E85A9B` | Gradient stop / glow |
-| champagne | `#B2A584` | Eyebrows, soft metal |
-| teal | `#7EC8C4` | Cool dusk stop |
+| void | `#0A0A0C` | Page ground |
+| night | `#121218` | Raised stage |
+| ink | `#1A1A22` | Panel fill |
+| mist | `#F4F0F2` | Primary text |
+| mute | `#9A94A0` | Secondary |
+| hot | `#FF2D6F` | Primary CTA / active / tags |
+| hotDim | `#C91852` | Hover / pressed |
+| champagne | `#C4B5A0` | Soft metal |
+| teal | `#5EC8C4` | Rare cool accent |
 
 ## Type
 
-- **Bebas Neue** — LEONIDA masthead, oversized hero display, section titles
-- **Instrument Serif** — journal titles, editorial dek
-- **DM Sans** — nav, body, controls
+- **Bebas Neue** — LEONIDA wordmark, display headlines (weight through size, not gradient)
+- **Instrument Serif italic** — section titles & “Vice City” flourish in hot pink
+- **DM Sans** — UI, body, controls
 
 ## Layout
 
-- Landing hero: left oversized headline + CTA + glass stats chip; right (desktop) / bottom-anchored (mobile) character cutout. Full-bleed cityscape atmosphere.
-- Glass nav: floating bar, blur + inset highlight, Bag + Account.
-- Boutique: hairline product tiles, letter monogram placeholders until photo packs; PDP + cart drawer + honest checkout (no fake payments).
-- Journal: hairline list, serif titles, prose measure.
+- Hero: full-bleed keyed scene; left type stack; no eyebrow, no metric strip, no gradient text
+- Nav: dark charcoal pill; hot pink Bag; quiet link hover
+- Boutique / journal: dark panels, pink category tags, generous rhythm
+- Glass only where it earns depth (nav, drawer) — not every card
 
 ## Motion
 
-- Character: entrance scale/fade, idle breathe, mouse parallax, scroll parallax.
-- Sections: staggered rise on hero copy; hover brightness on primary CTA.
-- Prefer authored moments over identical section fades.
+- One hero entrance; hover on primary CTA; card lift on boutique
+- Prefer exponential ease-out; no identical section fades
 
 ## Assets
 
-- Character: `/media/character/leonida-hero.png` (+ raw / webp)
-- Unified hero scene: `/media/hero/leonida-scene.png` (character + purple car + highway as one keyed image; ken-burns + parallax; video slot when Krea Basic unlocks)
+- Hero: `/media/hero/leonida-scene.png`
+- Ref (internal): `/media/refs/gta-dashboard-ref.png`

@@ -44,7 +44,7 @@ export function AuthModal() {
           animate={{ opacity: 1, y: 0, scale: 1 }}
           exit={{ opacity: 0, y: 10 }}
           transition={{ type: "spring", stiffness: 360, damping: 28 }}
-          className="glass-panel w-full max-w-md p-6"
+          className="glass-panel w-full max-w-md rounded-2xl p-6"
           onClick={(e) => e.stopPropagation()}
         >
           <div className="mb-5 flex items-start justify-between gap-4">

@@ -5,21 +5,23 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        void: "#0F060C",
-        night: "#0B0716",
-        ink: "#1A0E16",
-        mist: "#F1F2F7",
-        mute: "#B9BCD4",
+        void: "#0A0A0C",
+        night: "#121218",
+        ink: "#1A1A22",
+        mist: "#F4F0F2",
+        mute: "#9A94A0",
+        hot: "#FF2D6F",
+        hotDim: "#C91852",
         burgundy: "#53273A",
         magenta: "#A233B6",
-        neon: "#E85A9B",
+        neon: "#FF2D6F",
         coral: "#E8926A",
         mutedRed: "#A74C46",
-        champagne: "#B2A584",
+        champagne: "#C4B5A0",
         deepPurple: "#5F2896",
-        teal: "#7EC8C4",
+        teal: "#5EC8C4",
         gold: "#D4B483",
-        pink: "#E85A9B",
+        pink: "#FF2D6F",
       },
       fontFamily: {
         display: ["var(--font-bebas)", "sans-serif"],
@@ -29,12 +31,9 @@ const config: Config = {
         mono: ["var(--font-dm)", "sans-serif"],
       },
       boxShadow: {
-        glass: "0 8px 32px rgba(15, 6, 12, 0.45)",
-        neonGlow: "0 0 24px rgba(162, 51, 182, 0.35)",
-        ctaGlow: "0 0 28px rgba(232, 90, 155, 0.4)",
-      },
-      backdropBlur: {
-        glass: "18px",
+        glass: "0 8px 32px rgba(0, 0, 0, 0.45)",
+        neonGlow: "0 0 24px rgba(255, 45, 111, 0.4)",
+        ctaGlow: "0 0 28px rgba(255, 45, 111, 0.45)",
       },
       keyframes: {
         rise: {
@@ -45,20 +44,15 @@ const config: Config = {
           "0%, 100%": { transform: "translateY(0)" },
           "50%": { transform: "translateY(-6px)" },
         },
-        shimmer: {
-          "0%": { transform: "translateX(-100%)" },
-          "100%": { transform: "translateX(100%)" },
-        },
         kenburns: {
           "0%": { transform: "scale(1) translate(0, 0)" },
-          "50%": { transform: "scale(1.06) translate(-1.2%, 0.6%)" },
+          "50%": { transform: "scale(1.05) translate(-0.8%, 0.4%)" },
           "100%": { transform: "scale(1) translate(0, 0)" },
         },
       },
       animation: {
         rise: "rise 0.9s cubic-bezier(0.16, 1, 0.3, 1) both",
         breathe: "breathe 4.5s ease-in-out infinite",
-        shimmer: "shimmer 2.2s ease-in-out infinite",
         kenburns: "kenburns 22s ease-in-out infinite",
       },
     },
