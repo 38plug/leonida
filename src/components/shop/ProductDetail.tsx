@@ -119,7 +119,7 @@ export function ProductDetail({ product }: { product: BoutiqueProduct }) {
             {product.inStock ? "Add to bag" : "Sold out"}
           </button>
           <p className="mt-4 text-[12px] text-mute">
-            Ships China → customer. Stock shown is editorial — live inventory wires later.
+            Stock shown is editorial — live inventory wires later.
           </p>
         </div>
       </div>

@@ -163,7 +163,7 @@ export function LandingPage() {
       <footer className="border-t border-white/[0.06] bg-void">
         <div className="mx-auto flex max-w-[1440px] flex-col gap-3 px-6 py-12 text-[12px] text-mute md:flex-row md:items-center md:justify-between md:px-10 lg:px-14">
           <p className="font-display text-lg tracking-[0.18em] text-white/80">LEONIDA</p>
-          <p>Not affiliated with Rockstar Games · China → customer</p>
+          <p>Not affiliated with Rockstar Games</p>
         </div>
       </footer>
     </div>
