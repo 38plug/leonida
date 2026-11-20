@@ -69,16 +69,19 @@ export function LandingPage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.55 }}
-              className="glass-chip mt-10 grid max-w-md grid-cols-3 gap-px overflow-hidden border border-mist/10"
+              className="glass-bar mt-10 grid max-w-md grid-cols-3 overflow-hidden"
             >
               {[
                 ["Drops", "Live"],
                 ["Pass", "Open"],
                 ["Orders", "0"],
-              ].map(([k, v]) => (
-                <div key={k} className="bg-void/50 px-3 py-3 text-center backdrop-blur-md">
-                  <p className="text-[10px] tracking-[0.16em] text-mute">{k}</p>
-                  <p className="mt-1 font-display text-2xl tracking-wide text-mist">{v}</p>
+              ].map(([k, v], i) => (
+                <div
+                  key={k}
+                  className={`px-3 py-3 text-center ${i > 0 ? "border-l border-[rgba(150,200,255,0.25)]" : ""}`}
+                >
+                  <p className="text-[10px] tracking-[0.16em] text-white/60">{k}</p>
+                  <p className="mt-1 font-display text-2xl tracking-wide text-white">{v}</p>
                 </div>
               ))}
             </motion.div>

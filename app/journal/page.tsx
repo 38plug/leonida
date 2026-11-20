@@ -16,7 +16,7 @@ export default function JournalPage() {
         {featured && (
           <Link
             href={`/journal/${featured.slug}`}
-            className="mt-14 grid gap-8 border border-mist/10 bg-ink/50 p-6 transition hover:border-mist/25 md:grid-cols-2 md:p-10"
+            className="glass-card mt-14 grid gap-8 p-6 transition md:grid-cols-2 md:p-10"
           >
             <div className={`flex min-h-[240px] items-end tile-glow-${featured.coverAccent} p-6`}>
               <span className="font-display text-5xl tracking-[0.06em]">{featured.category}</span>

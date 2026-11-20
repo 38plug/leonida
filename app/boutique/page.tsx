@@ -16,8 +16,13 @@ export default function BoutiquePage() {
             Exclusive drops for the Leonida night house. Same cinematic system as the lobby — not a bolted-on storefront.
           </p>
           <div id="collections" className="mt-8 flex flex-wrap gap-3">
-            {["All", "Apparel", "Accessories", "Jewelry", "Print"].map((c) => (
-              <span key={c} className="border border-mist/15 px-3 py-1.5 text-[11px] tracking-[0.12em] text-mute">
+            {["All", "Apparel", "Accessories", "Jewelry", "Print"].map((c, i) => (
+              <span
+                key={c}
+                className={`glass-chip px-3.5 py-1.5 text-[11px] tracking-[0.12em] text-white/80 ${
+                  i === 0 ? "glass-chip-active" : ""
+                }`}
+              >
                 {c}
               </span>
             ))}

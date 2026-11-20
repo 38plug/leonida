@@ -49,19 +49,16 @@ export function TopBar({
       <div className="flex shrink-0 items-center gap-2">
         {user ? (
           <>
-            <div className="flex items-center gap-1.5 border border-mist/15 bg-night px-3 py-2 text-sm text-gold">
+            <div className="glass-chip flex items-center gap-1.5 px-3 py-2 text-sm text-gold">
               <span>{user.currencyVc || COMMERCE.currency}</span>
               <span className="text-[11px] text-mute">VC</span>
             </div>
-            <button
-              type="button"
-              className="border border-mist/15 bg-ink px-3.5 py-2 text-xs font-medium text-mist transition hover:border-mist/30"
-            >
+            <button type="button" className="glass-chip-btn px-3.5 py-2 text-xs font-medium text-white/85">
               Enter code
             </button>
             <button
               type="button"
-              className="bg-gold px-3.5 py-2 text-xs font-semibold text-night transition hover:brightness-105"
+              className="rounded-full bg-gold px-3.5 py-2 text-xs font-semibold text-night transition hover:brightness-105"
             >
               Top up
             </button>
@@ -69,7 +66,7 @@ export function TopBar({
               <button
                 type="button"
                 onClick={onOpenAccount}
-                className="border border-mist/20 px-3.5 py-2 text-xs font-medium text-mist transition hover:border-mist/40"
+                className="glass-chip-btn px-3.5 py-2 text-xs font-medium text-white/85"
               >
                 Account
               </button>
@@ -77,7 +74,7 @@ export function TopBar({
               <button
                 type="button"
                 onClick={onOpenShop}
-                className="border border-mist/20 px-3.5 py-2 text-xs font-medium text-mist transition hover:border-mist/40"
+                className="glass-chip-btn px-3.5 py-2 text-xs font-medium text-white/85"
               >
                 Shop
               </button>
@@ -95,14 +92,14 @@ export function TopBar({
             <button
               type="button"
               onClick={() => openAuth("login")}
-              className="border border-mist/15 px-3.5 py-2 text-xs font-medium text-mist transition hover:border-mist/35"
+              className="glass-chip-btn px-3.5 py-2 text-xs font-medium text-white/85"
             >
               Log in
             </button>
             <button
               type="button"
               onClick={() => openAuth("register")}
-              className="bg-mist px-3.5 py-2 text-xs font-semibold text-night transition hover:bg-white"
+              className="rounded-full bg-mist px-3.5 py-2 text-xs font-semibold text-night transition hover:bg-white"
             >
               Register
             </button>

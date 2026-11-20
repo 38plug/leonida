@@ -17,12 +17,12 @@ export function ProductTile({ product }: { product: Product; index: number }) {
     <button
       type="button"
       disabled={product.locked}
-      className="group relative flex w-[128px] shrink-0 flex-col items-stretch gap-2.5 border border-mist/[0.1] bg-ink/80 px-2.5 py-3 text-left transition hover:border-mist/25 disabled:cursor-not-allowed disabled:opacity-55"
+      className="glass-card group relative flex w-[128px] shrink-0 flex-col items-stretch gap-2.5 !rounded-xl px-2.5 py-3 text-left disabled:cursor-not-allowed disabled:opacity-55"
       aria-label={`${product.name}${product.locked ? " (locked)" : ""}`}
     >
       <span className={`text-[10px] tracking-[0.12em] ${chip}`}>{product.rarity}</span>
       <span
-        className={`relative flex h-[84px] w-full items-center justify-center border border-mist/[0.06] ${
+        className={`relative flex h-[84px] w-full items-center justify-center rounded-lg border border-[rgba(150,200,255,0.25)] ${
           premium ? "tile-glow-gold" : "tile-glow-pink"
         }`}
       >

@@ -32,11 +32,13 @@ export default function ProductDetailPage() {
   return (
     <div className="bg-void pt-28 text-mist">
       <div className="mx-auto grid max-w-[1440px] gap-10 px-6 py-12 md:grid-cols-2 md:px-10 lg:px-14">
-        <div className={`relative flex aspect-[4/5] items-center justify-center border border-mist/10 tile-glow-${product.accent}`}>
+        <div className={`glass-card relative flex aspect-[4/5] items-center justify-center tile-glow-${product.accent}`}>
           {product.badge && (
-            <span className="absolute left-4 top-4 text-[10px] tracking-[0.16em] text-champagne">{product.badge}</span>
+            <span className="glass-chip absolute left-4 top-4 px-2.5 py-1 text-[10px] tracking-[0.16em] text-white/90">
+              {product.badge}
+            </span>
           )}
-          <span className="font-display text-[8rem] tracking-wide text-mist/85">{product.letter}</span>
+          <span className="font-display text-[8rem] tracking-wide text-white/85">{product.letter}</span>
         </div>
 
         <div className="flex flex-col justify-center">
@@ -56,8 +58,8 @@ export default function ProductDetailPage() {
                     key={c}
                     type="button"
                     onClick={() => setColor(c)}
-                    className={`border px-3 py-1.5 text-[12px] ${
-                      color === c ? "border-mist text-mist" : "border-mist/20 text-mute"
+                    className={`glass-chip px-3 py-1.5 text-[12px] ${
+                      color === c ? "glass-chip-active text-white" : "text-white/70"
                     }`}
                   >
                     {c}
@@ -73,8 +75,8 @@ export default function ProductDetailPage() {
                     key={s}
                     type="button"
                     onClick={() => setSize(s)}
-                    className={`border px-3 py-1.5 text-[12px] ${
-                      size === s ? "border-mist text-mist" : "border-mist/20 text-mute"
+                    className={`glass-chip px-3 py-1.5 text-[12px] ${
+                      size === s ? "glass-chip-active text-white" : "text-white/70"
                     }`}
                   >
                     {s}
@@ -84,11 +86,19 @@ export default function ProductDetailPage() {
             </div>
             <div className="flex items-center gap-3">
               <p className="text-[11px] tracking-[0.14em] text-mute">Qty</p>
-              <button type="button" className="h-8 w-8 border border-mist/20" onClick={() => setQty((q) => Math.max(1, q - 1))}>
+              <button
+                type="button"
+                className="glass-chip-btn flex h-8 w-8 items-center justify-center text-white"
+                onClick={() => setQty((q) => Math.max(1, q - 1))}
+              >
                 −
               </button>
               <span className="w-6 text-center">{qty}</span>
-              <button type="button" className="h-8 w-8 border border-mist/20" onClick={() => setQty((q) => q + 1)}>
+              <button
+                type="button"
+                className="glass-chip-btn flex h-8 w-8 items-center justify-center text-white"
+                onClick={() => setQty((q) => q + 1)}
+              >
                 +
               </button>
             </div>

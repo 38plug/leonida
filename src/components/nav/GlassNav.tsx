@@ -50,7 +50,7 @@ export function GlassNav() {
           </Link>
 
           <nav
-            className="hidden items-center gap-0.5 rounded-full bg-white/[0.06] p-1 ring-1 ring-white/10 lg:flex"
+            className="glass-chip hidden items-center gap-0.5 p-1 lg:flex"
             aria-label="Primary"
           >
             {LINKS.map((l) => (
