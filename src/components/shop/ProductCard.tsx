@@ -45,7 +45,9 @@ export function ProductCard({ product }: { product: BoutiqueProduct }) {
           </p>
           <h3 className="text-[15px] font-medium tracking-wide text-white">{product.name}</h3>
           <p className="text-[15px] font-semibold tabular-nums text-hot">
-            {product.inStock ? `$${product.priceUsd}` : "Sold out"}
+            {product.inStock
+              ? `$${Number.isInteger(product.priceUsd) ? product.priceUsd : product.priceUsd.toFixed(2)}`
+              : "Sold out"}
           </p>
         </div>
       </Link>

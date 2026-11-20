@@ -52,7 +52,12 @@ export function CartDrawer() {
                       </div>
                       <div className="min-w-0 flex-1">
                         <p className="truncate text-sm font-medium text-white">{line.product.name}</p>
-                        <p className="text-[12px] text-hot">${line.product.priceUsd}</p>
+                        <p className="text-[12px] text-hot">
+                          $
+                          {Number.isInteger(line.product.priceUsd)
+                            ? line.product.priceUsd
+                            : line.product.priceUsd.toFixed(2)}
+                        </p>
                         <div className="mt-2 flex items-center gap-2">
                           <button
                             type="button"

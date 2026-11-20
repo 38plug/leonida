@@ -51,6 +51,22 @@ export const PREMIUM_TRACK: Product[] = [
 
 export const BOUTIQUE: BoutiqueProduct[] = [
   {
+    id: "b0",
+    name: "Leonida Controller Stand",
+    slug: "leonida-controller-stand",
+    priceUsd: 59.99,
+    category: "Gear",
+    badge: "NEW",
+    description:
+      "Open-design 3D dock for dual-sense style pads — neon palm accents, Night Pass plaque, grab-and-go inclined support. Controller not included.",
+    colors: ["Night Pink", "Void"],
+    sizes: ["One size"],
+    letter: "C",
+    accent: "pink",
+    inStock: true,
+    image: "/media/products/controller-stand.png",
+  },
+  {
     id: "b1",
     name: "Neon Tee",
     slug: "neon-tee",
