@@ -7,8 +7,14 @@ import { ProductCard } from "@/components/shop/ProductCard";
 export default function BoutiquePage() {
   return (
     <div className="bg-void pt-28 text-mist">
-      <section className="relative overflow-hidden border-b border-white/[0.06]">
-        <div className="hero-atmosphere absolute inset-0 opacity-90" aria-hidden />
+      <section className="collections-hero relative overflow-hidden border-b border-white/[0.06]">
+        <div className="collections-siren" aria-hidden>
+          <span className="siren-orb siren-pink" />
+          <span className="siren-orb siren-blue" />
+          <span className="siren-orb siren-purple" />
+          <span className="siren-sweep" />
+          <span className="siren-flash" />
+        </div>
         <div className="relative z-10 mx-auto max-w-[1440px] px-6 py-16 md:px-10 md:py-20 lg:px-14">
           <h1 className="title-italic text-[clamp(3rem,7vw,4.5rem)] leading-none">Collections</h1>
           <p className="mt-5 max-w-lg text-[15px] leading-relaxed text-mute">
