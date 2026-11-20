@@ -1,8 +1,8 @@
 "use client";
 
 /**
- * Global Town Square money brick — continuous orbit video, transparent (no ground).
- * Sits to the left of the LEONIDA wordmark.
+ * Global Town Square money brick — continuous orbit, transparent (no plate).
+ * Animated WebP keeps alpha reliable across browsers; WebM is a progressive backup.
  */
 export function MoneyStack({ className = "" }: { className?: string }) {
   return (
@@ -11,19 +11,19 @@ export function MoneyStack({ className = "" }: { className?: string }) {
       aria-hidden="true"
       title="Global Town Square"
     >
-      <video
-        className="money-stack-video"
-        autoPlay
-        muted
-        loop
-        playsInline
-        preload="auto"
-        width={128}
-        height={128}
-      >
-        <source src="/media/brand/money-orbit.webm" type="video/webm" />
-        <source src="/media/brand/money-orbit.mp4" type="video/mp4" />
-      </video>
+      {/* Prefer animated WebP (true alpha). Video WebM is fallback for older Chromium. */}
+      <picture>
+        <source srcSet="/media/brand/money-orbit.webp" type="image/webp" />
+        <img
+          className="money-stack-video"
+          src="/media/brand/money-orbit-poster.png"
+          alt=""
+          width={128}
+          height={128}
+          decoding="async"
+          draggable={false}
+        />
+      </picture>
     </span>
   );
 }

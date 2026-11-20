@@ -417,10 +417,13 @@ body {
     border: none;
     box-shadow: none;
   }
+  .money-stack picture,
   .money-stack-video {
     display: block;
     width: 2.4rem;
     height: 2.4rem;
+  }
+  .money-stack-video {
     object-fit: contain;
     background: transparent !important;
     border: none;
