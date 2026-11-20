@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { LEONIDA_MAP, mapEmbedUrl } from "@/lib/map";
 
 type Props = {
@@ -11,8 +11,15 @@ type Props = {
 
 export function LeonidaLiveMap({ compact = false, className = "" }: Props) {
   const [region, setRegion] = useState<string>("");
+  const [mounted, setMounted] = useState(false);
   const [loaded, setLoaded] = useState(false);
   const src = useMemo(() => mapEmbedUrl(region || undefined), [region]);
+
+  // Mount iframe only on the client so password-manager extensions
+  // (e.g. Dashlane data-dashlane-frameid) cannot cause SSR hydration mismatches.
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   return (
     <div className={`flex flex-col gap-3 ${className}`}>
@@ -53,22 +60,24 @@ export function LeonidaLiveMap({ compact = false, className = "" }: Props) {
           compact ? "aspect-[16/11] min-h-[280px]" : "aspect-[16/10] min-h-[420px] md:min-h-[560px]"
         }`}
       >
-        {!loaded && (
+        {(!mounted || !loaded) && (
           <div className="absolute inset-0 z-[1] flex items-center justify-center bg-void/80 text-[13px] tracking-[0.12em] text-mute">
             Loading Leonida map…
           </div>
         )}
-        <iframe
-          key={src}
-          src={src}
-          title="Interactive Leonida map"
-          className="absolute inset-0 h-full w-full border-0"
-          loading="lazy"
-          allow="fullscreen"
-          allowFullScreen
-          referrerPolicy="no-referrer-when-downgrade"
-          onLoad={() => setLoaded(true)}
-        />
+        {mounted && (
+          <iframe
+            key={src}
+            src={src}
+            title="Interactive Leonida map"
+            className="absolute inset-0 h-full w-full border-0"
+            loading="lazy"
+            allow="fullscreen"
+            allowFullScreen
+            referrerPolicy="no-referrer-when-downgrade"
+            onLoad={() => setLoaded(true)}
+          />
+        )}
       </div>
 
       <p className="text-[11px] leading-relaxed text-mute">
