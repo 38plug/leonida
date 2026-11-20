@@ -1,0 +1,247 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-20T17:59:40Z",
+  "title": "Design System: Leonida",
+  "extensions": {
+    "colorMeta": {
+      "void": {
+        "role": "neutral",
+        "displayName": "Void",
+        "canonical": "#0A0A0C",
+        "tonalRamp": ["#07070A", "#0A0A0C", "#121218", "#1A1A22", "#3A3842", "#6A6670", "#9A94A0", "#F4F0F2"]
+      },
+      "night": {
+        "role": "neutral",
+        "displayName": "Night Stage",
+        "canonical": "#121218",
+        "tonalRamp": ["#08080C", "#121218", "#1A1A22", "#2A2A34", "#4A4854", "#7A7680", "#B4B0B8", "#F4F0F2"]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Ink",
+        "canonical": "#1A1A22",
+        "tonalRamp": ["#0C0C12", "#1A1A22", "#2A2A34", "#3E3C48", "#5C5866", "#8A8490", "#C4BEC6", "#F4F0F2"]
+      },
+      "mist": {
+        "role": "neutral",
+        "displayName": "Mist",
+        "canonical": "#F4F0F2",
+        "tonalRamp": ["#3A3840", "#6A6670", "#9A94A0", "#C4BEC4", "#E0DCE0", "#EDE8EA", "#F4F0F2", "#FBF8F9"]
+      },
+      "mute": {
+        "role": "neutral",
+        "displayName": "Mute",
+        "canonical": "#9A94A0",
+        "tonalRamp": ["#2A2830", "#4A4650", "#6A6670", "#9A94A0", "#B4AEB6", "#CDC8CE", "#E4E0E4", "#F4F0F2"]
+      },
+      "hot": {
+        "role": "primary",
+        "displayName": "Hot Pink",
+        "canonical": "#FF2D6F",
+        "tonalRamp": ["#5A1028", "#8A183C", "#C91852", "#FF2D6F", "#FF4D85", "#FF7AA4", "#FFB3C9", "#FFE0EA"]
+      },
+      "hot-dim": {
+        "role": "primary",
+        "displayName": "Hot Dim",
+        "canonical": "#C91852",
+        "tonalRamp": ["#4A0C24", "#7A1440", "#C91852", "#E02060", "#FF2D6F", "#FF6A94", "#FFA8C2", "#FFD6E4"]
+      },
+      "hot-hover": {
+        "role": "primary",
+        "displayName": "Hot Hover",
+        "canonical": "#FF4D85",
+        "tonalRamp": ["#5A1028", "#8A183C", "#C91852", "#FF2D6F", "#FF4D85", "#FF7AA4", "#FFB3C9", "#FFE0EA"]
+      },
+      "champagne": {
+        "role": "secondary",
+        "displayName": "Champagne",
+        "canonical": "#C4B5A0",
+        "tonalRamp": ["#2A2418", "#4A4030", "#7A6C54", "#C4B5A0", "#D4C8B4", "#E4DCCA", "#F0EAE0", "#F8F4EE"]
+      },
+      "teal": {
+        "role": "tertiary",
+        "displayName": "Teal",
+        "canonical": "#5EC8C4",
+        "tonalRamp": ["#0C2424", "#1A4848", "#2E7A78", "#5EC8C4", "#7ED8D4", "#A8E8E4", "#D0F4F2", "#E8FAF8"]
+      },
+      "gold": {
+        "role": "secondary",
+        "displayName": "Gold",
+        "canonical": "#D4B483",
+        "tonalRamp": ["#2A2010", "#4A3820", "#7A5C38", "#D4B483", "#E0C8A0", "#ECDCB8", "#F4E8D4", "#FAF4EA"]
+      },
+      "panel": {
+        "role": "neutral",
+        "displayName": "Panel",
+        "canonical": "rgba(18, 18, 24, 0.78)",
+        "tonalRamp": ["#08080C", "#121218", "#1A1A22", "#2A2A34", "#4A4854", "#7A7680", "#B4B0B8", "#F4F0F2"]
+      },
+      "panel-edge": {
+        "role": "neutral",
+        "displayName": "Panel Edge",
+        "canonical": "rgba(255, 255, 255, 0.08)",
+        "tonalRamp": ["#0A0A0C", "#1A1A22", "#2A2A34", "#3A3844", "#5A5864", "#8A8690", "#C4C0C6", "#F4F0F2"]
+      },
+      "glass-fill": {
+        "role": "neutral",
+        "displayName": "Glass Fill",
+        "canonical": "rgba(18, 14, 24, 0.42)",
+        "tonalRamp": ["#0A0810", "#121018", "#1C1624", "#2A2234", "#4A3C54", "#7A6C84", "#B4A8B8", "#F4F0F2"]
+      },
+      "glass-chip": {
+        "role": "neutral",
+        "displayName": "Glass Chip",
+        "canonical": "rgba(255, 255, 255, 0.05)",
+        "tonalRamp": ["#0A0A0C", "#16161C", "#24242C", "#3A3A44", "#5C5C66", "#8A8A94", "#C4C4CC", "#F4F0F2"]
+      },
+      "card": {
+        "role": "neutral",
+        "displayName": "Card",
+        "canonical": "rgba(22, 22, 30, 0.92)",
+        "tonalRamp": ["#0A0A0C", "#16161E", "#22222C", "#34343E", "#54545E", "#84848E", "#C0C0C6", "#F4F0F2"]
+      }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "Bebas Neue house shout and LEONIDA wordmark. Weight through size, never a gradient." },
+      "headline": { "displayName": "Headline", "purpose": "Instrument Serif italic section titles in hot pink (.title-italic)." },
+      "title": { "displayName": "Title", "purpose": "Manrope product names and working titles." },
+      "body": { "displayName": "Body", "purpose": "Manrope dek, about, and supporting copy." },
+      "label": { "displayName": "Label", "purpose": "Uppercase Manrope for CTAs, Bag, chips, and category tags." }
+    },
+    "shadows": [
+      { "name": "glass-nav", "value": "inset 0 1px 0 rgba(255, 230, 210, 0.35), inset 0 -1px 0 rgba(180, 120, 160, 0.14), 0 0 12px 1px rgba(232, 120, 160, 0.2), 0 0 28px 2px rgba(162, 80, 180, 0.16), 0 10px 32px rgba(0, 0, 0, 0.22)", "purpose": "Sunset-rim floating nav pill." },
+      { "name": "cta-glow", "value": "0 0 0 1px rgba(255, 45, 111, 0.4), 0 8px 28px rgba(255, 45, 111, 0.35)", "purpose": "Primary CTA rest bloom." },
+      { "name": "bag-hover", "value": "0 0 0 1px rgba(255, 255, 255, 0.25), 0 0 28px rgba(255, 45, 111, 0.65), 0 8px 18px rgba(0, 0, 0, 0.25)", "purpose": "Bag hover." },
+      { "name": "card", "value": "0 8px 28px rgba(0, 0, 0, 0.28)", "purpose": "Product and journal slabs at rest." },
+      { "name": "card-hover", "value": "0 14px 36px rgba(0, 0, 0, 0.38)", "purpose": "Product and journal slabs on hover." },
+      { "name": "drawer", "value": "0 24px 60px rgba(0, 0, 0, 0.5)", "purpose": "Bag drawer and mobile menu sheet." },
+      { "name": "focus-bloom", "value": "0 0 0 3px rgba(255, 45, 111, 0.15)", "purpose": "Field focus. Pair with hot seam at 0.55." },
+      { "name": "logo-glow", "value": "drop-shadow(0 0 6px rgba(232, 120, 160, 0.35))", "purpose": "Outer LEONIDA chip glow; must not clip." }
+    ],
+    "motion": [
+      { "name": "ease-out-expo", "value": "cubic-bezier(0.16, 1, 0.3, 1)", "purpose": "Default chrome and hero ease." },
+      { "name": "hero-rise", "value": "0.85s cubic-bezier(0.16, 1, 0.3, 1)", "purpose": "Hero headline entrance." },
+      { "name": "chip-hover", "value": "0.3s cubic-bezier(0.16, 1, 0.3, 1)", "purpose": "Glass chip / nav-link / logo transform." },
+      { "name": "discover-orbs", "value": "6.5s–12s ease-in-out infinite", "purpose": "Discover band light drift." },
+      { "name": "siren", "value": "5.5s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite", "purpose": "Collections hero wash — glide, not bounce." },
+      { "name": "drawer-spring", "value": "spring stiffness 280 damping 32", "purpose": "Bag drawer enter/exit." }
+    ],
+    "breakpoints": [
+      { "name": "sm", "value": "640px" },
+      { "name": "md", "value": "768px" },
+      { "name": "lg", "value": "1024px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Hot-pink conversion pill — Enter the Boutique, Account on mobile.",
+      "html": "<button class=\"ds-btn-primary\">Enter the Boutique</button>",
+      "css": ".ds-btn-primary { display: inline-flex; align-items: center; justify-content: center; border: 0; border-radius: 9999px; padding: 14px 32px; font-family: Manrope, sans-serif; font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #fff; background: #FF2D6F; box-shadow: 0 0 0 1px rgba(255, 45, 111, 0.4), 0 8px 28px rgba(255, 45, 111, 0.35); cursor: pointer; transition: background 0.22s ease, box-shadow 0.22s ease; } .ds-btn-primary:hover { background: #FF4D85; box-shadow: 0 0 0 1px rgba(255, 77, 133, 0.5), 0 10px 36px rgba(255, 45, 111, 0.45); } .ds-btn-primary:active { background: #C91852; } .ds-btn-primary:focus-visible { outline: 2px solid #FF2D6F; outline-offset: 3px; }"
+    },
+    {
+      "name": "Ghost Button",
+      "kind": "button",
+      "refersTo": "button-ghost",
+      "description": "Outlined hot-rim pill for the secondary hero action.",
+      "html": "<button class=\"ds-btn-ghost\">Read the Journal</button>",
+      "css": ".ds-btn-ghost { display: inline-flex; align-items: center; justify-content: center; border-radius: 9999px; padding: 14px 28px; font-family: Manrope, sans-serif; font-size: 12px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: #fff; background: rgba(0, 0, 0, 0.35); border: 1.5px solid rgba(255, 45, 111, 0.75); box-shadow: inset 0 0 0 1px rgba(255, 45, 111, 0.12); cursor: pointer; transition: background 0.22s ease, border-color 0.22s ease; } .ds-btn-ghost:hover { background: rgba(255, 45, 111, 0.18); border-color: #FF2D6F; } .ds-btn-ghost:focus-visible { outline: 2px solid #FF2D6F; outline-offset: 3px; }"
+    },
+    {
+      "name": "Bag Button",
+      "kind": "button",
+      "refersTo": "button-bag",
+      "description": "Compact hot pill in the nav. Count badge is white on hot numerals.",
+      "html": "<button class=\"ds-btn-bag\">Bag<span class=\"ds-btn-bag-count\">2</span></button>",
+      "css": ".ds-btn-bag { display: inline-flex; align-items: center; border: 0; border-radius: 9999px; padding: 6px 14px; font-family: Manrope, sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: #fff; background: #FF2D6F; box-shadow: 0 0 16px rgba(255, 45, 111, 0.35); cursor: pointer; transition: background 0.22s ease, transform 0.22s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.22s ease; } .ds-btn-bag:hover { background: #FF4D85; transform: translateY(-1px) scale(1.05); box-shadow: 0 0 0 1px rgba(255,255,255,0.25), 0 0 28px rgba(255, 45, 111, 0.65); } .ds-btn-bag-count { display: inline-flex; align-items: center; justify-content: center; margin-left: 6px; min-width: 16px; height: 16px; padding: 0 4px; border-radius: 9999px; background: #fff; color: #FF2D6F; font-size: 9px; font-weight: 700; letter-spacing: 0; }"
+    },
+    {
+      "name": "Glass Nav Link",
+      "kind": "nav",
+      "refersTo": "nav-link",
+      "description": "Sunset-rim glass chip used for Discover / Boutique / Map / Journal / About.",
+      "html": "<nav class=\"ds-nav\"><a class=\"ds-nav-link\" href=\"#\">Boutique</a><a class=\"ds-nav-link ds-nav-link-active\" href=\"#\">Map</a></nav>",
+      "css": ".ds-nav { display: inline-flex; gap: 6px; padding: 8px; border-radius: 9999px; background: rgba(18, 14, 24, 0.42); border: 1px solid rgba(255, 200, 180, 0.32); box-shadow: inset 0 1px 0 rgba(255, 230, 210, 0.35), 0 10px 32px rgba(0,0,0,0.22); } .ds-nav-link { display: inline-flex; align-items: center; height: 2.15rem; padding: 0 0.95rem; border-radius: 9999px; border: 1px solid rgba(255, 200, 180, 0.22); background: rgba(255,255,255,0.05); color: rgba(255,255,255,0.78); font-family: Manrope, sans-serif; font-size: 12px; font-weight: 500; letter-spacing: 0.06em; text-decoration: none; transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), background 0.3s ease, color 0.3s ease; } .ds-nav-link:hover { color: #fff; background: rgba(255,255,255,0.18); border-color: rgba(255, 200, 170, 0.85); transform: translateY(-1px) scale(1.03); } .ds-nav-link-active { color: #fff; background: rgba(255,255,255,0.12); border-color: rgba(255, 180, 160, 0.55); box-shadow: 0 0 16px rgba(255, 45, 111, 0.28); }"
+    },
+    {
+      "name": "Glass Chip",
+      "kind": "chip",
+      "refersTo": "chip",
+      "description": "Filter / Account chip. Active state uses a hot veil.",
+      "html": "<div><span class=\"ds-chip ds-chip-active\">All</span><span class=\"ds-chip\">Apparel</span></div>",
+      "css": ".ds-chip { display: inline-flex; align-items: center; margin-right: 8px; padding: 8px 16px; border-radius: 9999px; border: 1px solid rgba(255, 200, 180, 0.22); background: rgba(255,255,255,0.05); color: rgba(255,255,255,0.65); font-family: Manrope, sans-serif; font-size: 11px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; } .ds-chip-active { border-color: rgba(255, 45, 111, 0.55); background: rgba(255, 45, 111, 0.14); color: #FF2D6F; }"
+    },
+    {
+      "name": "Hot Tag",
+      "kind": "chip",
+      "refersTo": "tag-hot",
+      "description": "Solid hot badge for NEW / DROP / journal category.",
+      "html": "<span class=\"ds-tag-hot\">NEW</span>",
+      "css": ".ds-tag-hot { display: inline-flex; align-items: center; border-radius: 6px; padding: 2px 8px; background: #FF2D6F; color: #fff; font-family: Manrope, sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; }"
+    },
+    {
+      "name": "Product Card",
+      "kind": "card",
+      "refersTo": "panel-card",
+      "description": "Charcoal 4:5 merchandise slab. Not glass. Hover lifts 1px and warms the rim.",
+      "html": "<article class=\"ds-card\"><div class=\"ds-card-media\"><span class=\"ds-tag-hot\">NEW</span></div><div class=\"ds-card-body\"><p class=\"ds-card-cat\">Gear</p><h3 class=\"ds-card-name\">Leonida Controller Stand</h3><p class=\"ds-card-price\">$49.99</p></div><button class=\"ds-card-add\">Quick add</button></article>",
+      "css": ".ds-card { overflow: hidden; border-radius: 16px; background: rgba(22, 22, 30, 0.92); border: 1px solid rgba(255,255,255,0.08); box-shadow: 0 8px 28px rgba(0,0,0,0.28); color: #F4F0F2; font-family: Manrope, sans-serif; transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease; } .ds-card:hover { transform: translateY(-4px); border-color: rgba(255, 45, 111, 0.35); box-shadow: 0 14px 36px rgba(0,0,0,0.38); } .ds-card-media { position: relative; aspect-ratio: 4 / 5; background: linear-gradient(180deg, #2a1020, #0e0e14); } .ds-tag-hot { position: absolute; left: 12px; top: 12px; border-radius: 6px; padding: 2px 8px; background: #FF2D6F; color: #fff; font-size: 10px; font-weight: 700; letter-spacing: 0.12em; } .ds-card-body { padding: 16px; } .ds-card-cat { margin: 0; font-size: 10px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #9A94A0; } .ds-card-name { margin: 4px 0 0; font-size: 15px; font-weight: 500; color: #fff; } .ds-card-price { margin: 4px 0 0; font-size: 15px; font-weight: 600; color: #FF2D6F; } .ds-card-add { width: 100%; border: 0; border-top: 1px solid rgba(255,255,255,0.06); background: transparent; color: rgba(255,255,255,0.7); padding: 10px; font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; cursor: pointer; } .ds-card-add:hover { background: #FF2D6F; color: #fff; }"
+    },
+    {
+      "name": "Field Input",
+      "kind": "input",
+      "refersTo": "input-field",
+      "description": "Auth and account fields — near-black well, hot focus bloom.",
+      "html": "<label class=\"ds-field\"><span>Email</span><input class=\"ds-input\" placeholder=\"you@night.house\" /></label>",
+      "css": ".ds-field { display: grid; gap: 8px; font-family: Manrope, sans-serif; color: #9A94A0; font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; } .ds-input { width: 100%; border-radius: 12px; border: 1px solid rgba(255,255,255,0.12); background: rgba(10, 10, 14, 0.85); padding: 0.7rem 0.85rem; font-size: 0.875rem; color: #F4F0F2; outline: none; } .ds-input::placeholder { color: #9A94A0; } .ds-input:focus { border-color: rgba(255, 45, 111, 0.55); box-shadow: 0 0 0 3px rgba(255, 45, 111, 0.15); }"
+    },
+    {
+      "name": "Italic Title",
+      "kind": "custom",
+      "refersTo": "headline",
+      "description": "Instrument Serif italic section voice in hot pink with a dusk glow.",
+      "html": "<h2 class=\"ds-title-italic\">Collections</h2>",
+      "css": ".ds-title-italic { margin: 0; font-family: \"Instrument Serif\", Georgia, serif; font-style: italic; font-weight: 400; font-size: clamp(2.5rem, 5vw, 3.75rem); line-height: 1; color: #FF2D6F; text-shadow: 0 1px 0 rgba(80, 10, 40, 0.35), 0 2px 4px rgba(0, 0, 0, 0.45), 0 8px 24px rgba(0, 0, 0, 0.5), 0 0 28px rgba(255, 45, 111, 0.35); }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Charcoal Night House",
+    "overview": "Leonida is a cinematic night-city lifestyle house: one keyed dusk photograph, charcoal panels, and a single hot-pink conversion color. It borrows GTA-VI–era dashboard heat (hot CTAs, italic pink titles, dark raised stages) without Rockstar marks or affiliation. The first viewport is a full-bleed scene with a left type stack — Instrument Serif italic “Vice City” over Bebas “NEVER PLAYS / BY THE RULES.” — then two pill CTAs. No metric strip, no centered SaaS logo stack, no gradient-filled display type.\n\nChrome is sunset-rim glass (nav pill, chips, bag-adjacent controls). Merchandise cards are opaque charcoal slabs, not liquid-glass tiles. Atmosphere (Discover orbs, Collections siren wash) is pink / purple / blue light in the air, not a second brand fill.\n\nDensity is generous editorial: max-w-[1440px], gutters 24 / 40 / 56, section padding 80 / 112. Motion is exponential ease-out (cubic-bezier(0.16, 1, 0.3, 1)), one authored entrance in the hero, then hover lift on chrome and cards. Inner pages sit on void with a fixed glass nav; they are not a second product look.",
+    "keyCharacteristics": [
+      "Near-black void ground (#0A0A0C) with a charcoal raised stage (#121218)",
+      "Hot pink (#FF2D6F) as the only conversion color — CTAs, Bag, prices, active tags",
+      "Sunset-rim glass on nav/chips; opaque charcoal on product and journal cards",
+      "Bebas Neue for LEONIDA / display stacks, Instrument Serif italic for section titles, Manrope for UI",
+      "Keyed cinematic hero (character + car + highway) as the signature artifact",
+      "Pink/blue/purple light only as atmospheric wash, never as card chrome"
+    ],
+    "rules": [
+      { "name": "The Hot Rarity Rule", "body": "#FF2D6F is conversion, not wallpaper. It belongs on the irreversible CTA, Bag, price, focus ring, and a hot tag. It does not fill heroes, cards, or nav bars.", "section": "colors" },
+      { "name": "The Charcoal-Not-Navy Rule", "body": "Ground and panels stay in the #0A0A0C / #121218 / #1A1A22 family. Do not restyle the house onto #0B0716 / #E85A9B from stale brand-spec notes — those values are not the shipped CSS.", "section": "colors" },
+      { "name": "The Three-Voice Rule", "body": "Bebas signs the house. Instrument Serif italic titles the rooms. Manrope does the work. Do not set body in Bebas or CTAs in serif.", "section": "typography" },
+      { "name": "The No-Gradient-Type Rule", "body": "Display type is solid white or hot pink. Do not fill headlines with gradients.", "section": "typography" },
+      { "name": "The Glass-Is-Chrome Rule", "body": "Frosted glass belongs on the nav pill, chips, Bag-adjacent controls, and the cart drawer. Product and journal cards are charcoal slabs (panel-card). Do not glass every tile.", "section": "elevation" },
+      { "name": "The One-Pixel Lift Rule", "body": "Hover on chips, Bag, logo, and cards is translateY(-1px) (cards also scale on the photo). Anything larger leaves the house.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do keep void / night / ink as the ground family and #FF2D6F as the only conversion color.",
+      "Do set section titles in Instrument Serif italic (.title-italic) and house wordmarks in Bebas.",
+      "Do use Manrope for UI — it is what --font-dm actually loads.",
+      "Do put glass on nav, chips, and the bag drawer; put charcoal slabs on product and journal cards.",
+      "Do keep the hero as one keyed scene with a left type stack and two pill CTAs.",
+      "Do keep the logo glow on an outer filter: drop-shadow wrap so it does not clip to a rectangle.",
+      "Do honor prefers-reduced-motion by dropping orb, siren, ken-burns, and chrome transform animations."
+    ],
+    "donts": [
+      "Don't introduce Inter, Roboto, Arial, or a cream/terracotta palette. Do not switch UI to DM Sans to match stale docs — the build is Manrope.",
+      "Don't fill display type with gradients or put a metric/stat strip in the hero.",
+      "Don't glass every card or restyle chrome as cyan “liquid glass.”",
+      "Don't copy page-title eyebrows (LIVE MAP, ABOUT in 11px tracked champagne) onto new surfaces — they are inner-page leftovers, not system law.",
+      "Don't treat pink/blue/purple orb washes as a brand palette for buttons or type.",
+      "Don't use Rockstar, Take-Two, or GTA marks. Atmosphere is allowed; affiliation is not.",
+      "Don't invent vanity commerce numbers. Sold counts stay at zero until real orders exist."
+    ]
+  }
+}
