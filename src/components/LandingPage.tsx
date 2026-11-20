@@ -29,7 +29,7 @@ export function LandingPage() {
               <span className="title-italic block text-[clamp(2.75rem,8vw,5.5rem)] leading-[0.92]">
                 Vice City
               </span>
-              <span className="mt-1 block font-display text-[clamp(3.2rem,9vw,6.5rem)] leading-[0.86] tracking-[0.02em] text-white">
+              <span className="lettering-depth-display mt-1 block font-display text-[clamp(3.2rem,9vw,6.5rem)] leading-[0.86] tracking-[0.02em] text-white">
                 NEVER PLAYS
                 <br />
                 BY THE RULES.

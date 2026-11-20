@@ -44,7 +44,7 @@ export function GlassNav() {
           style={{ height: scrolled ? 52 : 58 }}
         >
           <Link href="/" className="nav-logo flex shrink-0 items-baseline gap-2">
-            <span className="font-display text-[1.3rem] tracking-[0.22em] text-white drop-shadow-[0_1px_8px_rgba(0,0,0,0.45)] md:text-[1.4rem]">
+            <span className="lettering-depth font-display text-[1.3rem] tracking-[0.22em] text-white md:text-[1.4rem]">
               LEONIDA
             </span>
           </Link>
