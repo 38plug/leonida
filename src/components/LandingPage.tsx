@@ -163,7 +163,7 @@ export function LandingPage() {
               <Link
                 key={post.slug}
                 href={`/journal/${post.slug}`}
-                className="panel-card group flex flex-col overflow-hidden"
+                className="panel-card media-project-sm group flex flex-col overflow-hidden"
               >
                 <div
                   className={`relative flex min-h-[180px] items-end overflow-hidden p-5 tile-glow-${post.coverAccent}`}
@@ -180,10 +180,12 @@ export function LandingPage() {
                   <span className="tag-hot relative z-10">{post.category}</span>
                 </div>
                 <div className="flex flex-1 flex-col p-5">
-                  <h3 className="font-serif text-2xl leading-snug text-white transition group-hover:text-hot">
+                  <h3 className="type-project font-serif text-2xl leading-snug text-white transition group-hover:text-hot">
                     {post.title}
                   </h3>
-                  <p className="mt-3 flex-1 text-[14px] leading-relaxed text-mute">{post.dek}</p>
+                  <p className="type-project-soft mt-3 flex-1 text-[14px] leading-relaxed text-mute">
+                    {post.dek}
+                  </p>
                   <span className="mt-5 text-[12px] tracking-[0.08em] text-white/50 transition group-hover:text-hot">
                     Read →
                   </span>

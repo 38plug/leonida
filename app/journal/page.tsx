@@ -10,14 +10,14 @@ export default function JournalPage() {
       <PageAtmosphere />
       <div className="relative z-10 mx-auto max-w-[1440px] px-6 py-14 md:px-10 lg:px-14">
         <h1 className="title-italic text-[clamp(3rem,7vw,4.5rem)] leading-none">Journal</h1>
-        <p className="mt-4 max-w-lg text-[15px] text-mute">
+        <p className="type-project-soft mt-4 max-w-lg text-[15px] text-mute">
           Hottest Leonida dispatches — launch night, stream records, and the map that ate the timeline.
         </p>
 
         {featured && (
           <Link
             href={`/journal/${featured.slug}`}
-            className="panel-card mt-14 grid gap-0 overflow-hidden transition md:grid-cols-2"
+            className="panel-card media-project mt-14 grid gap-0 overflow-hidden transition md:grid-cols-2"
           >
             <div
               className={`relative flex min-h-[260px] items-end overflow-hidden p-6 tile-glow-${featured.coverAccent} md:p-8`}
@@ -34,8 +34,12 @@ export default function JournalPage() {
               <span className="tag-hot relative z-10">{featured.category}</span>
             </div>
             <div className="flex flex-col justify-center p-6 md:p-10">
-              <h2 className="font-serif text-3xl text-white md:text-4xl">{featured.title}</h2>
-              <p className="mt-4 text-[15px] leading-relaxed text-mute">{featured.dek}</p>
+              <h2 className="type-project font-serif text-3xl text-white md:text-4xl">
+                {featured.title}
+              </h2>
+              <p className="type-project-soft mt-4 text-[15px] leading-relaxed text-mute">
+                {featured.dek}
+              </p>
               <span className="mt-8 text-[12px] font-medium tracking-[0.1em] text-hot">
                 Read feature →
               </span>
@@ -48,7 +52,7 @@ export default function JournalPage() {
             <li key={post.slug}>
               <Link
                 href={`/journal/${post.slug}`}
-                className="panel-card grid gap-3 overflow-hidden p-0 transition md:grid-cols-12 md:items-stretch md:gap-0"
+                className="panel-card media-project-sm grid gap-3 overflow-hidden p-0 transition md:grid-cols-12 md:items-stretch md:gap-0"
               >
                 <div className="relative min-h-[120px] overflow-hidden md:col-span-3">
                   {"coverImage" in post && post.coverImage ? (
@@ -64,10 +68,12 @@ export default function JournalPage() {
                 </div>
                 <div className="flex flex-col gap-3 p-5 md:col-span-9 md:grid md:grid-cols-9 md:items-center md:gap-8 md:p-6">
                   <span className="tag-hot w-fit md:col-span-2">{post.category}</span>
-                  <span className="font-serif text-2xl text-white md:col-span-3 md:text-3xl">
+                  <span className="type-project font-serif text-2xl text-white md:col-span-3 md:text-3xl">
                     {post.title}
                   </span>
-                  <span className="text-[14px] text-mute md:col-span-4">{post.dek}</span>
+                  <span className="type-project-soft text-[14px] text-mute md:col-span-4">
+                    {post.dek}
+                  </span>
                 </div>
               </Link>
             </li>
