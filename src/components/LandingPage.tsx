@@ -67,7 +67,7 @@ export function LandingPage() {
         className="discover-band relative isolate overflow-hidden border-y border-white/[0.06]"
       >
         <div aria-hidden className="discover-band-bg pointer-events-none absolute inset-0 -z-10">
-          <picture>
+          <picture className="discover-band-photo">
             <source srcSet="/media/discover/discover-blur.webp" type="image/webp" />
             <img
               src="/media/discover/discover-blur.png"
@@ -78,6 +78,10 @@ export function LandingPage() {
               decoding="async"
             />
           </picture>
+          <span className="discover-orb discover-orb-pink" />
+          <span className="discover-orb discover-orb-purple" />
+          <span className="discover-orb discover-orb-blue" />
+          <span className="discover-orb discover-orb-magenta" />
         </div>
         <div className="mx-auto grid max-w-[1440px] gap-8 px-6 py-20 md:grid-cols-12 md:gap-12 md:px-10 md:py-28 lg:px-14">
           <h2 className="title-italic text-[clamp(2.5rem,5vw,3.75rem)] leading-none md:col-span-5">

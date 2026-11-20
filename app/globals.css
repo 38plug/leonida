@@ -615,25 +615,133 @@ body {
     background: #0a0a0c;
   }
 
-  /* Discover band — pink/purple/blue blur wash */
+  /* Discover band — drifting pink / purple / blue wash */
   .discover-band {
     background: #0c0a14;
   }
   .discover-band-bg {
     inset: 0;
+    overflow: hidden;
   }
-  .discover-band-bg img {
-    transform: scale(1.04);
-    filter: saturate(1.08);
+  .discover-band-photo {
+    position: absolute;
+    inset: -12%;
+    display: block;
+    width: 124%;
+    height: 124%;
+    animation: discover-pan 28s ease-in-out infinite alternate;
+    will-change: transform;
+  }
+  .discover-band-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: saturate(1.15) contrast(1.05);
+  }
+  .discover-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(56px);
+    mix-blend-mode: screen;
+    opacity: 0.72;
+    will-change: transform;
+    pointer-events: none;
+  }
+  .discover-orb-pink {
+    width: min(58vw, 520px);
+    height: min(58vw, 520px);
+    left: -8%;
+    top: -35%;
+    background: radial-gradient(circle, rgba(255, 45, 111, 0.85) 0%, rgba(255, 45, 111, 0) 70%);
+    animation: discover-drift-a 18s ease-in-out infinite;
+  }
+  .discover-orb-purple {
+    width: min(52vw, 480px);
+    height: min(52vw, 480px);
+    left: 32%;
+    top: -20%;
+    background: radial-gradient(circle, rgba(150, 70, 230, 0.8) 0%, rgba(120, 60, 220, 0) 70%);
+    animation: discover-drift-b 22s ease-in-out infinite;
+  }
+  .discover-orb-blue {
+    width: min(56vw, 500px);
+    height: min(56vw, 500px);
+    right: -10%;
+    top: -28%;
+    background: radial-gradient(circle, rgba(70, 120, 255, 0.78) 0%, rgba(50, 90, 230, 0) 70%);
+    animation: discover-drift-c 20s ease-in-out infinite;
+  }
+  .discover-orb-magenta {
+    width: min(40vw, 360px);
+    height: min(40vw, 360px);
+    left: 48%;
+    bottom: -40%;
+    background: radial-gradient(circle, rgba(220, 60, 180, 0.55) 0%, transparent 70%);
+    animation: discover-drift-d 16s ease-in-out infinite;
   }
   .discover-band-bg::after {
     content: "";
     position: absolute;
     inset: 0;
+    z-index: 1;
     background:
-      linear-gradient(180deg, rgba(8, 6, 16, 0.35) 0%, transparent 28%, transparent 72%, rgba(8, 6, 16, 0.4) 100%),
-      linear-gradient(90deg, rgba(12, 8, 20, 0.2) 0%, transparent 30%, transparent 70%, rgba(8, 10, 24, 0.25) 100%);
+      linear-gradient(180deg, rgba(8, 6, 16, 0.32) 0%, transparent 28%, transparent 72%, rgba(8, 6, 16, 0.38) 100%),
+      linear-gradient(90deg, rgba(12, 8, 20, 0.18) 0%, transparent 30%, transparent 70%, rgba(8, 10, 24, 0.22) 100%);
     pointer-events: none;
+  }
+
+  @keyframes discover-pan {
+    0% {
+      transform: translate3d(-2%, -1%, 0) scale(1.02);
+    }
+    100% {
+      transform: translate3d(2%, 1.5%, 0) scale(1.08);
+    }
+  }
+  @keyframes discover-drift-a {
+    0%,
+    100% {
+      transform: translate3d(0, 0, 0) scale(1);
+    }
+    33% {
+      transform: translate3d(18%, 28%, 0) scale(1.15);
+    }
+    66% {
+      transform: translate3d(8%, 55%, 0) scale(0.92);
+    }
+  }
+  @keyframes discover-drift-b {
+    0%,
+    100% {
+      transform: translate3d(0, 0, 0) scale(1.05);
+    }
+    40% {
+      transform: translate3d(-22%, 40%, 0) scale(1.2);
+    }
+    70% {
+      transform: translate3d(16%, 20%, 0) scale(0.9);
+    }
+  }
+  @keyframes discover-drift-c {
+    0%,
+    100% {
+      transform: translate3d(0, 10%, 0) scale(1);
+    }
+    35% {
+      transform: translate3d(-28%, 45%, 0) scale(1.18);
+    }
+    65% {
+      transform: translate3d(-12%, 5%, 0) scale(0.95);
+    }
+  }
+  @keyframes discover-drift-d {
+    0%,
+    100% {
+      transform: translate3d(0, 0, 0) scale(1);
+    }
+    50% {
+      transform: translate3d(-30%, -45%, 0) scale(1.25);
+    }
   }
 
   .hero-atmosphere {
@@ -725,6 +833,13 @@ body {
     transform: none !important;
   }
   .money-stack-video {
+    animation: none !important;
+  }
+  .discover-band-photo,
+  .discover-orb-pink,
+  .discover-orb-purple,
+  .discover-orb-blue,
+  .discover-orb-magenta {
     animation: none !important;
   }
 }
