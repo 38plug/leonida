@@ -9,7 +9,7 @@ export default function JournalPage() {
       <div className="mx-auto max-w-[1440px] px-6 py-14 md:px-10 lg:px-14">
         <h1 className="title-italic text-[clamp(3rem,7vw,4.5rem)] leading-none">Journal</h1>
         <p className="mt-4 max-w-lg text-[15px] text-mute">
-          Lifestyle dispatch for the night city — culture, ops, and the boutique.
+          Hottest Leonida dispatches — launch night, stream records, and the map that ate the timeline.
         </p>
 
         {featured && (
@@ -18,9 +18,18 @@ export default function JournalPage() {
             className="panel-card mt-14 grid gap-0 overflow-hidden transition md:grid-cols-2"
           >
             <div
-              className={`flex min-h-[260px] items-end p-6 tile-glow-${featured.coverAccent} md:p-8`}
+              className={`relative flex min-h-[260px] items-end overflow-hidden p-6 tile-glow-${featured.coverAccent} md:p-8`}
             >
-              <span className="tag-hot">{featured.category}</span>
+              {"coverImage" in featured && featured.coverImage ? (
+                // eslint-disable-next-line @next/next/no-img-element
+                <img
+                  src={featured.coverImage}
+                  alt=""
+                  className="absolute inset-0 h-full w-full object-cover"
+                />
+              ) : null}
+              <div className="absolute inset-0 bg-gradient-to-t from-void/85 via-void/25 to-transparent" />
+              <span className="tag-hot relative z-10">{featured.category}</span>
             </div>
             <div className="flex flex-col justify-center p-6 md:p-10">
               <h2 className="font-serif text-3xl text-white md:text-4xl">{featured.title}</h2>
@@ -37,13 +46,27 @@ export default function JournalPage() {
             <li key={post.slug}>
               <Link
                 href={`/journal/${post.slug}`}
-                className="panel-card grid gap-3 p-5 transition md:grid-cols-12 md:items-center md:gap-8 md:p-6"
+                className="panel-card grid gap-3 overflow-hidden p-0 transition md:grid-cols-12 md:items-stretch md:gap-0"
               >
-                <span className="tag-hot w-fit md:col-span-2">{post.category}</span>
-                <span className="font-serif text-2xl text-white md:col-span-4 md:text-3xl">
-                  {post.title}
-                </span>
-                <span className="text-[14px] text-mute md:col-span-5 md:col-start-8">{post.dek}</span>
+                <div className="relative min-h-[120px] overflow-hidden md:col-span-3">
+                  {"coverImage" in post && post.coverImage ? (
+                    // eslint-disable-next-line @next/next/no-img-element
+                    <img
+                      src={post.coverImage}
+                      alt=""
+                      className="absolute inset-0 h-full w-full object-cover"
+                    />
+                  ) : (
+                    <div className={`absolute inset-0 tile-glow-${post.coverAccent}`} />
+                  )}
+                </div>
+                <div className="flex flex-col gap-3 p-5 md:col-span-9 md:grid md:grid-cols-9 md:items-center md:gap-8 md:p-6">
+                  <span className="tag-hot w-fit md:col-span-2">{post.category}</span>
+                  <span className="font-serif text-2xl text-white md:col-span-3 md:text-3xl">
+                    {post.title}
+                  </span>
+                  <span className="text-[14px] text-mute md:col-span-4">{post.dek}</span>
+                </div>
               </Link>
             </li>
           ))}

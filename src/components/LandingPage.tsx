@@ -164,9 +164,18 @@ export function LandingPage() {
                 className="panel-card group flex flex-col overflow-hidden"
               >
                 <div
-                  className={`relative flex min-h-[180px] items-end p-5 tile-glow-${post.coverAccent}`}
+                  className={`relative flex min-h-[180px] items-end overflow-hidden p-5 tile-glow-${post.coverAccent}`}
                 >
-                  <span className="tag-hot">{post.category}</span>
+                  {"coverImage" in post && post.coverImage ? (
+                    // eslint-disable-next-line @next/next/no-img-element
+                    <img
+                      src={post.coverImage}
+                      alt=""
+                      className="absolute inset-0 h-full w-full object-cover transition duration-500 group-hover:scale-[1.03]"
+                    />
+                  ) : null}
+                  <div className="absolute inset-0 bg-gradient-to-t from-void/80 via-void/20 to-transparent" />
+                  <span className="tag-hot relative z-10">{post.category}</span>
                 </div>
                 <div className="flex flex-1 flex-col p-5">
                   <h3 className="font-serif text-2xl leading-snug text-white transition group-hover:text-hot">

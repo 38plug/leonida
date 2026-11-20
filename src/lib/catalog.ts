@@ -212,35 +212,43 @@ export const BOUTIQUE: BoutiqueProduct[] = [
 
 export const JOURNAL_POSTS = [
   {
-    slug: "night-lane-opens",
-    title: "The night lane opens",
+    slug: "vice-city-unlock",
+    title: "Vice City unlocks at midnight",
     category: "Dispatch",
-    dek: "China factory QC, then carrier to the door. No warehouse fiction.",
-    body: "The boutique ships from verified factory floors — inspection first, then carrier. Leonida News will not invent transit stories. When an order leaves China, you see the same trail Pedro sees.",
+    dek: "Nov 19 drop on PS5 and Xbox. The night city is no longer a trailer.",
+    body:
+      "Grand Theft Auto VI hit consoles at midnight local on November 19 — PlayStation 5 and Xbox Series first, PC still queued for 2027. New Zealand opened the door a beat early; the rest of the map followed. Leonida Journal covers the culture around the launch, not the license. We are not Rockstar. We are the mood board for the night that finally arrived — and the merch desk for people living in that glow.",
+    coverImage: "/media/journal/launch-night.webp",
     coverAccent: "pink" as const,
   },
   {
-    slug: "agents-stay-gated",
-    title: "Agents stay gated",
-    category: "Ops",
-    dek: "Spend and publish never auto-fire. The wallet stays human.",
-    body: "Vice Ops agents work the floor. Budgets and publishes wait for Pedro. That gate is the product — AI speed with human brakes.",
+    slug: "twitch-breaks-the-grid",
+    title: "Twitch breaks the grid",
+    category: "Culture",
+    dek: "Nearly 8M concurrent across platforms. Leonida ate the livestream chart.",
+    body:
+      "Launch week rewrote the stream board: peaks near 3.3 million on Twitch alone and close to eight million concurrent across Twitch, YouTube, and Kick. DE-CIX clocked a fresh internet-exchange high the night before unlock. English rooms mattered; Spanish and Brazilian rooms roared louder than the old playbook. Dual protagonists make co-watch culture feel inevitable — Lucia and Jason as the new shared camera. We track the heat so the boutique stays timed to what people actually talk about.",
+    coverImage: "/media/journal/dual-skyline.webp",
     coverAccent: "gold" as const,
   },
   {
-    slug: "night-pass-zero",
-    title: "Night Pass at zero",
-    category: "Boutique",
-    dek: "Tracks are live. Metrics stay empty until someone buys.",
-    body: "Standard and premium rails are seeded. Points, orders, and revenue start at zero. Vanity dashboards are not Leonida.",
+    slug: "six-regions-one-map",
+    title: "Six regions, one map",
+    category: "Ops",
+    dek: "Vice City, Keys, Grassrivers, Port Gellhorn, Ambrosia, Mount Kalaga.",
+    body:
+      "The official Leonida layout is out of rumor and into pins — six regions spanning neon downtown, keys, wetlands, ports, inland Ambrosia, and Mount Kalaga National Park. Fan maps are already stacking hundreds of markers for shops, missions, and jumps. Our live map page rides that same hunger: orient fast, then buy the neon that matches the skyline. Atmosphere first. Affiliation never.",
+    coverImage: "/media/journal/leonida-map.webp",
     coverAccent: "teal" as const,
   },
   {
-    slug: "vice-city-dusk",
+    slug: "dusk-over-the-swamp",
     title: "Dusk over the swamp",
-    category: "Culture",
+    category: "Boutique",
     dek: "The skyline is a mood, not a license.",
-    body: "Leonida borrows atmosphere — swamp light, neon edge, night heat — without claiming Rockstar’s world. Original characters. Original house.",
+    body:
+      "Leonida borrows swamp light, neon edge, and night heat without claiming Rockstar’s world. Original characters. Original house. When the internet floods with launch clips, we keep the boutique honest — controller stands, wall neon, Night Pass rails — built for people who want the vibe after the stream ends.",
+    coverImage: "/media/journal/launch-night.webp",
     coverAccent: "champagne" as const,
   },
 ];

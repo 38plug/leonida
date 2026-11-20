@@ -29,7 +29,18 @@ export default function JournalArticlePage() {
         <p className="text-[11px] tracking-[0.2em] text-champagne">{post.category}</p>
         <h1 className="mt-4 font-serif text-4xl leading-tight md:text-5xl">{post.title}</h1>
         <p className="mt-6 font-serif text-xl italic text-mute">{post.dek}</p>
-        <div className={`mt-10 min-h-[200px] border border-mist/10 tile-glow-${post.coverAccent}`} />
+        <div
+          className={`relative mt-10 min-h-[220px] overflow-hidden border border-mist/10 tile-glow-${post.coverAccent} md:min-h-[320px]`}
+        >
+          {"coverImage" in post && post.coverImage ? (
+            // eslint-disable-next-line @next/next/no-img-element
+            <img
+              src={post.coverImage}
+              alt=""
+              className="absolute inset-0 h-full w-full object-cover"
+            />
+          ) : null}
+        </div>
         <div className="prose-night mt-10 max-w-[65ch] text-[16px] leading-[1.8] text-mist/80">
           <p>{post.body}</p>
         </div>
