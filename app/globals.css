@@ -136,32 +136,91 @@ body {
 
   .glass-chip,
   .glass-chip-btn {
+    position: relative;
+    overflow: hidden;
     border-radius: 9999px;
-    border: 1px solid rgba(255, 200, 180, 0.35);
-    background: rgba(255, 255, 255, 0.08);
-    -webkit-backdrop-filter: blur(4px);
-    backdrop-filter: blur(4px);
+    border: 1px solid rgba(255, 200, 180, 0.22);
+    background: rgba(255, 255, 255, 0.05);
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
     box-shadow:
-      inset 0 1px 0 rgba(255, 230, 210, 0.4),
-      0 0 14px rgba(220, 130, 160, 0.18);
+      inset 0 1px 0 rgba(255, 230, 210, 0.32),
+      0 0 10px rgba(200, 120, 160, 0.1);
     transition:
-      background 0.22s cubic-bezier(0.16, 1, 0.3, 1),
-      border-color 0.22s ease,
-      color 0.22s ease,
-      box-shadow 0.22s ease,
-      transform 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+      background 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+      border-color 0.3s ease,
+      color 0.3s ease,
+      box-shadow 0.3s ease,
+      transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .glass-chip::before,
+  .glass-chip-btn::before {
+    content: "";
+    pointer-events: none;
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background:
+      linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0.28) 0%,
+        rgba(255, 255, 255, 0.06) 40%,
+        transparent 55%
+      ),
+      radial-gradient(
+        120% 80% at 20% 0%,
+        rgba(255, 220, 200, 0.18),
+        transparent 55%
+      );
+    opacity: 0.5;
+    transition: opacity 0.3s ease;
+  }
+  .glass-chip::after,
+  .glass-chip-btn::after {
+    content: "";
+    pointer-events: none;
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: linear-gradient(
+      115deg,
+      transparent 0%,
+      transparent 42%,
+      rgba(255, 255, 255, 0.7) 50%,
+      transparent 58%,
+      transparent 100%
+    );
+    background-size: 220% 100%;
+    background-position: 120% 0;
+    opacity: 0;
+    mix-blend-mode: screen;
+    transition: opacity 0.25s ease, background-position 0s linear;
   }
   .glass-chip:hover,
   .glass-chip-btn:hover {
-    background: rgba(255, 255, 255, 0.16);
-    border-color: rgba(255, 170, 140, 0.65);
+    background: rgba(255, 255, 255, 0.18);
+    border-color: rgba(255, 200, 170, 0.85);
     color: #fff;
     transform: translateY(-1px) scale(1.03);
     box-shadow:
-      inset 0 1px 0 rgba(255, 230, 210, 0.55),
-      0 0 0 1px rgba(230, 140, 170, 0.2),
-      0 0 20px rgba(200, 100, 160, 0.32),
-      0 6px 16px rgba(0, 0, 0, 0.18);
+      inset 0 1px 0 rgba(255, 250, 240, 0.85),
+      inset 0 -1px 0 rgba(255, 160, 140, 0.2),
+      0 0 0 1px rgba(255, 210, 190, 0.35),
+      0 0 22px rgba(255, 160, 180, 0.55),
+      0 0 48px rgba(200, 80, 150, 0.4),
+      0 10px 24px rgba(0, 0, 0, 0.25);
+  }
+  .glass-chip:hover::before,
+  .glass-chip-btn:hover::before {
+    opacity: 1;
+  }
+  .glass-chip:hover::after,
+  .glass-chip-btn:hover::after {
+    opacity: 1;
+    background-position: -40% 0;
+    transition:
+      opacity 0.2s ease,
+      background-position 0.7s cubic-bezier(0.16, 1, 0.3, 1);
   }
   .glass-chip:active,
   .glass-chip-btn:active {
@@ -174,42 +233,115 @@ body {
     color: #fff;
   }
 
+  /* Primary nav links — same glass chip + reflection as .nav-logo */
   .glass-nav-link {
     position: relative;
     z-index: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 2.15rem;
+    padding: 0 0.95rem;
     border-radius: 9999px;
-    padding: 0.5rem 1rem;
-    border: 1px solid transparent;
+    border: 1px solid rgba(255, 200, 180, 0.22);
+    background: rgba(255, 255, 255, 0.05);
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+    overflow: hidden;
+    color: rgba(255, 255, 255, 0.78);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 230, 210, 0.32),
+      0 0 10px rgba(200, 120, 160, 0.1);
     transition:
-      color 0.2s ease,
-      background 0.2s ease,
-      border-color 0.2s ease,
-      box-shadow 0.2s ease,
-      transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      color 0.3s ease,
+      background 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+      border-color 0.3s ease,
+      box-shadow 0.3s ease,
+      transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .glass-nav-link::before {
+    content: "";
+    pointer-events: none;
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background:
+      linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0.28) 0%,
+        rgba(255, 255, 255, 0.06) 40%,
+        transparent 55%
+      ),
+      radial-gradient(
+        120% 80% at 20% 0%,
+        rgba(255, 220, 200, 0.18),
+        transparent 55%
+      );
+    opacity: 0.5;
+    transition: opacity 0.3s ease;
+  }
+  .glass-nav-link::after {
+    content: "";
+    pointer-events: none;
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: linear-gradient(
+      115deg,
+      transparent 0%,
+      transparent 42%,
+      rgba(255, 255, 255, 0.7) 50%,
+      transparent 58%,
+      transparent 100%
+    );
+    background-size: 220% 100%;
+    background-position: 120% 0;
+    opacity: 0;
+    mix-blend-mode: screen;
+    transition: opacity 0.25s ease, background-position 0s linear;
   }
   .glass-nav-link:hover {
     color: #fff !important;
-    background: rgba(255, 255, 255, 0.16);
-    border-color: rgba(255, 255, 255, 0.35);
-    transform: translateY(-1px);
+    background: rgba(255, 255, 255, 0.18);
+    border-color: rgba(255, 200, 170, 0.85);
+    transform: translateY(-1px) scale(1.03);
     box-shadow:
-      inset 0 1px 0 rgba(255, 255, 255, 0.35),
-      0 0 18px rgba(255, 45, 111, 0.35),
-      0 4px 12px rgba(0, 0, 0, 0.15);
+      inset 0 1px 0 rgba(255, 250, 240, 0.85),
+      inset 0 -1px 0 rgba(255, 160, 140, 0.2),
+      0 0 0 1px rgba(255, 210, 190, 0.35),
+      0 0 22px rgba(255, 160, 180, 0.55),
+      0 0 48px rgba(200, 80, 150, 0.4),
+      0 10px 24px rgba(0, 0, 0, 0.25);
+  }
+  .glass-nav-link:hover::before {
+    opacity: 1;
+  }
+  .glass-nav-link:hover::after {
+    opacity: 1;
+    background-position: -40% 0;
+    transition:
+      opacity 0.2s ease,
+      background-position 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .glass-nav-link:active {
+    transform: translateY(0) scale(0.98);
   }
   .glass-nav-link:hover,
   .glass-nav-link:focus-visible {
     outline: none;
   }
   .glass-nav-link-active {
-    color: var(--hot) !important;
-    background: rgba(255, 45, 111, 0.16);
-    border-color: rgba(255, 45, 111, 0.4);
+    color: #fff !important;
+    background: rgba(255, 255, 255, 0.12);
+    border-color: rgba(255, 180, 160, 0.55);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 230, 210, 0.45),
+      0 0 16px rgba(255, 45, 111, 0.28);
   }
   .glass-nav-link-active:hover {
     color: #fff !important;
-    background: rgba(255, 45, 111, 0.28);
-    border-color: rgba(255, 45, 111, 0.65);
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 200, 170, 0.85);
   }
 
   .glass-panel {
@@ -453,6 +585,27 @@ body {
     background: #0a0a0c;
   }
 
+  /* Discover band — pink/purple/blue blur wash */
+  .discover-band {
+    background: #0c0a14;
+  }
+  .discover-band-bg {
+    inset: 0;
+  }
+  .discover-band-bg img {
+    transform: scale(1.04);
+    filter: saturate(1.08);
+  }
+  .discover-band-bg::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(180deg, rgba(8, 6, 16, 0.35) 0%, transparent 28%, transparent 72%, rgba(8, 6, 16, 0.4) 100%),
+      linear-gradient(90deg, rgba(12, 8, 20, 0.2) 0%, transparent 30%, transparent 70%, rgba(8, 10, 24, 0.25) 100%);
+    pointer-events: none;
+  }
+
   .hero-atmosphere {
     background:
       radial-gradient(ellipse 70% 60% at 75% 35%, rgba(255, 45, 111, 0.18), transparent 55%),
@@ -536,7 +689,9 @@ body {
     transform: none !important;
   }
   .nav-logo:hover::after,
-  .nav-logo:hover .nav-logo-mark {
+  .nav-logo:hover .nav-logo-mark,
+  .glass-nav-link:hover::after,
+  .glass-chip-btn:hover::after {
     transform: none !important;
   }
 }

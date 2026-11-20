@@ -49,7 +49,7 @@ export function GlassNav() {
             </span>
           </Link>
 
-          <nav className="hidden items-center gap-0.5 lg:flex" aria-label="Primary">
+          <nav className="hidden items-center gap-1.5 lg:flex" aria-label="Primary">
             {LINKS.map((l) => {
               const active =
                 (l.href.startsWith("/boutique") && pathname.startsWith("/boutique")) ||
@@ -59,11 +59,11 @@ export function GlassNav() {
                 <Link
                   key={l.label}
                   href={l.href}
-                  className={`glass-nav-link text-[12px] font-medium tracking-[0.04em] ${
-                    active ? "glass-nav-link-active" : "text-white/65"
+                  className={`glass-nav-link text-[12px] font-medium tracking-[0.06em] ${
+                    active ? "glass-nav-link-active" : ""
                   }`}
                 >
-                  {l.label}
+                  <span className="relative z-[1]">{l.label}</span>
                 </Link>
               );
             })}
@@ -76,17 +76,17 @@ export function GlassNav() {
               <button
                 type="button"
                 onClick={logout}
-                className="glass-chip-btn hidden px-3.5 py-1.5 text-[11px] tracking-[0.04em] text-white/80 sm:inline"
+                className="glass-chip-btn hidden px-3.5 py-1.5 text-[11px] tracking-[0.04em] text-white/85 sm:inline"
               >
-                {user.name}
+                <span className="relative z-[1]">{user.name}</span>
               </button>
             ) : (
               <button
                 type="button"
                 onClick={() => openAuth("login")}
-                className="glass-chip-btn hidden px-3.5 py-1.5 text-[11px] tracking-[0.06em] text-white/80 sm:inline"
+                className="glass-chip-btn hidden px-3.5 py-1.5 text-[11px] tracking-[0.06em] text-white/85 sm:inline"
               >
-                Account
+                <span className="relative z-[1]">Account</span>
               </button>
             )}
 

@@ -62,12 +62,28 @@ export function LandingPage() {
         </div>
       </section>
 
-      <section id="discover" className="border-y border-white/[0.06] bg-night">
+      <section
+        id="discover"
+        className="discover-band relative isolate overflow-hidden border-y border-white/[0.06]"
+      >
+        <div aria-hidden className="discover-band-bg pointer-events-none absolute inset-0 -z-10">
+          <picture>
+            <source srcSet="/media/discover/discover-blur.webp" type="image/webp" />
+            <img
+              src="/media/discover/discover-blur.png"
+              alt=""
+              className="h-full w-full object-cover"
+              width={2400}
+              height={900}
+              decoding="async"
+            />
+          </picture>
+        </div>
         <div className="mx-auto grid max-w-[1440px] gap-8 px-6 py-20 md:grid-cols-12 md:gap-12 md:px-10 md:py-28 lg:px-14">
           <h2 className="title-italic text-[clamp(2.5rem,5vw,3.75rem)] leading-none md:col-span-5">
             Discover
           </h2>
-          <p className="max-w-xl self-end text-[16px] leading-relaxed text-mute md:col-span-6 md:col-start-7">
+          <p className="max-w-xl self-end text-[16px] leading-relaxed text-mist/85 md:col-span-6 md:col-start-7">
             Leonida is a cinematic night-city house — original characters, gated agents, and a boutique
             that ships China → door. Not affiliated with Rockstar Games.
           </p>
