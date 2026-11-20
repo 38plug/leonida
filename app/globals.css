@@ -318,9 +318,8 @@ body {
     display: block;
     line-height: 1;
     letter-spacing: 0.18em;
-    /* Mirror trailing tracking on the leading edge for optical center */
+    /* Leading pad matches trailing tracking — true optical center */
     padding-left: 0.18em;
-    margin-right: -0.18em;
     /* Slight lift so Bebas ink sits optically centered in the chip */
     transform: translateY(-0.5px);
     transition: text-shadow 0.3s ease, transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
