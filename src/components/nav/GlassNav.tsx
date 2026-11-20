@@ -38,13 +38,13 @@ export function GlassNav() {
         }`}
       >
         <div
-          className={`glass-nav flex w-full max-w-[1180px] items-center justify-between gap-3 px-3 pl-5 transition-all duration-500 md:gap-4 md:px-4 md:pl-6 ${
+          className={`glass-nav flex w-full max-w-[1180px] items-center justify-between gap-3 px-3 pl-3.5 transition-all duration-500 md:gap-4 md:px-4 md:pl-4 ${
             scrolled ? "glass-nav-scrolled" : ""
           }`}
           style={{ height: scrolled ? 52 : 58 }}
         >
-          <Link href="/" className="nav-logo flex shrink-0 items-baseline gap-2">
-            <span className="lettering-depth font-display text-[1.3rem] tracking-[0.22em] text-white md:text-[1.4rem]">
+          <Link href="/" className="nav-logo shrink-0" aria-label="Leonida home">
+            <span className="nav-logo-mark lettering-depth font-display text-[1.15rem] text-white md:text-[1.25rem]">
               LEONIDA
             </span>
           </Link>
