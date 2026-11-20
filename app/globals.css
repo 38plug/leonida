@@ -429,81 +429,27 @@ body {
     color: inherit;
   }
 
-  /* Global Town Square money brick — continuous orbit on white ground */
+  /* Global Town Square money brick — orbit video, no background */
   .money-stack {
+    position: relative;
+    z-index: 1;
     display: inline-flex;
     flex-shrink: 0;
-    width: 2.55rem;
-    height: 2.55rem;
-    perspective: 420px;
-    perspective-origin: 50% 45%;
-  }
-  .money-stack-stage {
-    position: relative;
-    display: block;
-    width: 100%;
-    height: 100%;
-    transform-style: preserve-3d;
-  }
-  .money-stack-ground {
-    position: absolute;
-    left: 50%;
-    bottom: 0.12rem;
-    width: 2.05rem;
-    height: 0.55rem;
-    border-radius: 50%;
-    background: radial-gradient(
-      ellipse at center,
-      rgba(255, 255, 255, 0.95) 0%,
-      rgba(255, 255, 255, 0.72) 45%,
-      rgba(255, 255, 255, 0.15) 72%,
-      transparent 100%
-    );
-    box-shadow:
-      0 0 0 1px rgba(255, 255, 255, 0.35),
-      0 4px 10px rgba(0, 0, 0, 0.28);
-    transform: translateX(-50%) rotateX(68deg);
-    transform-origin: center center;
-    pointer-events: none;
-  }
-  .money-stack-orbit {
-    position: absolute;
-    inset: 0;
-    display: flex;
     align-items: center;
     justify-content: center;
-    transform-style: preserve-3d;
-    animation: money-orbit-spin 8.5s linear infinite;
-    will-change: transform;
+    width: 2.65rem;
+    height: 2.65rem;
   }
-  .money-stack-orbit img {
-    width: 2.2rem;
-    height: 2.2rem;
+  .money-stack-video {
+    display: block;
+    width: 2.65rem;
+    height: 2.65rem;
     object-fit: contain;
-    filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.45));
-    user-select: none;
+    background: transparent;
+    filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.45));
     pointer-events: none;
-    /* Counter-rotate so the brick face stays readable while orbiting */
-    animation: money-orbit-face 8.5s linear infinite;
-    will-change: transform;
+    user-select: none;
   }
-  @keyframes money-orbit-spin {
-    from {
-      transform: rotateX(14deg) rotateY(0deg) translateX(0.28rem);
-    }
-    to {
-      transform: rotateX(14deg) rotateY(360deg) translateX(0.28rem);
-    }
-  }
-  @keyframes money-orbit-face {
-    from {
-      transform: rotateY(0deg);
-    }
-    to {
-      transform: rotateY(-360deg);
-    }
-  }
-
   /* Logo mark — optically centered in its glass chip; reflection glow on hover */
   .nav-logo {
     position: relative;
@@ -778,8 +724,7 @@ body {
   .glass-chip-btn:hover::after {
     transform: none !important;
   }
-  .money-stack-orbit,
-  .money-stack-orbit img {
+  .money-stack-video {
     animation: none !important;
   }
 }

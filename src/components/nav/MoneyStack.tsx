@@ -1,8 +1,8 @@
 "use client";
 
 /**
- * Global Town Square branded money brick — continuous orbit on a white ground,
- * sits to the left of the LEONIDA wordmark.
+ * Global Town Square money brick — continuous orbit video, transparent (no ground).
+ * Sits to the left of the LEONIDA wordmark.
  */
 export function MoneyStack({ className = "" }: { className?: string }) {
   return (
@@ -11,19 +11,20 @@ export function MoneyStack({ className = "" }: { className?: string }) {
       aria-hidden="true"
       title="Global Town Square"
     >
-      <span className="money-stack-stage">
-        <span className="money-stack-ground" />
-        <span className="money-stack-orbit">
-          <img
-            src="/media/brand/money-stack.webp"
-            alt=""
-            width={128}
-            height={128}
-            draggable={false}
-            decoding="async"
-          />
-        </span>
-      </span>
+      <video
+        className="money-stack-video"
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="metadata"
+        poster="/media/brand/money-orbit-poster.webp"
+        width={128}
+        height={128}
+      >
+        <source src="/media/brand/money-orbit.webm" type="video/webm" />
+        <source src="/media/brand/money-orbit.mp4" type="video/mp4" />
+      </video>
     </span>
   );
 }
