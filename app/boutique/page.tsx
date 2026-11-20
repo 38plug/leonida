@@ -36,7 +36,7 @@ export default function BoutiquePage() {
             Night Pass tracks →
           </Link>
         </div>
-        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4 lg:gap-7">
           {BOUTIQUE.map((p) => (
             <ProductCard key={p.id} product={p} />
           ))}

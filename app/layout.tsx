@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
-import { Bebas_Neue, Caveat, DM_Sans, Instrument_Serif } from "next/font/google";
+import { Bebas_Neue, Caveat, Instrument_Serif, Manrope } from "next/font/google";
 import { AppProviders } from "@/components/providers/AppProviders";
 import "./globals.css";
 
-const dm = DM_Sans({
+const dm = Manrope({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+  weight: ["400", "500", "600", "700", "800"],
   variable: "--font-dm",
   display: "swap",
 });

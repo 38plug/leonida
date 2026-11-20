@@ -92,7 +92,7 @@ export function LandingPage() {
               View all →
             </Link>
           </div>
-          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4 lg:gap-7">
             {BOUTIQUE.slice(0, 4).map((p) => (
               <ProductCard key={p.id} product={p} />
             ))}
@@ -113,7 +113,7 @@ export function LandingPage() {
               Journal →
             </Link>
           </div>
-          <div className="grid gap-5 md:grid-cols-3">
+          <div className="grid gap-6 md:grid-cols-3 md:gap-7">
             {JOURNAL_POSTS.slice(0, 3).map((post) => (
               <Link
                 key={post.slug}
