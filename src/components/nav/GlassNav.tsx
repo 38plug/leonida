@@ -45,12 +45,14 @@ export function GlassNav() {
           }`}
           style={{ height: scrolled ? 48 : 54 }}
         >
-          <div className="relative z-[2] flex min-w-0 items-center justify-self-start overflow-hidden">
+          <div className="relative z-[2] flex min-w-0 items-center justify-self-start">
             <Link href="/" className="nav-brand min-w-0" aria-label="Leonida home">
               <MoneyStack className="nav-money" />
               <span className="nav-logo">
-                <span className="nav-logo-mark lettering-depth font-display text-[0.95rem] text-white sm:text-[1.1rem] md:text-[1.25rem]">
-                  LEONIDA
+                <span className="nav-logo-inner">
+                  <span className="nav-logo-mark lettering-depth font-display text-[0.95rem] text-white sm:text-[1.1rem] md:text-[1.25rem]">
+                    LEONIDA
+                  </span>
                 </span>
               </span>
             </Link>
