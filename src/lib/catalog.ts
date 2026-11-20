@@ -75,6 +75,26 @@ export const BOUTIQUE: BoutiqueProduct[] = [
     image: "/media/products/controller-stand.png",
   },
   {
+    id: "b-neon-sign",
+    name: "Leonida Neon Wall Sign",
+    slug: "leonida-neon-wall-sign",
+    // Seller ~$8.90 free ship → $39.99 (~4.5×); under-$40 impulse, strong margin
+    priceUsd: 39.99,
+    category: "Decor",
+    badge: "NEW",
+    description:
+      "USB LED neon wall light with sunset-road art and a hot-pink frame glow. Dimmer dial, hang chains, adhesive hooks, and floating standoffs in the box.",
+    seoTitle: "Leonida Neon Wall Sign — Pink LED Night-City Glow",
+    seoDescription:
+      "Pink LED neon wall sign with dusk coastal art, USB power, and dimmer. Hang kit + floating mounts included. Leonida boutique gaming decor. Ships China → door.",
+    colors: ["Hot Pink"],
+    sizes: ["One size"],
+    letter: "V",
+    accent: "pink",
+    inStock: true,
+    image: "/media/products/neon-wall-sign.png",
+  },
+  {
     id: "b1",
     name: "Neon Tee",
     slug: "neon-tee",
