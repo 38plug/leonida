@@ -295,8 +295,7 @@ body {
     align-items: center;
     justify-content: center;
     height: 2.4rem;
-    /* Right pad slightly larger so trailing tracking doesn't look left-biased */
-    padding: 0 0.95rem 0 0.75rem;
+    padding: 0 0.95rem;
     border-radius: 9999px;
     border: 1px solid rgba(255, 200, 180, 0.22);
     background: rgba(255, 255, 255, 0.05);
@@ -319,7 +318,8 @@ body {
     display: block;
     line-height: 1;
     letter-spacing: 0.18em;
-    /* Collapse trailing tracking so the word sits centered in the chip */
+    /* Mirror trailing tracking on the leading edge for optical center */
+    padding-left: 0.18em;
     margin-right: -0.18em;
     /* Slight lift so Bebas ink sits optically centered in the chip */
     transform: translateY(-0.5px);
