@@ -17,8 +17,7 @@ export function MoneyStack({ className = "" }: { className?: string }) {
         muted
         loop
         playsInline
-        preload="metadata"
-        poster="/media/brand/money-orbit-poster.webp"
+        preload="auto"
         width={128}
         height={128}
       >

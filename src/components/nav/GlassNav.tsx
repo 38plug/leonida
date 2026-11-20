@@ -39,21 +39,26 @@ export function GlassNav() {
         }`}
       >
         <div
-          className={`glass-nav flex w-full max-w-[1180px] items-center justify-between gap-3 px-3 pl-3.5 transition-all duration-500 md:gap-4 md:px-4 md:pl-4 ${
+          className={`glass-nav grid w-full max-w-[1180px] grid-cols-[1fr_auto_1fr] items-center gap-2 px-3 transition-all duration-500 md:gap-3 md:px-4 ${
             scrolled ? "glass-nav-scrolled" : ""
           }`}
           style={{ height: scrolled ? 52 : 58 }}
         >
-          <Link href="/" className="nav-brand shrink-0" aria-label="Leonida home">
-            <MoneyStack />
-            <span className="nav-logo">
-              <span className="nav-logo-mark lettering-depth font-display text-[1.15rem] text-white md:text-[1.25rem]">
-                LEONIDA
+          <div className="relative z-[2] flex min-w-0 items-center justify-self-start">
+            <Link href="/" className="nav-brand shrink-0" aria-label="Leonida home">
+              <MoneyStack />
+              <span className="nav-logo">
+                <span className="nav-logo-mark lettering-depth font-display text-[1.15rem] text-white md:text-[1.25rem]">
+                  LEONIDA
+                </span>
               </span>
-            </span>
-          </Link>
+            </Link>
+          </div>
 
-          <nav className="hidden items-center gap-1.5 lg:flex" aria-label="Primary">
+          <nav
+            className="relative z-[2] hidden items-center justify-center gap-1.5 justify-self-center lg:flex"
+            aria-label="Primary"
+          >
             {LINKS.map((l) => {
               const active =
                 (l.href.startsWith("/boutique") && pathname.startsWith("/boutique")) ||
@@ -73,26 +78,25 @@ export function GlassNav() {
             })}
           </nav>
 
-          <div className="flex items-center gap-2">
-            {!ready ? (
-              <span className="hidden h-8 w-16 rounded-full bg-white/5 sm:block" aria-hidden />
-            ) : user ? (
-              <button
-                type="button"
-                onClick={logout}
-                className="glass-chip-btn hidden px-3.5 py-1.5 text-[11px] tracking-[0.04em] text-white/85 sm:inline"
-              >
-                <span className="relative z-[1]">{user.name}</span>
-              </button>
-            ) : (
-              <button
-                type="button"
-                onClick={() => openAuth("login")}
-                className="glass-chip-btn hidden px-3.5 py-1.5 text-[11px] tracking-[0.06em] text-white/85 sm:inline"
-              >
-                <span className="relative z-[1]">Account</span>
-              </button>
-            )}
+          <div className="relative z-[2] flex items-center justify-end gap-2 justify-self-end">
+            {ready &&
+              (user ? (
+                <button
+                  type="button"
+                  onClick={logout}
+                  className="glass-chip-btn hidden px-3.5 py-1.5 text-[11px] tracking-[0.04em] text-white/85 sm:inline-flex"
+                >
+                  <span className="relative z-[1]">{user.name}</span>
+                </button>
+              ) : (
+                <button
+                  type="button"
+                  onClick={() => openAuth("login")}
+                  className="glass-chip-btn hidden px-3.5 py-1.5 text-[11px] tracking-[0.06em] text-white/85 sm:inline-flex"
+                >
+                  <span className="relative z-[1]">Account</span>
+                </button>
+              ))}
 
             <button
               type="button"
@@ -110,12 +114,12 @@ export function GlassNav() {
 
             <button
               type="button"
-              className="glass-chip-btn px-3 py-1.5 text-[11px] tracking-[0.08em] text-white lg:hidden"
+              className="glass-chip-btn inline-flex px-3 py-1.5 text-[11px] tracking-[0.08em] text-white lg:hidden"
               onClick={() => setMobileOpen((v) => !v)}
               aria-expanded={mobileOpen}
               aria-label="Menu"
             >
-              Menu
+              <span className="relative z-[1]">Menu</span>
             </button>
           </div>
         </div>
