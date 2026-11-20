@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { formatJournalDate, JOURNAL_POSTS } from "@/lib/catalog";
+import { ScrollItem, ScrollReveal, ScrollStagger } from "@/components/motion/ScrollReveal";
 
 export default function JournalPage() {
   const [featured, second, ...rest] = JOURNAL_POSTS;
@@ -13,7 +14,11 @@ export default function JournalPage() {
       <div className="film-grain" aria-hidden />
 
       <div className="relative z-10 mx-auto max-w-[1600px] px-5 pb-24 md:px-10 lg:px-14">
-        <header className="mb-14 grid gap-6 border-b border-white/10 pb-10 md:mb-20 md:grid-cols-12 md:items-end md:pb-14">
+        <ScrollReveal
+          as="header"
+          variant="rise"
+          className="mb-14 grid gap-6 border-b border-white/10 pb-10 md:mb-20 md:grid-cols-12 md:items-end md:pb-14"
+        >
           <div className="md:col-span-7">
             <p className="meta-label mb-4">Leonida Editorial</p>
             <h1 className="title-display text-[clamp(4.5rem,14vw,9rem)] text-white">Journal</h1>
@@ -21,7 +26,7 @@ export default function JournalPage() {
           <p className="max-w-md text-[15px] leading-relaxed text-mute md:col-span-5 md:justify-self-end md:text-right">
             Launch heat, stream culture, and the map that ate the timeline — written for the night house, not the license.
           </p>
-        </header>
+        </ScrollReveal>
 
         {featured && (
           <motion.div
@@ -64,36 +69,38 @@ export default function JournalPage() {
 
         <div className="mt-10 grid gap-6 md:mt-14 md:grid-cols-12 md:gap-8">
           {second && (
-            <Link
-              href={`/journal/${second.slug}`}
-              className="group border border-white/10 bg-night md:col-span-7"
-            >
-              <div className="relative aspect-[16/10] overflow-hidden">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src={second.coverImage}
-                  alt=""
-                  className="h-full w-full object-cover transition duration-700 group-hover:scale-[1.03]"
-                />
-              </div>
-              <div className="p-6 md:p-8">
-                <div className="mb-4 flex gap-4">
-                  <span className="meta-label text-hot">{second.category}</span>
-                  <span className="meta-label text-mute">
-                    {formatJournalDate(second.publishedAt)}
-                  </span>
+            <ScrollReveal variant="clip" className="md:col-span-7">
+              <Link
+                href={`/journal/${second.slug}`}
+                className="group block border border-white/10 bg-night"
+              >
+                <div className="relative aspect-[16/10] overflow-hidden">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={second.coverImage}
+                    alt=""
+                    className="h-full w-full object-cover transition duration-700 group-hover:scale-[1.03]"
+                  />
                 </div>
-                <h3 className="font-serif text-3xl leading-tight text-white md:text-4xl">
-                  {second.title}
-                </h3>
-                <p className="mt-3 max-w-md text-[14px] leading-relaxed text-mute">{second.dek}</p>
-              </div>
-            </Link>
+                <div className="p-6 md:p-8">
+                  <div className="mb-4 flex gap-4">
+                    <span className="meta-label text-hot">{second.category}</span>
+                    <span className="meta-label text-mute">
+                      {formatJournalDate(second.publishedAt)}
+                    </span>
+                  </div>
+                  <h3 className="font-serif text-3xl leading-tight text-white md:text-4xl">
+                    {second.title}
+                  </h3>
+                  <p className="mt-3 max-w-md text-[14px] leading-relaxed text-mute">{second.dek}</p>
+                </div>
+              </Link>
+            </ScrollReveal>
           )}
 
-          <ul className="flex flex-col gap-4 md:col-span-5">
+          <ScrollStagger as="ul" className="flex flex-col gap-4 md:col-span-5" stagger={0.1}>
             {rest.map((post) => (
-              <li key={post.slug}>
+              <ScrollItem key={post.slug} as="li">
                 <Link
                   href={`/journal/${post.slug}`}
                   className="group grid grid-cols-[112px_1fr] gap-4 border border-white/10 bg-night/80 transition hover:border-champagne/30 md:grid-cols-[140px_1fr]"
@@ -114,9 +121,9 @@ export default function JournalPage() {
                     <p className="mt-2 line-clamp-2 text-[13px] text-mute">{post.dek}</p>
                   </div>
                 </Link>
-              </li>
+              </ScrollItem>
             ))}
-          </ul>
+          </ScrollStagger>
         </div>
       </div>
     </div>

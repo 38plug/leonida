@@ -5,6 +5,7 @@ import { useMemo } from "react";
 import { useParams } from "next/navigation";
 import { motion } from "framer-motion";
 import { formatJournalDate, getJournalBySlug, JOURNAL_POSTS } from "@/lib/catalog";
+import { ScrollItem, ScrollReveal, ScrollStagger } from "@/components/motion/ScrollReveal";
 
 export default function JournalArticlePage() {
   const params = useParams();
@@ -82,7 +83,7 @@ export default function JournalArticlePage() {
 
           <div className="md:col-span-8 lg:col-span-6">
             {paragraphs.map((para, i) => (
-              <div key={i}>
+              <ScrollReveal key={i} variant="rise" delay={i * 0.04}>
                 {i === 1 && "pullQuote" in post && post.pullQuote ? (
                   <blockquote className="my-12 border-l border-hot pl-6 md:my-16 md:pl-8">
                     <p className="font-serif text-[clamp(1.5rem,3vw,2.25rem)] italic leading-snug text-white">
@@ -91,7 +92,7 @@ export default function JournalArticlePage() {
                   </blockquote>
                 ) : null}
                 <p className="mb-7 text-[17px] leading-[1.85] text-mist/88 md:text-[18px]">{para}</p>
-              </div>
+              </ScrollReveal>
             ))}
 
             <div className="mt-14 border-t border-white/10 pt-8 md:hidden">
@@ -126,8 +127,11 @@ export default function JournalArticlePage() {
           </aside>
         </div>
 
-        {/* Related strip — full width editorial */}
-        <section className="border-t border-white/10 bg-night/40 px-5 py-16 md:px-10 lg:px-14">
+        <ScrollReveal
+          as="section"
+          variant="clip"
+          className="border-t border-white/10 bg-night/40 px-5 py-16 md:px-10 lg:px-14"
+        >
           <div className="mx-auto max-w-[1600px]">
             <div className="mb-10 flex items-end justify-between gap-4">
               <h2 className="title-display text-4xl text-white md:text-5xl">More from Leonida</h2>
@@ -135,24 +139,26 @@ export default function JournalArticlePage() {
                 View all →
               </Link>
             </div>
-            <div className="grid gap-5 md:grid-cols-3 md:gap-6">
+            <ScrollStagger className="grid gap-5 md:grid-cols-3 md:gap-6" stagger={0.1}>
               {related.map((p) => (
-                <Link key={p.slug} href={`/journal/${p.slug}`} className="group block">
-                  <div className="relative mb-4 aspect-[16/10] overflow-hidden border border-white/10">
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img
-                      src={p.coverImage}
-                      alt=""
-                      className="h-full w-full object-cover transition duration-500 group-hover:scale-[1.04]"
-                    />
-                  </div>
-                  <span className="meta-label text-hot">{p.category}</span>
-                  <h3 className="mt-2 font-serif text-2xl leading-snug text-white">{p.title}</h3>
-                </Link>
+                <ScrollItem key={p.slug}>
+                  <Link href={`/journal/${p.slug}`} className="group block">
+                    <div className="relative mb-4 aspect-[16/10] overflow-hidden border border-white/10">
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img
+                        src={p.coverImage}
+                        alt=""
+                        className="h-full w-full object-cover transition duration-500 group-hover:scale-[1.04]"
+                      />
+                    </div>
+                    <span className="meta-label text-hot">{p.category}</span>
+                    <h3 className="mt-2 font-serif text-2xl leading-snug text-white">{p.title}</h3>
+                  </Link>
+                </ScrollItem>
               ))}
-            </div>
+            </ScrollStagger>
           </div>
-        </section>
+        </ScrollReveal>
       </div>
     </article>
   );

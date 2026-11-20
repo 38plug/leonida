@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { BOUTIQUE } from "@/lib/catalog";
 import { ProductCard } from "@/components/shop/ProductCard";
+import { ScrollItem, ScrollReveal, ScrollStagger } from "@/components/motion/ScrollReveal";
 
 export default function BoutiquePage() {
   return (
@@ -10,7 +11,7 @@ export default function BoutiquePage() {
       <div className="vignette" aria-hidden />
       <div className="film-grain" aria-hidden />
 
-      <section className="relative border-b border-white/[0.07]">
+      <ScrollReveal as="section" variant="rise" className="relative border-b border-white/[0.07]">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_70%_60%_at_80%_0%,rgba(255,45,111,0.12),transparent_55%),radial-gradient(ellipse_50%_40%_at_10%_100%,rgba(62,200,255,0.06),transparent_50%)]" />
         <div className="relative z-10 mx-auto max-w-[1600px] px-5 py-16 sm:px-8 md:px-12 md:py-20 lg:px-16">
           <p className="meta-label mb-4 text-champagne">Collections</p>
@@ -33,20 +34,22 @@ export default function BoutiquePage() {
             ))}
           </div>
         </div>
-      </section>
+      </ScrollReveal>
 
       <section className="relative z-10 mx-auto max-w-[1600px] px-5 py-16 sm:px-8 md:px-12 lg:px-16">
-        <div className="mb-10 flex items-end justify-between gap-4">
+        <ScrollReveal variant="rise" className="mb-10 flex items-end justify-between gap-4">
           <h2 className="title-display text-4xl text-white md:text-5xl">Featured</h2>
           <Link href="/#discover" className="meta-label text-mute hover:text-hot">
             Back to house →
           </Link>
-        </div>
-        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 lg:gap-7">
+        </ScrollReveal>
+        <ScrollStagger className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 lg:gap-7" stagger={0.09}>
           {BOUTIQUE.map((p) => (
-            <ProductCard key={p.id} product={p} />
+            <ScrollItem key={p.id}>
+              <ProductCard product={p} />
+            </ScrollItem>
           ))}
-        </div>
+        </ScrollStagger>
       </section>
     </div>
   );

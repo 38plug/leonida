@@ -34,8 +34,9 @@ export function HeroScene({
     target: wrapRef,
     offset: ["start start", "end start"],
   });
-  const scrollScale = useTransform(scrollYProgress, [0, 1], [1, 1.08]);
-  const scrollY = useTransform(scrollYProgress, [0, 1], [0, 48]);
+  const scrollScale = useTransform(scrollYProgress, [0, 1], [1, 1.12]);
+  const scrollY = useTransform(scrollYProgress, [0, 1], [0, 72]);
+  const scrollOpacity = useTransform(scrollYProgress, [0, 0.85], [1, 0.35]);
   const parallaxX = useTransform(sx, [-0.5, 0.5], [-12, 12]);
   const parallaxY = useTransform(sy, [-0.5, 0.5], [-8, 8]);
 
@@ -69,7 +70,7 @@ export function HeroScene({
     <div ref={wrapRef} className="hero-scene absolute inset-0 overflow-hidden">
       <motion.div
         className="absolute inset-[-4%] will-change-transform"
-        style={{ x: parallaxX, y: parallaxY, scale: scrollScale }}
+        style={{ x: parallaxX, y: parallaxY, scale: scrollScale, opacity: scrollOpacity }}
         initial={{ opacity: 0, scale: 1.06 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 1.4, ease: [0.16, 1, 0.3, 1] }}
