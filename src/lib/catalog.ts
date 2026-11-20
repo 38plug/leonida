@@ -18,6 +18,10 @@ export interface BoutiqueProduct {
   category: string;
   badge?: "NEW" | "DROP" | "EXCLUSIVE" | "SOLD OUT";
   description: string;
+  /** Search / social title (~60 chars). Falls back to name. */
+  seoTitle?: string;
+  /** Meta description (~155 chars). Falls back to description. */
+  seoDescription?: string;
   colors: string[];
   sizes: string[];
   letter: string;
@@ -54,11 +58,15 @@ export const BOUTIQUE: BoutiqueProduct[] = [
     id: "b0",
     name: "Leonida Controller Stand",
     slug: "leonida-controller-stand",
-    priceUsd: 59.99,
+    // Seller ~$15.68 free ship → $49.99 (~3.2×) balances conversion + margin
+    priceUsd: 49.99,
     category: "Gear",
     badge: "NEW",
     description:
-      "Open-design 3D dock for dual-sense style pads — neon palm accents, Night Pass plaque, grab-and-go inclined support. Controller not included.",
+      "Open-design DualSense-style dock with neon palm accents and an inclined grab-and-go front support. Desk-ready night-city gear — controller not included.",
+    seoTitle: "Leonida PS5 Controller Stand — Neon Palm Grab-and-Go Dock",
+    seoDescription:
+      "Open-design DualSense-style controller stand with neon palms and inclined grab-and-go support. Leonida boutique desk gear. Controller not included. Ships China → door.",
     colors: ["Night Pink", "Void"],
     sizes: ["One size"],
     letter: "C",

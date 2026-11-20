@@ -24,7 +24,7 @@ export function ProductCard({ product }: { product: BoutiqueProduct }) {
           {product.image ? (
             <Image
               src={product.image}
-              alt={product.name}
+              alt={product.seoTitle || product.name}
               fill
               sizes="(max-width: 768px) 50vw, 25vw"
               className="object-cover transition duration-500 group-hover:scale-[1.04]"
