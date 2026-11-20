@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import { useAuth } from "@/lib/auth";
 import { useCart } from "@/lib/cart";
+import { MoneyStack } from "./MoneyStack";
 
 const LINKS = [
   { href: "/#discover", label: "Discover" },
@@ -43,9 +44,12 @@ export function GlassNav() {
           }`}
           style={{ height: scrolled ? 52 : 58 }}
         >
-          <Link href="/" className="nav-logo shrink-0" aria-label="Leonida home">
-            <span className="nav-logo-mark lettering-depth font-display text-[1.15rem] text-white md:text-[1.25rem]">
-              LEONIDA
+          <Link href="/" className="nav-brand shrink-0" aria-label="Leonida home">
+            <MoneyStack />
+            <span className="nav-logo">
+              <span className="nav-logo-mark lettering-depth font-display text-[1.15rem] text-white md:text-[1.25rem]">
+                LEONIDA
+              </span>
             </span>
           </Link>
 
