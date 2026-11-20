@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useCart } from "@/lib/cart";
 import type { BoutiqueProduct } from "@/lib/catalog";
@@ -11,13 +12,6 @@ const ACCENT_MESH: Record<BoutiqueProduct["accent"], string> = {
   teal: "from-[#102428] via-[#0e181c] to-[#0e0e14]",
 };
 
-const ACCENT_ORB: Record<BoutiqueProduct["accent"], string> = {
-  pink: "bg-hot/30",
-  gold: "bg-champagne/25",
-  champagne: "bg-champagne/25",
-  teal: "bg-teal/25",
-};
-
 export function ProductCard({ product }: { product: BoutiqueProduct }) {
   const { add } = useCart();
 
@@ -27,24 +21,28 @@ export function ProductCard({ product }: { product: BoutiqueProduct }) {
         <div
           className={`relative flex aspect-[4/5] items-center justify-center overflow-hidden bg-gradient-to-b ${ACCENT_MESH[product.accent]}`}
         >
-          <div
-            className={`pointer-events-none absolute -right-8 -top-8 h-40 w-40 rounded-full ${ACCENT_ORB[product.accent]} blur-3xl transition duration-500 group-hover:scale-125`}
-          />
-          <div
-            className={`pointer-events-none absolute -bottom-10 -left-6 h-32 w-32 rounded-full ${ACCENT_ORB[product.accent]} opacity-60 blur-3xl`}
-          />
+          {product.image ? (
+            <Image
+              src={product.image}
+              alt={product.name}
+              fill
+              sizes="(max-width: 768px) 50vw, 25vw"
+              className="object-cover transition duration-500 group-hover:scale-[1.04]"
+            />
+          ) : (
+            <span className="font-display text-[5.5rem] tracking-[0.08em] text-white/50">
+              {product.letter}
+            </span>
+          )}
           {product.badge && (
             <span className="tag-hot absolute left-3 top-3 z-10">{product.badge}</span>
           )}
-          <span className="relative z-[1] font-display text-[5.5rem] tracking-[0.08em] text-white/55 transition duration-300 group-hover:scale-[1.04] group-hover:text-white/85">
-            {product.letter}
-          </span>
-          <div className="pointer-events-none absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-[#0a0a0c] to-transparent" />
-          <p className="absolute bottom-3 left-4 z-[1] font-serif text-sm italic text-white/40">
-            {product.category}
-          </p>
+          <div className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-[#0a0a0c] to-transparent" />
         </div>
         <div className="space-y-1 px-4 py-4">
+          <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-mute">
+            {product.category}
+          </p>
           <h3 className="text-[15px] font-medium tracking-wide text-white">{product.name}</h3>
           <p className="text-[15px] font-semibold tabular-nums text-hot">
             {product.inStock ? `$${product.priceUsd}` : "Sold out"}

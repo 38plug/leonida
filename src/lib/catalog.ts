@@ -23,6 +23,7 @@ export interface BoutiqueProduct {
   letter: string;
   accent: "pink" | "gold" | "teal" | "champagne";
   inStock: boolean;
+  image?: string;
 }
 
 /** Night Pass track placeholders — sold counts stay 0 until real commerce. */
@@ -62,6 +63,7 @@ export const BOUTIQUE: BoutiqueProduct[] = [
     letter: "N",
     accent: "pink",
     inStock: true,
+    image: "/media/products/neon-tee.png",
   },
   {
     id: "b2",
@@ -76,6 +78,7 @@ export const BOUTIQUE: BoutiqueProduct[] = [
     letter: "V",
     accent: "champagne",
     inStock: true,
+    image: "/media/products/vice-cap.png",
   },
   {
     id: "b3",
@@ -90,6 +93,7 @@ export const BOUTIQUE: BoutiqueProduct[] = [
     letter: "H",
     accent: "gold",
     inStock: true,
+    image: "/media/products/night-hoodie.png",
   },
   {
     id: "b4",
@@ -104,6 +108,7 @@ export const BOUTIQUE: BoutiqueProduct[] = [
     letter: "G",
     accent: "gold",
     inStock: true,
+    image: "/media/products/gold-chain.png",
   },
   {
     id: "b5",

@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useMemo, useState } from "react";
 import { useParams } from "next/navigation";
@@ -32,9 +33,20 @@ export default function ProductDetailPage() {
   return (
     <div className="bg-void pt-28 text-mist">
       <div className="mx-auto grid max-w-[1440px] gap-10 px-6 py-12 md:grid-cols-2 md:px-10 lg:px-14">
-        <div className={`panel-card relative flex aspect-[4/5] items-center justify-center tile-glow-${product.accent}`}>
-          {product.badge && <span className="tag-hot absolute left-4 top-4">{product.badge}</span>}
-          <span className="font-display text-[8rem] tracking-wide text-white/80">{product.letter}</span>
+        <div className={`panel-card relative flex aspect-[4/5] items-center justify-center overflow-hidden tile-glow-${product.accent}`}>
+          {product.image ? (
+            <Image
+              src={product.image}
+              alt={product.name}
+              fill
+              priority
+              sizes="(max-width: 768px) 100vw, 50vw"
+              className="object-cover"
+            />
+          ) : (
+            <span className="font-display text-[8rem] tracking-wide text-white/80">{product.letter}</span>
+          )}
+          {product.badge && <span className="tag-hot absolute left-4 top-4 z-10">{product.badge}</span>}
         </div>
 
         <div className="flex flex-col justify-center">

@@ -87,9 +87,9 @@ export function LandingPage() {
             </div>
             <Link
               href="/boutique"
-              className="text-[13px] font-medium tracking-[0.06em] text-hot transition hover:text-white"
+              className="border-b border-hot/60 pb-0.5 text-[13px] font-semibold tracking-[0.08em] text-hot transition hover:border-hot hover:text-white"
             >
-              View all →
+              View all
             </Link>
           </div>
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4 lg:gap-7">
