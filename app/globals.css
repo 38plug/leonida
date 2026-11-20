@@ -101,17 +101,18 @@ body {
   .hero-city-fade {
     background:
       image-set(
-        url("/media/leonida-cityscape.webp") type("image/webp"),
-        url("/media/leonida-cityscape.png") type("image/png")
+        url("/media/leonida-highway.webp") type("image/webp"),
+        url("/media/leonida-highway.jpg") type("image/jpeg")
       )
-      center 35% / cover no-repeat;
-    opacity: 0.55;
-    filter: saturate(1.25) contrast(1.05);
+      center center / cover no-repeat;
+    opacity: 0.72;
+    filter: saturate(1.15) contrast(1.05);
+    /* Keep left readable for headline; full image strength toward the right */
     mask-image: linear-gradient(
       90deg,
-      transparent 0%,
-      rgba(0, 0, 0, 0.35) 28%,
-      rgba(0, 0, 0, 0.85) 55%,
+      rgba(0, 0, 0, 0.45) 0%,
+      rgba(0, 0, 0, 0.7) 32%,
+      black 58%,
       black 100%
     );
   }

@@ -7,7 +7,7 @@ Foundation for UI design (cynos ui-design). Durable assets, not a task diary.
 | Asset | Path |
 | --- | --- |
 | VI mark | `public/media/vice-city-vi-logo.png` (+ `.webp`) |
-| Cityscape | `public/media/leonida-cityscape.webp` / `.png` (prefer 4k soft-blur in CSS) |
+| Highway hero | `public/media/leonida-highway.webp` / `.jpg` (sunset coastal drive) |
 
 ## Tokens
 
