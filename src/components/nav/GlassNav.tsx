@@ -10,7 +10,7 @@ import { MoneyStack } from "./MoneyStack";
 const LINKS = [
   { href: "/#discover", label: "Discover" },
   { href: "/boutique", label: "Boutique" },
-  { href: "/boutique#collections", label: "Collections" },
+  { href: "/map", label: "Map" },
   { href: "/journal", label: "Journal" },
   { href: "/about", label: "About" },
 ];
@@ -63,6 +63,7 @@ export function GlassNav() {
             {LINKS.map((l) => {
               const active =
                 (l.href.startsWith("/boutique") && pathname.startsWith("/boutique")) ||
+                (l.href === "/map" && pathname.startsWith("/map")) ||
                 (l.href.startsWith("/journal") && pathname.startsWith("/journal")) ||
                 (l.href === "/about" && pathname === "/about");
               return (

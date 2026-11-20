@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { BOUTIQUE, JOURNAL_POSTS } from "@/lib/catalog";
 import { HeroScene } from "./hero/HeroScene";
 import { ProductCard } from "./shop/ProductCard";
+import { LeonidaLiveMap } from "./map/LeonidaLiveMap";
 
 /**
  * Cinematic night-house landing.
@@ -91,6 +92,28 @@ export function LandingPage() {
             Leonida is a cinematic night-city house — original characters, gated agents, and a boutique
             built for the night. Not affiliated with Rockstar Games.
           </p>
+        </div>
+      </section>
+
+      <section id="map" className="border-b border-white/[0.06] bg-night py-16 md:py-24">
+        <div className="mx-auto max-w-[1440px] px-5 sm:px-6 md:px-10 lg:px-14">
+          <div className="mb-8 flex flex-wrap items-end justify-between gap-4 md:mb-10">
+            <div>
+              <h2 className="title-italic text-[clamp(2.5rem,5vw,3.75rem)] leading-none">
+                Live map
+              </h2>
+              <p className="mt-3 max-w-md text-[14px] text-mute">
+                Explore Leonida — Vice City to the Keys — on the live community map.
+              </p>
+            </div>
+            <Link
+              href="/map"
+              className="border-b border-hot/60 pb-0.5 text-[13px] font-semibold tracking-[0.08em] text-hot transition hover:border-hot hover:text-white"
+            >
+              Open full map
+            </Link>
+          </div>
+          <LeonidaLiveMap compact />
         </div>
       </section>
 
